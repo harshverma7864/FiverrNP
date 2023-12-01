@@ -50,6 +50,61 @@ const HomePage = () => {
             heading:"Art & Illustration",
             subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design" ,"Icon Design" , "Landing Page Design" ,"Landing Page Design"]
         },
+        {
+            heading:"Art & Illustration",
+            subHeading:[]
+        },
+
+    ]
+
+
+    var cardData2 = [
+        {
+            heading:"Logo and Brand Identity",
+            subHeading:[]
+        },
+        
+        {
+            heading:"Web and App Design",
+            subHeading:[]
+        },
+        
+        {
+            heading:"Art & Illustration",
+            subHeading:[]
+        },
+        {
+            heading:"Logo and Brand Identity",
+            subHeading:[]
+        },
+        
+        {
+            heading:"Web and App Design",
+            subHeading:[]
+        },
+        
+        {
+            heading:"Art & Illustration",
+            subHeading:[]
+        },
+        {
+            heading:"Logo and Brand Identity",
+            subHeading:[]
+        },
+        
+        {
+            heading:"Web and App Design",
+            subHeading:[]
+        },
+        
+        {
+            heading:"Art & Illustration",
+            subHeading:[]
+        },
+        {
+            heading:"Art & Illustration",
+            subHeading:[]
+        },
 
     ]
     var mostPopular =["Image Editing" , "Social Media Design" , "Ai Artist" , "Web Design" , "Interior Design",
@@ -95,6 +150,16 @@ const HomePage = () => {
     </div>
     </div>
 
+    <div className={style.scrollView1} style={{height:'400px'}}>
+      <h1 className={style.heading}>Graphics & Design Related Guides</h1>
+      <div className={style.scrollViewInner}>
+        {cardData2.map((item, index) => (
+         <div key={index} className={style.scrollViewItem}>
+          <Card heading={item.heading} subHeadings={item.subHeading} />
+       </div>
+        ))}
+      </div>
+    </div>
   
     <Footer/>
     </>

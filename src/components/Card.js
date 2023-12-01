@@ -13,7 +13,7 @@ const Card = ({heading , subHeadings}) => {
       {
         subHeadings.map((item , index)=>(
           <p key={index}>{item}</p>
-        ))
+        )) 
       }
     </div>
   )

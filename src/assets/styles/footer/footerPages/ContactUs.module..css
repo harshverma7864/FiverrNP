@@ -1,0 +1,77 @@
+/* ContactUs.css */
+
+.contact-container {
+    max-width: 75rem;
+    margin: 50px auto;
+    display: flex;
+    gap: 14rem;
+}
+  
+  .contact-info {
+    flex: 1;
+    padding: 20px;
+    /* background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    margin-top: 7rem;
+  }
+
+  .contact-info p {
+    color: #fff;
+    margin-top: 1.5rem;
+  }
+  
+  .form-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .cancellation {
+    margin-bottom: 15px;
+  }
+
+  h2.cancellation{
+    color: black;
+  }
+
+  h2.contact-us{
+    color: #fff;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

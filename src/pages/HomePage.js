@@ -123,7 +123,7 @@ const HomePage = () => {
                 <h1>Graphic & Design</h1>
                 <h2>Designs To Make You Stand Out</h2>
                 <button className={style.bannerButton}>
-                    More &nbsp;&nbsp; >
+                    More &nbsp;&nbsp; 
                 </button>
             </div>
         </div>

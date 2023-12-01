@@ -52,3 +52,46 @@
 
 }
 
+.scrollView1{
+    overflow: hidden;
+     padding: 10px;
+      width: 90% ;
+    margin:auto;
+    height: 150px;
+}
+
+.heading{
+    color: #F04C43;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.scrollViewInner{
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+}
+.scrollViewItem{
+    width: auto;
+    background-color:#ECECEC;
+    color: #000000;
+    display: inline-block;
+    padding: 20px;
+    margin-right: 50px;
+}
+
+.serviceCardsOuter{
+    width: 90%;
+    padding-top: 40px;
+    margin: auto;
+}
+
+.serviceCards{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Maximum 4 items in a row, with a minimum width of 100px for each item */
+        grid-gap: 20px; /* Gap between grid items */
+      
+}

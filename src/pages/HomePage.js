@@ -160,6 +160,7 @@ const HomePage = () => {
         ))}
       </div>
     </div>
+
   
     <Footer/>
     </>

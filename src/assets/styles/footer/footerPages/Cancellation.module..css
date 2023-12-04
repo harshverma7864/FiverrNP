@@ -1,0 +1,34 @@
+/* Cancellation.css */
+
+.cancellation-refund-container {
+    max-width: 70rem;
+    margin: 50px auto;
+    padding: 20px;
+    background-image: linear-gradient(to bottom, #2241D5 0%, #572B64 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .cancellation-refund-policy {
+    color: #fff;
+  }
+  
+  .cancellation {
+    margin-bottom: 15px;
+  }
+  
+  h2.cancellation {
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  a.cancellation {
+    color: red;
+    text-decoration: none;
+  }
+  
+  a.cancellation:hover {
+    text-decoration: underline;
+  }
+  

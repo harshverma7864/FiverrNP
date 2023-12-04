@@ -32,11 +32,31 @@
     align-items: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.categoriesDropdown > h5{
+    color: #000;
+    position: relative;
+    top: 12px;
+font-family: Noto Looped Thai;
+font-size: 20px;
+font-style: normal;
+font-weight: 800;
+cursor: pointer;
+line-height: normal;
+}
+
+.categoriesDropdown > h5 > svg{
+    position: relative;
+    top: 7px;
+}
+
+
+
 .categoriesDropdown > select{
     border: none;
     height: 10px;
     cursor: pointer;
     width: 25px;
+    cursor: pointer;
 }
 
 .searchBar{
@@ -81,3 +101,111 @@
 }
 
 
+.dropdownUl1{
+    visibility: hidden;
+    background-color: #F7F7F7;
+    width: 315px;
+    height: fit-content;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+    position:relative;
+    top: 440px;
+    left: -70px;
+    padding: 5px;
+}
+.dropdownUl1 li{
+    list-style: none;
+    width: 90%;
+    color: #000;
+    cursor: pointer;
+font-family: Noto Looped Thai;
+font-size: 20px;
+font-style: normal;
+
+font-weight: 600;
+line-height: normal;
+padding: 5px;
+}
+.dropdownUl1 li:hover {
+  color: #F04C43;
+}
+
+.dropdownUl1 > li > svg{
+    float: inline-end;
+    position: relative;
+    top: 10px;
+}
+
+.dropdownUl2{
+    visibility: hidden;
+    background-color: #F7F7F7;
+    width: 315px;
+    height: fit-content;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+    position:relative;
+    top: 120px;
+    left: 270px;
+    padding: 5px;
+}
+
+.dropdownUl2 li{
+    list-style: none;
+    width: 90%;
+    color: #000;
+    cursor: pointer;
+font-family: Noto Looped Thai;
+font-size: 20px;
+font-style: normal;
+
+font-weight: 600;
+line-height: normal;
+padding: 5px;
+}
+
+.dropdownUl2 li:hover{
+    color: #F04C43;
+}
+
+.dropdownUl2 li svg{
+    float: inline-end;
+    position: relative;
+    top: 10px;
+}
+
+.dropdownUl3{
+    visibility: hidden;
+    background-color: #F7F7F7;
+    width: 315px;
+    height: fit-content;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+    position:relative;
+    top: -200px;
+    left: 610px;
+    padding: 5px;
+}
+
+.dropdownUl3 li{
+    list-style: none;
+    width: 90%;
+    color: #000;
+    cursor: pointer;
+font-family: Noto Looped Thai;
+font-size: 20px;
+font-style: normal;
+
+font-weight: 600;
+line-height: normal;
+padding: 5px;
+}
+
+.dropdownUl3 li svg{
+    float: inline-end;
+    position: relative;
+    top: 10px;
+}
+
+.dropdownUl3 li:hover{
+    color: #F04C43;
+}

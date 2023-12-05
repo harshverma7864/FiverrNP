@@ -1,62 +1,27 @@
-import React from 'react'
+import React  , { useEffect , useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import style from '../assets/styles/homepage.module.css'
 import bannerImage from '../assets/images/bannerImage1.png'
 import Card from '../components/Card'
+import CategoryService from '../services/CategoryService';
 
 const HomePage = () => {
-
-    var cardData = [
-        {
-            heading:"Logo and Brand Identity",
-            subHeading:["Logo Design" , "Brand Style Guide" , "Business Cards" , "Fonts and Typography"]
-        },
-        
-        {
-            heading:"Web and App Design",
-            subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design"]
-        },
-        
-        {
-            heading:"Art & Illustration",
-            subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design" ,"Icon Design" , "Landing Page Design" ,"Landing Page Design"]
-        },
-        {
-            heading:"Logo and Brand Identity",
-            subHeading:["Logo Design" , "Brand Style Guide" , "Business Cards" , "Fonts and Typography"]
-        },
-        
-        {
-            heading:"Web and App Design",
-            subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design"]
-        },
-        
-        {
-            heading:"Art & Illustration",
-            subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design" ,"Icon Design" , "Landing Page Design" ,"Landing Page Design"]
-        },
-        {
-            heading:"Logo and Brand Identity",
-            subHeading:["Logo Design" , "Brand Style Guide" , "Business Cards" , "Fonts and Typography"]
-        },
-        
-        {
-            heading:"Web and App Design",
-            subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design"]
-        },
-        
-        {
-            heading:"Art & Illustration",
-            subHeading:["Website Design" , "App Design" , "UX Design" , "Landing Page Design","Icon Design" ,"Icon Design" , "Landing Page Design" ,"Landing Page Design"]
-        },
-        {
-            heading:"Art & Illustration",
-            subHeading:[]
-        },
-
-    ]
-
+    const [categoryData, setCategoryData] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const result = await CategoryService.fetchData('product/category');
+            setCategoryData(result);
+            
+          } catch (error) {
+            // Handle error
+            console.error('Error in component:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     var cardData2 = [
         {
@@ -112,7 +77,7 @@ const HomePage = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar />
 
     <div className={style.banner}>
         <div className={style.bannerBox}>
@@ -144,11 +109,12 @@ const HomePage = () => {
     <div className={style.serviceCardsOuter}>
     <h1 className={style.heading}>Explore Graphics and Design</h1> 
     <div className={style.serviceCards}>
-    {
-        cardData.map((item)=>(<Card heading={item.heading} subHeadings={item.subHeading}/>))
+    {categoryData &&
+        categoryData.map((item)=>(<Card heading={item.category_name} subHeadings={item.subcategory} key={item.id}/>))
     }
     </div>
     </div>
+
 
     <div className={style.scrollView1} style={{height:'400px'}}>
       <h1 className={style.heading}>Graphics & Design Related Guides</h1>

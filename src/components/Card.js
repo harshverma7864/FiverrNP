@@ -12,7 +12,7 @@ const Card = ({heading , subHeadings}) => {
       <h4>{heading}</h4>
       {
         subHeadings.map((item , index)=>(
-          <p key={index}>{item}</p>
+          <p key={index}>{item.subcategory_name}</p>
         )) 
       }
     </div>

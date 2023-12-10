@@ -34,7 +34,6 @@ const Navbar = () => {
       } else {
         console.error('History is undefined!');
       }
-      window.location.reload()
     }
 
 

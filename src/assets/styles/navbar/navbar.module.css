@@ -109,7 +109,7 @@ line-height: normal;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
     position:relative;
-    top: 440px;
+    top: 150px;
     left: -70px;
     padding: 5px;
 }
@@ -133,7 +133,7 @@ padding: 5px;
 .dropdownUl1 > li > svg{
     float: inline-end;
     position: relative;
-    top: 10px;
+    top: -15px;
 }
 
 .dropdownUl2{
@@ -143,9 +143,9 @@ padding: 5px;
     height: fit-content;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
-    position:relative;
+    position:absolute;
     top: 120px;
-    left: 270px;
+    left: 330px;
     padding: 5px;
 }
 
@@ -181,8 +181,8 @@ padding: 5px;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
     position:relative;
-    top: -200px;
-    left: 610px;
+    top: 100px;
+    left: 330px;
     padding: 5px;
 }
 

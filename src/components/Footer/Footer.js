@@ -1,9 +1,9 @@
 import React from 'react'
-import footer from '../assets/styles/footer.module.css'
-import logo from '../assets/images/mainlogo.png'
-import linkdinLogo from '../assets/images/linkdin.png'
-import instaLogo from '../assets/images/insta.png'
-import fbLogo from '../assets/images/fb.png'
+import footer from '../../assets/styles/footer/footer.module.css'
+import logo from '../../assets/images/mainlogo.png'
+import linkdinLogo from '../../assets/images/linkdin.png'
+import instaLogo from '../../assets/images/insta.png'
+import fbLogo from '../../assets/images/fb.png'
 
 
 

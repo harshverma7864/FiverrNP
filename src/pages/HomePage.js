@@ -1,9 +1,7 @@
 import React  , { useEffect , useState } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { Card } from '../components'
 import style from '../assets/styles/homepage.module.css'
 import bannerImage from '../assets/images/bannerImage1.png'
-import Card from '../components/Card'
 import CategoryService from '../services/CategoryService';
 
 const HomePage = () => {
@@ -72,12 +70,12 @@ const HomePage = () => {
         },
 
     ]
+
     var mostPopular =["Image Editing" , "Social Media Design" , "Ai Artist" , "Web Design" , "Interior Design",
     "Image Editing" , "Social Media Design" , "Ai Artist" , "Web Design" , "Interior Design"]
 
   return (
     <>
-    <Navbar />
 
     <div className={style.banner}>
         <div className={style.bannerBox}>
@@ -92,7 +90,6 @@ const HomePage = () => {
                 </button>
             </div>
         </div>
-        
     </div>
 
     <div className={style.scrollView1}>
@@ -126,9 +123,6 @@ const HomePage = () => {
         ))}
       </div>
     </div>
-
-  
-    <Footer/>
     </>
   )
 }

@@ -1,57 +1,61 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.navbarMain{
+.navbarMain {
     width: 100%;
     height: 70px;
-    background-color: #ffffff; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* The values are offsetX, offsetY, blurRadius, and color */
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* The values are offsetX, offsetY, blurRadius, and color */
 }
-.navbox{
+
+.navbox {
     width: 95%;
     justify-content: space-around;
     height: inherit;
     display: flex;
     margin: auto;
 }
-.logo{
+
+.logo {
     width: 5%;
     height: 90%;
     margin: 5px;
     padding: 5px;
 }
 
-.categoriesDropdown{
+.categoriesDropdown {
     display: flex;
     width: 7%;
     margin-left: 40px;
     font-size: 18px;
     margin-right: 25px;
     align-items: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.categoriesDropdown > h5{
+
+.categoriesDropdown>h5 {
     color: #000;
     position: relative;
     top: 12px;
-font-family: Noto Looped Thai;
-font-size: 20px;
-font-style: normal;
-font-weight: 800;
-cursor: pointer;
-line-height: normal;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    cursor: pointer;
+    line-height: normal;
 }
 
-.categoriesDropdown > h5 > svg{
+.categoriesDropdown>h5>svg {
     position: relative;
-    top: 7px;
+    top: 13px;
 }
 
 
 
-.categoriesDropdown > select{
+.categoriesDropdown>select {
     border: none;
     height: 10px;
     cursor: pointer;
@@ -59,7 +63,7 @@ line-height: normal;
     cursor: pointer;
 }
 
-.searchBar{
+.searchBar {
     width: 50%;
     height: 50%;
     margin: 10px;
@@ -67,26 +71,27 @@ line-height: normal;
     border-radius: 10px;
     border: 2px solid orangered;
 }
-.searchBar > input{
-   width: 85%;
-   height: 100%;
-   border: none;
-   font-size: 18px;
-   outline: none;
+
+.searchBar>input {
+    width: 85%;
+    height: 100%;
+    border: none;
+    font-size: 18px;
+    outline: none;
 }
 
-.searchBar > button{
-  background-color: #F04C43;
-  padding: 10px;
-  width: 15%;
-  font-weight: bold;
-  color: white;
-  border: none;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+.searchBar>button {
+    background-color: #F04C43;
+    padding: 10px;
+    width: 15%;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
-.navbarRightIcons{
+.navbarRightIcons {
     width: 20%;
     height: 100%;
     display: flex;
@@ -94,118 +99,113 @@ line-height: normal;
     justify-content: end;
 }
 
-.navbarRightIcons > img{
+.navbarRightIcons>img {
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer;
 }
 
 
-.dropdownUl1{
-    visibility: hidden;
+.dropdownUl1 {
     background-color: #F7F7F7;
     width: 315px;
     height: fit-content;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
-    position:relative;
-    top: 150px;
-    left: -70px;
+    position: absolute;
+    top: 60px;
+    left: 360px;
     padding: 5px;
 }
-.dropdownUl1 li{
+
+.dropdownUl1 li {
     list-style: none;
     width: 90%;
     color: #000;
     cursor: pointer;
-font-family: Noto Looped Thai;
-font-size: 20px;
-font-style: normal;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
 
-font-weight: 600;
-line-height: normal;
-padding: 5px;
+    font-weight: 600;
+    line-height: normal;
+    padding: 5px;
 }
+
 .dropdownUl1 li:hover {
-  color: #F04C43;
-}
-
-.dropdownUl1 > li > svg{
-    float: inline-end;
-    position: relative;
-    top: -15px;
-}
-
-.dropdownUl2{
-    visibility: hidden;
-    background-color: #F7F7F7;
-    width: 315px;
-    height: fit-content;
-    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 10px 10px 10px;
-    position:absolute;
-    top: 120px;
-    left: 330px;
-    padding: 5px;
-}
-
-.dropdownUl2 li{
-    list-style: none;
-    width: 90%;
-    color: #000;
-    cursor: pointer;
-font-family: Noto Looped Thai;
-font-size: 20px;
-font-style: normal;
-
-font-weight: 600;
-line-height: normal;
-padding: 5px;
-}
-
-.dropdownUl2 li:hover{
     color: #F04C43;
 }
 
-.dropdownUl2 li svg{
+.dropdownUl1>li>svg {
     float: inline-end;
     position: relative;
     top: 10px;
 }
 
-.dropdownUl3{
-    visibility: hidden;
+.dropdownUl2 {
     background-color: #F7F7F7;
     width: 315px;
     height: fit-content;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
-    position:relative;
-    top: 100px;
-    left: 330px;
-    padding: 5px;
+    position: absolute;
+    visibility: hidden;
 }
 
-.dropdownUl3 li{
+.dropdownUl2 li {
     list-style: none;
     width: 90%;
     color: #000;
     cursor: pointer;
-font-family: Noto Looped Thai;
-font-size: 20px;
-font-style: normal;
-
-font-weight: 600;
-line-height: normal;
-padding: 5px;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 10px;
 }
 
-.dropdownUl3 li svg{
+.dropdownUl2 li:hover {
+    color: #F04C43;
+}
+
+.dropdownUl2 li svg {
     float: inline-end;
     position: relative;
     top: 10px;
 }
 
-.dropdownUl3 li:hover{
+.dropdownUl3 {
+    background-color: #F7F7F7;
+    width: 315px;
+    height: fit-content;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+    position: absolute;
+    visibility: hidden;
+    padding: 5px;
+}
+
+.dropdownUl3 li {
+    list-style: none;
+    width: 90%;
+    color: #000;
+    cursor: pointer;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+
+    font-weight: 600;
+    line-height: normal;
+    padding: 5px;
+}
+
+.dropdownUl3 li svg {
+    float: inline-end;
+    position: relative;
+    top: 10px;
+}
+
+.dropdownUl3 li:hover {
     color: #F04C43;
 }

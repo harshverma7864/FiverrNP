@@ -1,64 +1,64 @@
-// NavbarLogic.js
-import { CATEGORY_URI } from '../../environment';
-import { useState, useEffect } from 'react';
-import CategoryService from '../../services/CategoryService';
+import { useState } from 'react';
 
-const useNavbarLogic = () => {
-  const [categoryData, setCategoryData] = useState(null);
-  const [isClicked, setIsClicked] = useState(false);
-  const [clickedCategory, setClickedCategory] = useState(null);
-  const [clickedSubCategory, setClickedSubCategory] = useState(null);
-  const [isHovered, setIsHovered] = useState(null);
+const useNavbarLogic = (categoryData) => {
+  const [isClickedCategory, setIsClickedCategory] = useState(false);
+  const [isClickedCategory2, setIsClickedCategory2] = useState(null);
+  const [isClickedCategory3, setIsClickedCategory3] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await CategoryService.fetchData(CATEGORY_URI);
-        setCategoryData(result);
-      } catch (error) {
-        console.error('Error in component:', error);
-      }
-    };
+  const [categoryIndex, setCategoryIndex] = useState(null);
+  const [categoryIndex2, setCategoryIndex2] = useState(null);
 
-    fetchData();
-  }, []);
+  const [positionUl2 , setPositionUl2] = useState({top:0 , left:0})
+  const [positionUl3 , setPositionUl3] = useState({top:0 , left:0})
 
-  const handleMouseOver = (index) => {
-    setIsHovered(index);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovered(null);
-  };
 
   const handleClick = () => {
-    setIsClicked(!isClicked);
-    setClickedCategory(null);
+    setIsClickedCategory(!isClickedCategory);
+    setIsClickedCategory2(null);
+    setIsClickedCategory3(null);
+    setCategoryIndex(null);
+    setCategoryIndex2(null);
   };
 
-  const handleClick2 = (index) => {
-    setClickedCategory((prevClickedCategory) => {
-      return prevClickedCategory !== index ? index : null;
+  const handleClick2 = (event, index) => {
+    const {top , height , left } = event.target.getBoundingClientRect();
+
+    setPositionUl2({top : top + height - 40 , left : left + 330});
+    setIsClickedCategory3(null);
+    setCategoryIndex2(null);
+    setIsClickedCategory2((prev)=>{
+        return prev !== index ? index : null;
+    });
+    setCategoryIndex((prevVal)=>{
+        return prevVal !== index ? index : null;
+    });
+
+
+  };
+
+  const handleClick3 = (event, index) => {
+    const {top , height , left } = event.target.getBoundingClientRect();
+
+    setPositionUl3({top : top + height - 40 , left : left + 320});
+    setCategoryIndex2((prev)=>{
+        return prev !== index ? index : null;
+    });
+    setIsClickedCategory3((prev)=>{
+        return prev !== index ? index : null;
     });
   };
 
-  const handleClick3 = (index2 , index) =>{
-    setClickedCategory(index);
-    setClickedSubCategory((prevClickedSubCategory) => {
-        return prevClickedSubCategory !== index2 ? index2 : null;
-      });
-  }
   return {
-    categoryData,
-    isClicked,
-    clickedCategory,
-    isHovered,
-    clickedSubCategory,
-    handleMouseOver,
-    handleMouseOut,
+    isClickedCategory,
+    isClickedCategory2,
+    isClickedCategory3,
+    categoryIndex,
+    categoryIndex2,
+    positionUl2 ,
+    positionUl3,
     handleClick,
     handleClick2,
-    handleClick3
+    handleClick3,
   };
 };
 

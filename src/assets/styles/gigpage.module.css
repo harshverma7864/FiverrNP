@@ -1,0 +1,350 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 90%;
+    height: 300vh;
+    padding: 20px;
+    margin: auto;
+    
+}
+
+
+.heading{
+    padding: 10px;
+    color: #F04C43;
+    font-family: Noto looped Thai;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile{
+    display: flex;
+    padding: 10px;
+    margin-top: 10px ;
+
+}
+
+.profileImage{
+    border: 2px solid #F04C43;
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;
+}
+
+.name {
+    color: #000;
+font-family: Noto Looped Thai;
+font-size: 24px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+#profiledetails{
+    padding-left: 15px;
+}
+
+#queueOrders{
+    color: #000;
+
+font-family: Noto Looped Thai;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
+}
+#username{
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    padding-top: 5px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#carouselParent{
+    width: 60%;
+    height: 650px;
+    padding: 10px;
+}
+
+#carouselMain{
+    width: 100%;
+    margin: auto;
+    height: 80%;
+    background-color: rgb(192, 191, 191);
+
+}
+
+#carouselMain > img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+#carouselButtons{
+    display: flex;
+    width: 95%;
+    margin: auto;
+    padding: 25px;
+}
+
+#carouselButtons > img{
+    width: 170px;
+    height: 8%;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-size: cover;
+    border: 2px solid black;
+}
+
+#rightarrow{
+    border: 2px solid #F04C43;
+    border-radius: 100%;
+    width: 20px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    position: relative;
+    top:50px;
+    left : 20px;
+}
+#leftarrow{
+    border: 2px solid #F04C43;
+    border-radius: 100%;
+    width: 20px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    position: relative;
+    top:50px;
+    right : 20px;
+}
+
+#section1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.package{
+   width: 100%;
+   height: fit-content;
+   background-color: #F8F7F7;
+    border: 2px solid #F04C43;
+    margin-bottom: 30px;
+}
+
+#packageType{
+    width: 100%;
+    display: flex;
+}
+
+#packageType > div{
+    width: 33.33%;
+    text-align: center;
+    height: 60px;
+    border-bottom: 1px solid #F04C43;
+    border-right: 1px solid #F04C43;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9F9090;
+
+font-family: Noto Looped Thai;
+font-size: 22px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+#packageType > div:hover{
+    background-color: #F04C43;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+#packageInner{
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    height: fit-content;
+}
+
+#projectDetails{
+    display: flex;
+    justify-content: space-between;
+}
+
+#desc{
+    color: #000;
+    margin-top: 30px;
+    font-family: Noto Looped Thai;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#element{
+    margin-top: 35px;
+    padding: 10px;
+}
+.element{
+    display: flex;
+    color: #000;
+align-items: center;
+font-family: Noto Looped Thai;
+font-size: 15px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-bottom: 20px;
+}
+
+#buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 35px;
+}
+
+#buttons > button{
+    width: 45%;
+    height: 45px;
+    border: none;
+    color: #F8F7F7;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+
+}
+
+.continueButton{
+    width: 100%;
+    height: 100%;
+    background-color: #F04C43;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #FFF;
+
+font-family: Noto Looped Thai;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+.compareButton{
+    width: 100%;
+    height: 100%;
+    background-color:#9F9090;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #FFF;
+
+font-family: Noto Looped Thai;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+.continueButton:hover{
+    background-color:#9F9090;
+    color : black
+}
+
+.compareButton:hover{
+    background-color: #F04C43;
+
+}
+
+.contactCard{
+    width: 93%;
+    height: fit-content;
+    background-color: #F8F7F7;
+     border: 2px solid #F04C43;
+     margin-bottom: 30px;  
+     padding: 20px;
+}
+.contactCard:hover{
+    cursor: pointer;
+}
+.contact{
+    background-color: #F04C43;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    color: #FFF;
+ display: flex;
+ justify-content: space-between;
+font-family: Noto Looped Thai;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+
+}
+
+.contact > svg{
+    margin-top: 10px;
+}
+.right{
+    width: 30%;
+    height: fit-content;
+   
+}
+
+
+#expandContactMe{
+    visibility: hidden;
+    background-color: #F7F7F7;
+    width: 80%;
+    height: fit-content;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+    padding: 5px;
+    position: relative;
+    top: -60px;
+    margin: auto;
+    padding: 20px;
+}
+
+#expandContactMe > h2{
+    color: #F04C43;
+    margin-bottom: 20px;
+}
+
+#expandContactMe > div{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    color: #000;
+margin-bottom: 20px;
+font-family: Noto Looped Thai;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+    justify-content: space-between;
+}
+
+#expandContactMe > div > svg{
+    margin-top: 10px;
+}

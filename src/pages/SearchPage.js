@@ -54,7 +54,7 @@ const SearchPage = () => {
 
       <div className={PageStyle.cardGrid}>
         {currentCards &&
-          currentCards.map((item, index) => <GigCards key={index} gigsData={item} />)}
+          currentCards.map((item, index) => <GigCards key={index} gigsData={item}  />)}
       </div>
 
       <div className={PageStyle.pagination}>

@@ -97,6 +97,8 @@ const Navbar = () => {
             </ul>
           </div>
 
+          
+
           <div>
             <ul className={navStyle.dropdownUl2} style={{ top:positionUl2.top , left : positionUl2.left, visibility: isClickedCategory && isClickedCategory2 && isClickedCategory2 === categoryIndex ? 'visible' : 'hidden' }}>
               {categoryIndex &&
@@ -141,7 +143,7 @@ const Navbar = () => {
           <input           
                 value={inputValue}
                  onChange={handleInputChange} 
-                 type='text' />
+                 type='text' placeholder=' Find Your Project'/>
           <button onClick={handleSearchClick}>search</button>
         </div>
 

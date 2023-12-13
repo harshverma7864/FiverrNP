@@ -2,11 +2,21 @@ import React from 'react'
 import gigCardStyle from '../../assets/styles/card/gigCardStyle.module.css'
 import gigCardImage from '../../assets/images/cardimage1.png'
 import crown from '../../assets/images/crown.png'
+import { useHistory } from 'react-router-dom'
 
 const GigCards = ({gigsData}) => {
+
+    const history = useHistory();
+
+    const handleGigCardClick = (id)=>{
+        history.push(`/gigdetails?code=${id}`);
+    }
+
+
   return (
     <>
-        <div className={gigCardStyle.card}>
+
+        <div onClick={() => handleGigCardClick(gigsData.id)} className={gigCardStyle.card}>
             <div className={gigCardStyle.cardImage}>
                 <img src={gigCardImage} alt='Card Image'/>
             </div>

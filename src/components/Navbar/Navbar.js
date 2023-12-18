@@ -9,12 +9,20 @@ import useNavbarLogic from './NavbarLogic';
 import { useHistory } from 'react-router-dom'
 import { CATEGORY_URI } from '../../environment'
 import CategoryService from '../../services/CategoryService'
+import Login from '../Login/Login'
 
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState('');
   const history = useHistory();
   const [categoryData , setCategoryData] = useState(null);
+  const [loginClicked , setLoginClicked] = useState(false);
+
+
+  const handleLoginClick = () =>{
+    setLoginClicked(!loginClicked);
+    console.log("Hello")
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -151,12 +159,14 @@ const Navbar = () => {
           <img src={bellIcon} alt='Bell' />
           <img src={messageLogo} alt='Message' />
           <img src={questionMark} alt='Query' />
-          <img src={profileLogo} alt='Profile' />
+          <img onClick={handleLoginClick} src={profileLogo} alt='Profile' />
         </div>
 
       </div>
 
 
+          { loginClicked ? (<Login />) : ('')}
+                    
 
     </div>
   )

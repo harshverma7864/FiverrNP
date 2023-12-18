@@ -1,0 +1,108 @@
+.main{
+    width: 60%;
+    height: 70vh;
+    background-color: aliceblue;
+    margin: auto;
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    display: flex;
+    border: 2px solid orangered;
+    border-radius: 19px;
+    background: #FFF;
+    box-shadow: 3px 6px 7.6px 2px rgba(0, 0, 0, 0.25);
+}
+
+.main > div{
+    width: 50%;
+}
+
+
+#left > img{
+    height: 90%;
+    float: inline-end;
+    position: relative;
+    right: -100px;
+    top: 30px;
+}
+#right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+#right > h2{
+    color: #000;
+
+text-align: center;
+font-family: Noto Looped Thai;
+font-size: 28px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+#right > p{
+    color: #000;
+cursor: pointer;
+text-align: center;
+font-family: Noto Looped Thai;
+font-size: 15px;
+font-style: normal; 
+margin-bottom: 40px;
+font-weight: 500;
+line-height: normal;
+}
+#right > p:hover{
+    text-decoration: underline;
+}
+.loginOptions {
+    display: flex;
+    width: 319px;
+height: auto;
+align-items: center;
+justify-content: center;
+padding: 4px;
+margin-top: 10px;
+border-radius: 5px;
+border: 1px solid #DED5D5;
+flex-shrink: 0;
+}
+.mloginOptions {
+    display: flex;
+    width: 44%;
+    margin-right: 20px;
+height: auto;
+align-items: center;
+justify-content: space-around;
+padding: 4px;
+margin-top: 10px;
+border-radius: 5px;
+border: 1px solid #DED5D5;
+flex-shrink: 0;
+}
+
+.loginOptions > svg{
+    margin-right: 20px;
+}
+
+.or{
+    color: #9E8F8F;
+
+text-align: center;
+font-family: Noto Looped Thai;
+font-size: 15px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+margin-top:20px ;
+}
+
+#lastP{
+    margin-top: 70px;
+    width: 90%;  
+    font-size: 10px;
+    font-family: Noto Looped Thai;
+
+    
+}

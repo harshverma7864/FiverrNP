@@ -45,8 +45,10 @@ const Navbar = () => {
     isClickedCategory3,
     categoryIndex , 
     categoryIndex2,
+    isLoggedIn,
     positionUl2 , 
     positionUl3,
+    checkLoginStatus,
     handleClick,
     handleClick2,
     handleClick3 
@@ -77,7 +79,8 @@ const Navbar = () => {
           <img src={logo} alt='logo' />
         </div>
 
-        <div className={navStyle.categoriesDropdown}   >
+{ isLoggedIn ? (
+        <div  className={navStyle.categoriesDropdown}   >
           <h5 style={{ display:"flex" ,padding:"5px" , marginRight:"20px" , color : isClickedCategory ? '#F04C43' : '#000'}} onClick={handleClick}> 
             categories  &nbsp; &nbsp; &nbsp; <span style={{width:"13px"}}> </span>  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
             <path d="M6.69784 7.32011C6.30953 7.69844 5.69048 7.69844 5.30216 7.32011L0.833367 2.96626C0.19074 2.34016 0.634001 1.25 1.5312 1.25L10.4688 1.25C11.366 1.25 11.8093 2.34016 11.1666 2.96626L6.69784 7.32011Z" style={{fill : isClickedCategory ? "#F04C43" : "black" , stroke: isClickedCategory ? "#F04C43" : "black"}} />
@@ -145,7 +148,11 @@ const Navbar = () => {
           </div>
           </div>
 
-        </div>
+        </div> ) : ('')
+
+}
+        
+{ isLoggedIn ? (
         <div  className={navStyle.searchBar}>
 
           <input           
@@ -153,14 +160,28 @@ const Navbar = () => {
                  onChange={handleInputChange} 
                  type='text' placeholder=' Find Your Project'/>
           <button onClick={handleSearchClick}>search</button>
-        </div>
-
-        <div className={navStyle.navbarRightIcons}>
+        </div>):('')
+}
+        { isLoggedIn ? (
+                  <div className={navStyle.navbarRightIcons}>
           <img src={bellIcon} alt='Bell' />
           <img src={messageLogo} alt='Message' />
           <img src={questionMark} alt='Query' />
-          <img onClick={handleLoginClick} src={profileLogo} alt='Profile' />
-        </div>
+          <img  onClick={checkLoginStatus} src={profileLogo} alt='Profile' />
+
+          </div>
+        ):('')
+        }
+        
+
+        { !isLoggedIn ? (
+        <div className={navStyle.navbarRightIcons}>
+
+        <p >Explore</p>
+        <p >Become A Seller</p>
+        <button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>
+          <img  onClick={checkLoginStatus} src={profileLogo} alt='Profile' />
+        </div>):('')}
 
       </div>
 

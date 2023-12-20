@@ -29,8 +29,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     padding: 20px;
-    text-align: center;
+    width: 50%;
 }
 #right > h2{
     color: #000;
@@ -42,14 +43,13 @@ font-style: normal;
 font-weight: 800;
 line-height: normal;
 }
-#right > p{
+#signUpText{
     color: #000;
 cursor: pointer;
 text-align: center;
 font-family: Noto Looped Thai;
 font-size: 15px;
 font-style: normal; 
-margin-bottom: 40px;
 font-weight: 500;
 line-height: normal;
 }
@@ -63,7 +63,7 @@ height: auto;
 align-items: center;
 justify-content: center;
 padding: 4px;
-margin-top: 10px;
+margin-top: 30px;
 border-radius: 5px;
 border: 1px solid #DED5D5;
 flex-shrink: 0;
@@ -99,10 +99,61 @@ margin-top:20px ;
 }
 
 #lastP{
-    margin-top: 70px;
+    margin-top: 40px;
     width: 90%;  
-    font-size: 10px;
-    font-family: Noto Looped Thai;
+    font-size: 12px;
+    font-family: 'Noto Looped Thai';
 
     
+}
+
+.loginOptions:hover{
+    background-color: #f1efef;
+    cursor: pointer;
+    border: 2px solid rgb(201, 198, 198);
+}
+
+.inputField{
+    width: 90%;
+    height: 30px;
+    margin-top: 20px ;
+    margin-bottom: 20px ;
+}
+
+
+.inputField > input{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+border: 2px solid #DED5D5;
+outline: none;
+padding: 3px;
+}
+
+
+.fields{
+
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loginBtn{
+    background-color: #F04C43;
+    border: none;
+    width: 80%;
+    color: white;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0px 7px 10px rgba(66, 65, 65, 0.1); /* The values are offsetX, offsetY, blurRadius, and color */
+ 
+}
+
+#loginBtn:hover{
+    background-color: #cb251c;
+
 }

@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Noto Looped Thai';
 }
 
 .navbarMain {
@@ -98,7 +99,7 @@ border: none;
 }
 
 .navbarRightIcons {
-    width: 20%;
+    width: fit-content;
     height: 100%;
     display: flex;
     align-items: center;
@@ -111,7 +112,29 @@ border: none;
     cursor: pointer;
 }
 
+.navbarRightIcons > *{
+    margin-left: 40px;
+    margin-right: 40px;
+    cursor: pointer;
+    width: fit-content;
+}
 
+#joinBtn{
+    background-color: #F04C43;
+    border: none;
+    width: 80px;
+    color: white;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 7px 10px rgba(66, 65, 65, 0.1); /* The values are offsetX, offsetY, blurRadius, and color */
+ 
+}
+
+#joinBtn:hover{
+    background-color: #cb251c;
+
+}
 .dropdownUl1 {
     background-color: #F7F7F7;
     width: 315px;

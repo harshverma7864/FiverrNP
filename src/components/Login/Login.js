@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import loginStyle from '../../assets/styles/login/loginPopup.module.css'
 import loginImage from '../../assets/images/pngwing.png'
+import loginLogic from './LoginLogic';
 const Login = () => {
     const [signUpClicked , setSignUpClicked] = useState(false);
 
@@ -8,6 +9,11 @@ const Login = () => {
         setSignUpClicked(!signUpClicked);
     }
 
+    const {
+        loginMethod ,
+        setLoginMethodType
+    } = loginLogic();
+    console.log(loginMethod);
 
 
     return (
@@ -17,11 +23,15 @@ const Login = () => {
             </div>
             <div id={loginStyle.right}>
                 <h2>{signUpClicked ? ("Create New Account") : ("Sign In To Your Account")}</h2>
-                <p onClick={handleSignUpClicked}>
+                <p id={loginStyle.signUpText} onClick={handleSignUpClicked}>
                     {signUpClicked ? ("Already have an account? Sign in"):("Don’t have an account? Join here")}
                     
                     </p>
 
+           { 
+           (loginMethod === null) ? (
+           
+                <>
                 <div id={loginStyle.gLogin} className={loginStyle.loginOptions}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107" />
@@ -31,11 +41,17 @@ const Login = () => {
                     </svg>
                     Continue With Google
                 </div>
-                <div id={loginStyle.eLogin} className={loginStyle.loginOptions}>
+                <div onClick={()=>setLoginMethodType("email")} id={loginStyle.eLogin} className={loginStyle.loginOptions}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
                         <path d="M2 2L8.108 6.612L8.11 6.614C8.788 7.111 9.127 7.36 9.499 7.456C9.82759 7.54102 10.1724 7.54102 10.501 7.456C10.873 7.36 11.213 7.111 11.893 6.612C11.893 6.612 15.81 3.606 18 2M1 11.8V4.2C1 3.08 1 2.52 1.218 2.092C1.41 1.715 1.715 1.41 2.092 1.218C2.52 1 3.08 1 4.2 1H15.8C16.92 1 17.48 1 17.907 1.218C18.284 1.41 18.59 1.715 18.782 2.092C19 2.519 19 3.079 19 4.197V11.804C19 12.922 19 13.48 18.782 13.908C18.5899 14.2844 18.2836 14.5903 17.907 14.782C17.48 15 16.921 15 15.803 15H4.197C3.079 15 2.519 15 2.092 14.782C1.71569 14.5903 1.40974 14.2843 1.218 13.908C1 13.48 1 12.92 1 11.8Z" stroke="#746767" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    Continue With Email/username
+                    Continue With Email
+                </div>
+                <div onClick={()=>setLoginMethodType("phone")} id={loginStyle.pLogin} className={loginStyle.loginOptions}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3.54 2C3.6 2.89 3.75 3.76 3.99 4.59L2.79 5.79C2.38 4.59 2.12 3.32 2.03 2H3.54ZM13.4 14.02C14.25 14.26 15.12 14.41 16 14.47V15.96C14.68 15.87 13.41 15.61 12.2 15.21L13.4 14.02ZM4.5 0H1C0.45 0 0 0.45 0 1C0 10.39 7.61 18 17 18C17.55 18 18 17.55 18 17V13.51C18 12.96 17.55 12.51 17 12.51C15.76 12.51 14.55 12.31 13.43 11.94C13.3307 11.904 13.2256 11.887 13.12 11.89C12.86 11.89 12.61 11.99 12.41 12.18L10.21 14.38C7.37543 12.9304 5.06961 10.6246 3.62 7.79L5.82 5.59C6.1 5.31 6.18 4.92 6.07 4.57C5.69065 3.41806 5.49821 2.2128 5.5 1C5.5 0.45 5.05 0 4.5 0Z" fill="#746767"/>
+                </svg>
+                    Continue With Phone
                 </div>
                 <div className={loginStyle.or}>OR</div>
                 <div style={{ display: 'flex', width: '319px' }}>
@@ -52,8 +68,42 @@ const Login = () => {
                         Facebook
                     </div>
                 </div>
-                <p id={loginStyle.lastP}>By joining, you agree to the netpuppys Terms Of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data.</p>
+
+
+                </>
+            ):('')
+            }
+          
+
+
+            {
+                (loginMethod === 'email') ? (
+                    <div className={loginStyle.fields}>
+            <div className={loginStyle.inputField}>
+                <h5>Email</h5>
+                <input type='email' placeholder='' />
             </div>
+            <div className={loginStyle.inputField}>
+                <h5>Password</h5>
+                <input type='password' placeholder=''/>
+            </div>
+
+            <button id={loginStyle.loginBtn}>Login</button>
+
+            </div>
+
+
+
+                ) : ('')
+            }
+
+
+            
+
+
+<p id={loginStyle.lastP}>By joining, you agree to the netpuppys Terms Of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data.</p>
+            </div>
+
         </div>
     )
 }

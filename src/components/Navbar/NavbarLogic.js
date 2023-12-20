@@ -4,6 +4,7 @@ const useNavbarLogic = (categoryData) => {
   const [isClickedCategory, setIsClickedCategory] = useState(false);
   const [isClickedCategory2, setIsClickedCategory2] = useState(null);
   const [isClickedCategory3, setIsClickedCategory3] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [categoryIndex, setCategoryIndex] = useState(null);
   const [categoryIndex2, setCategoryIndex2] = useState(null);
@@ -11,6 +12,9 @@ const useNavbarLogic = (categoryData) => {
   const [positionUl2 , setPositionUl2] = useState({top:0 , left:0})
   const [positionUl3 , setPositionUl3] = useState({top:0 , left:0})
 
+
+
+  window.localStorage.setItem("loginStatus" , "false");
 
   const handleClick = () => {
     setIsClickedCategory(!isClickedCategory);
@@ -36,6 +40,12 @@ const useNavbarLogic = (categoryData) => {
 
   };
 
+  const checkLoginStatus = () =>{
+      setIsLoggedIn(window.localStorage.getItem("loginStatus"));
+  }
+
+  
+
   const handleClick3 = (event, index) => {
     const {top , height , left } = event.target.getBoundingClientRect();
 
@@ -56,6 +66,8 @@ const useNavbarLogic = (categoryData) => {
     categoryIndex2,
     positionUl2 ,
     positionUl3,
+    isLoggedIn,
+    checkLoginStatus,
     handleClick,
     handleClick2,
     handleClick3,

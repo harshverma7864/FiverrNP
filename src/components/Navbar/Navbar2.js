@@ -54,7 +54,7 @@ const Navbar = () => {
 
         <p >Explore</p>
         <p >Become A Seller</p>
-{ loginClicked && loggedin ? (
+{ loginClicked || loggedin ? (
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         

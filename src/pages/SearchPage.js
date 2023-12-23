@@ -18,7 +18,7 @@ const SearchPage = () => {
       try {
         // Check if query is null or empty before making the API call
         if (query) {
-          const result = await GigService.fetchData(`${GIG_URI}search=${query}`);
+          const result = await GigService.allGigs(`${GIG_URI}search=${query}`);
           console.log('Fetched data:', result);
           setSearchData(result);
         }

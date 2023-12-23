@@ -223,7 +223,7 @@ const Login = () => {
                                 </>) : (<>  <form><h5>Phone</h5>  <div id={loginStyle.contactInput} className={loginStyle.contactField}>
 
                                     <select onChange={(e) => setCntry(e.target.value)} id={loginStyle.contryCode} required>
-                                        <option value="+91">+91</option>
+                                        <option value="+91" selected>+91</option>
                                         <option value="+1">+1</option>
                                     </select>
                                     <input type='text' onChange={(e) => setPhone(e.target.value)} maxLength={10} placeholder='' required />

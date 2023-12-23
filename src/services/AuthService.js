@@ -22,7 +22,7 @@ const AuthService = {
       window.localStorage.setItem("refreshToken" , result.refresh)
       
       Cookies.set("accessToken" , result.refresh)
-      Cookies.set("user" , result.user)
+      Cookies.set("user" , JSON.stringify(result.user))
       
       return result.user;
     } catch (error) {
@@ -31,18 +31,13 @@ const AuthService = {
   },
 
   async sendOtp(phoneNumber) {
-    const requestBody = {
-      phone_number: phoneNumber,
-    };
-
+    const formData = new FormData();
+    formData.append("phone_number" , phoneNumber);
+    console.log(phoneNumber);
     try {
       const response = await fetch(SEND_OTP, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Add any additional headers if needed
-        },
-        body: JSON.stringify(requestBody),
+        body: formData,
       });
       const result = await response.json();
       return result;
@@ -67,7 +62,10 @@ const AuthService = {
           body: JSON.stringify(requestBody),
         });
         const result = await response.json();
-
+        window.localStorage.setItem("refreshToken" , result.refresh)
+      
+        Cookies.set("accessToken" , result.refresh)
+        Cookies.set("user" , JSON.stringify(result.user))
         return result;
       } catch (error) {
         console.error('Error fetching data:', error);

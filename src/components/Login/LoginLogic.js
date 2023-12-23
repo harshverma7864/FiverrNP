@@ -14,7 +14,7 @@ const LoginLogic = () => {
     const [phone ,setPhone] = useState(null)
     const [otp ,setOtp] = useState(null)
     const [nextClicked , setNextClicked] = useState(null)
-    const [cntry ,setCntry] = useState(null)
+    const [cntry ,setCntry] = useState("+91")
     const [userDetail , setUserDetail] = useState(null)
       const { setIsLoggedIn} = useNavbarLogic();
       const formData = new FormData();
@@ -33,7 +33,10 @@ const LoginLogic = () => {
         setNextClicked(false)
     }
     const requestOtp = (type)=>{
+      
+      console.log(cntry+phone);
         const result = AuthService.sendOtp(cntry+phone)
+        
         if (result) {
           setOtpRequested(type);
         }
@@ -41,6 +44,11 @@ const LoginLogic = () => {
 
     const verifyOtp=()=>{
       const result = AuthService.phoneLogin(cntry+phone , otp)
+      if(result){
+        window.localStorage.setItem("loggedin"  , "true");
+        setIsLoggedIn(true);
+        history.push('/dashboard')
+      }
       console.log(result);
     }
 
@@ -52,6 +60,8 @@ const LoginLogic = () => {
         window.localStorage.setItem("loggedin"  , "true");
         setIsLoggedIn(true);
         history.push('/dashboard')
+      }else{
+        console.log("error ")
       }
     }
 

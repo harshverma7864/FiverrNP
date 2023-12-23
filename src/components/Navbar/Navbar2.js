@@ -11,7 +11,7 @@ import Login from '../Login/Login'
 const Navbar = () => {
 
 
-  const [loggedin , setLoggedIn] = useState(false);
+  const [loggedin , setLoggedIn] = useState(window.localStorage.getItem("loggedin"));
 
   useEffect(() => {
     if (window.localStorage.getItem("loggedin") === true) {
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         <p >Explore</p>
         <p >Become A Seller</p>
-{ loginClicked || loggedin ? (
+{  loggedin ? (
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         

@@ -45,9 +45,8 @@ const Navbar = () => {
         <p >Explore</p>
         <p >Become A Seller</p>
 { loginClicked ? (
-        <button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>
-):(        <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
-)
+    <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
+):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         
           <img  onClick={checkLoginStatus} src={profileLogo} alt='Profile' />
         </div>

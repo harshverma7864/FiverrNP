@@ -9,20 +9,13 @@ import useNavbarLogic from './NavbarLogic';
 import { useHistory } from 'react-router-dom'
 import { CATEGORY_URI } from '../../environment'
 import CategoryService from '../../services/CategoryService'
-import Login from '../Login/Login'
 
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState('');
   const history = useHistory();
   const [categoryData , setCategoryData] = useState(null);
-  const [loginClicked , setLoginClicked] = useState(false);
 
-
-  const handleLoginClick = () =>{
-    setLoginClicked(!loginClicked);
-    console.log("Hello")
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,10 +38,8 @@ const Navbar = () => {
     isClickedCategory3,
     categoryIndex , 
     categoryIndex2,
-    isLoggedIn,
     positionUl2 , 
     positionUl3,
-    checkLoginStatus,
     handleClick,
     handleClick2,
     handleClick3 
@@ -79,7 +70,6 @@ const Navbar = () => {
           <img src={logo} alt='logo' />
         </div>
 
-{ isLoggedIn ? (
         <div  className={navStyle.categoriesDropdown}   >
           <h5 style={{ display:"flex" ,padding:"5px" , marginRight:"20px" , color : isClickedCategory ? '#F04C43' : '#000'}} onClick={handleClick}> 
             categories  &nbsp; &nbsp; &nbsp; <span style={{width:"13px"}}> </span>  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
@@ -148,11 +138,10 @@ const Navbar = () => {
           </div>
           </div>
 
-        </div> ) : ('')
+        </div> 
 
-}
+
         
-{ isLoggedIn ? (
         <div  className={navStyle.searchBar}>
 
           <input           
@@ -160,33 +149,18 @@ const Navbar = () => {
                  onChange={handleInputChange} 
                  type='text' placeholder=' Find Your Project'/>
           <button onClick={handleSearchClick}>search</button>
-        </div>):('')
-}
-        { isLoggedIn ? (
+        </div>
                   <div className={navStyle.navbarRightIcons}>
           <img src={bellIcon} alt='Bell' />
           <img src={messageLogo} alt='Message' />
           <img src={questionMark} alt='Query' />
-          <img  onClick={checkLoginStatus} src={profileLogo} alt='Profile' />
+          <img   src={profileLogo} alt='Profile' />
 
           </div>
-        ):('')
-        }
-        
-
-        { !isLoggedIn ? (
-        <div className={navStyle.navbarRightIcons}>
-
-        <p >Explore</p>
-        <p >Become A Seller</p>
-        <button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>
-          <img  onClick={checkLoginStatus} src={profileLogo} alt='Profile' />
-        </div>):('')}
 
       </div>
 
 
-          { loginClicked ? (<Login />) : ('')}
                     
 
     </div>

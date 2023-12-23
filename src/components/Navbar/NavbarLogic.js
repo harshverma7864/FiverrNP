@@ -12,9 +12,7 @@ const useNavbarLogic = (categoryData) => {
   const [positionUl2 , setPositionUl2] = useState({top:0 , left:0})
   const [positionUl3 , setPositionUl3] = useState({top:0 , left:0})
 
-
-
-  window.localStorage.setItem("loginStatus" , "false");
+  
 
   const handleClick = () => {
     setIsClickedCategory(!isClickedCategory);
@@ -67,6 +65,7 @@ const useNavbarLogic = (categoryData) => {
     positionUl2 ,
     positionUl3,
     isLoggedIn,
+    setIsLoggedIn,
     checkLoginStatus,
     handleClick,
     handleClick2,

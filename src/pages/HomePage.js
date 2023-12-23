@@ -1,5 +1,5 @@
 import React  , { useEffect , useState } from 'react'
-import { Card } from '../components'
+import { Card, Navbar } from '../components'
 import style from '../assets/styles/homepage.module.css'
 import bannerImage from '../assets/images/bannerImage1.png'
 import CategoryService from '../services/CategoryService';
@@ -77,6 +77,7 @@ const HomePage = () => {
   return (
     <>
 
+<Navbar/>
     <div className={style.banner}>
         <div className={style.bannerBox}>
             <div className={style.bannerImage}>

@@ -5,4 +5,4 @@ export const CATEGORY_URI = 'product/category'
 export const LOGIN_URL = API_BASE_URL + "/login"
 export const SIGNUP_URL = API_BASE_URL + "/register"
 export const SEND_OTP = API_BASE_URL + "/sendotp"
-export const GIG_URI = 'gigs/gig/'
+export const GIG_URI = 'gigs/gig'

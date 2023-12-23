@@ -2,7 +2,7 @@
 import { API_BASE_URL } from '../environment';
 
 
-const CategoryService = {
+const GigService = {
   async allGigs(endpoint) {
     try {
       const response = await fetch(`${API_BASE_URL}/${endpoint}`);
@@ -37,4 +37,4 @@ const CategoryService = {
   },
 };
 
-export default CategoryService;
+export default GigService;

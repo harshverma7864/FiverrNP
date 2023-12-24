@@ -12,7 +12,6 @@ const GigService = {
       }
 
       const data = await response.json();
-      console.log(data)
       return data;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -28,7 +27,6 @@ const GigService = {
       }
 
       const data = await response.json();
-      console.log(data)
       return data;
     } catch (error) {
       console.error('Error fetching data:', error);

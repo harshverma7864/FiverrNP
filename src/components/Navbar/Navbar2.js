@@ -32,6 +32,10 @@ const Navbar = () => {
     history.push('/dashboard')
   }
 
+  const becomeAseller = () =>{
+    history.push("/becomeAseller")
+  }
+
   const {
     
     checkLoginStatus,
@@ -53,12 +57,11 @@ const Navbar = () => {
         <div className={navStyle.navbarRightIcons}>
 
         <p >Explore</p>
-        <p >Become A Seller</p>
+        <p onClick={becomeAseller} >Become A Seller</p>
 {  loggedin ? (
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         
-          <img  onClick={checkLoginStatus} src={profileLogo} alt='Profile' />
         </div>
 
       </div>

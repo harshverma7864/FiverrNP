@@ -84,8 +84,13 @@ const LoginLogic = () => {
     }
 
     const registerNewUser = () => {
-       
         const result = AuthService.registerNewUser(signupData);
+        window.location.reload();
+        if(result.username === signupData.Username){
+         
+          alert("Account created successfully !! Login Now")
+         
+        }
         console.log(result);
     }
 

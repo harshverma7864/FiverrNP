@@ -4,6 +4,7 @@ import PageStyle from '../assets/styles/searchpage.module.css';
 import GigService from '../services/GigService';
 import { GIG_URI } from '../environment';
 import { useLocation } from 'react-router-dom';
+import { Navbar } from '../components';
 
 const SearchPage = () => {
   const location = useLocation();
@@ -42,6 +43,8 @@ const SearchPage = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className={PageStyle.main}>
       <h2 className={PageStyle.heading}>
         Showing full catalog results, giving you the widest variety of services at any price.
@@ -65,6 +68,7 @@ const SearchPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

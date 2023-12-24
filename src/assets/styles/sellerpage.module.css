@@ -1,0 +1,589 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: 540vh;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.aboutParent {
+    width: 60%;
+    height: fit-content;
+    padding: 10px;
+    margin-left: 2%;
+}
+
+.aboutMain {
+    margin-left: 5%;
+    height: 100%;
+    width: 100%;
+}
+
+#banner {
+    height: fit-content;
+    width: 100%;
+    opacity: 0.1;
+    background-color: #F04C43;
+    display: flex;
+}
+
+.overlayBox {
+    height: 50px;
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+}
+
+#container {
+    position: relative;
+    width: 1300px;
+}
+
+#overlayDiv {
+    position: absolute;
+    border-radius: 13px;
+    top: 85%;
+    left: 50%;
+    width: 1000px;
+    height: 80px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    /* text-align: center; */
+}
+
+#overlayDivH2 {
+    color: #FFF;
+    font-family: Noto Looped Thai;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#overlayDivPara {
+    color: #000;
+    padding: 10px;
+    font-family: Noto Looped Thai;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#sellerDivBanner {
+    /* margin-top: 5%; */
+    height: 540px;
+    width: 100%;
+    /* opacity: 0.1; */
+    background-color: #f53527;
+    /* color: white; */
+    /* display: flex; */
+}
+
+.bannerBox {
+    height: inherit;
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+#sellerDiv1 {
+    margin-top: 10%;
+}
+
+#para1 {
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#para2 {
+    color: #FFF;
+    font-family: Noto Looped Thai;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#sellerImg {
+    margin-top: 42px;
+}
+
+#sellerButton {
+    margin-top: 45%;
+    border-radius: 19.5px;
+    background: #ECECEC;
+    box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    height: fit-content;
+    width: 150px;
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.section1 {
+    width: 100%;
+    height: 300px;
+    background-color: #F04C43;
+}
+
+.mainText {
+    text-align: center;
+    flex: 1;
+    color: black;
+    font-family: Noto Looped Thai;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.sellerImg {
+    position: relative;
+    margin-left: 70%;
+    top: -200px;
+    height: 100px;
+}
+
+.sellerSectionInfoDiv {
+    border-radius: 13px;
+    opacity: 0.5;
+    background: #FFF;
+}
+
+.container {
+    display: flex;
+    width: auto;
+}
+.container:hover{
+    box-shadow: 0px 2px 6.5px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.box {
+    width: fit-content;
+    flex: 1;
+    margin: 10px;
+    padding-top: 10px;
+    /* border: 1px solid #ccc; */
+    text-align: center;
+}
+
+#communityImg {
+    width: 25em;
+    display: flex;
+    margin: auto;
+    /* justify-content: center; */
+    height: 15em;
+    padding-right: 30px;
+    padding-bottom: 3px;
+}
+
+#howItWorksBanner {
+    margin-top: 5%;
+    height: fit-content;
+    width: 100%;
+    /* opacity: 0.1; */
+    background-color: #f5d8d6;
+    /* color: white; */
+    /* display: flex; */
+}
+
+.processImg {
+    width: 20em;
+    display: flex;
+    margin: auto;
+    /* justify-content: center; */
+    height: 10em;
+    padding-right: 30px;
+    padding-bottom: 3px;
+}
+
+#arrow {
+    margin-top: 5%;
+}
+
+.onDemandParent {
+    margin-top: 5%;
+    width: 60%;
+    height: fit-content;
+    padding: 10px;
+}
+
+.onDemandImg {
+    width: 400px;
+}
+
+#onDemandContent {
+    font-size: large;
+    text-align: justify;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+
+#learnButton {
+    color: #F04C43;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#onDemandpara1 {
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#onDemandpara2 {
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.buyerStoryParent {
+    width: 60%;
+    height: fit-content;
+    padding: 10px;
+    margin-left: 2%;
+}
+
+#buyerStory {
+    margin-top: 5%;
+    width: 1350px;
+    height: 187px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #ECECEC;
+}
+
+#buyerStoryContentImgLeft {
+    /* margin-bottom: 10%; */
+    width: fit-content;
+    height: 187px;
+    flex-shrink: 0;
+    border-radius: 0px 14px 14px 0px;
+}
+
+#buyerStoryContentImgRight {
+    margin-left: 20%;
+}
+
+
+#buyerStoryContentPara {
+    margin-top: 40px;
+    margin-left: 250px;
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#buyerStoryContentName {
+    margin-left: 400px;
+    color: #F04C43;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+.qnaParent {
+    margin-left: 5%;
+    width: 1350px;
+    height: fit-content;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.qnaMain {
+    height: 200px;
+    width: 100%;
+}
+
+#qna {
+    /* margin: 30px; */
+    position: relative;
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 10px;
+    left: 50px;
+    padding: 20px;
+}
+
+#qnaArrow {
+    position: absolute;
+    left: 1200px;
+}
+
+.endParent {
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    margin-top: 20%;
+}
+
+.endMain {
+    height: fit-content;
+    width: 100%;
+}
+
+.endMain>h2 {
+    text-align: center;
+}
+
+#endButton {
+    margin-top: 3%;
+    margin-left: 45%;
+    border-radius: 27px;
+    background: #ECECEC;
+    box-shadow: 0px 0px 5.5px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    height: fit-content;
+    width: 150px;
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#seller2Img {
+    width: fit-content;
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 187px;
+    flex-shrink: 0;
+    border-radius: 0px 14px 14px 0px;
+}
+
+#seller2Heading {
+    color: #F04C43;
+    font-family: Noto Looped Thai;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#seller2Para {
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 10px;
+}
+
+#seller2Divs {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 5%;
+    width: 1350px;
+    height: 187px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    border: 2px solid #F04C43;
+    background: #ECECEC;
+    box-shadow: 0px 1px 4.5px 0px rgba(0, 0, 0, 0.25);
+}
+
+#seller2Divs>div {
+    margin-left: 10px;
+    /* Adjust the spacing between image and text */
+}
+
+#seller2Divs:hover{
+    cursor: pointer;
+
+}
+#seller2DivContentName {
+    color: #F04C43;
+    font-family: Noto Looped Thai;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 100px;
+
+}
+
+#seller2DivContentPara {
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 100px;
+    text-align: left;
+}
+
+#continueButton {
+    margin-top: 20px;
+    margin-left: 95px;
+    width: 178px;
+    height: 43px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 7px;
+    background: #F04C43;
+    box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    color: #FFF;
+    font-family: Noto Looped Thai;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+}
+
+#continueButton:hover{
+    cursor: pointer;
+}
+#backButton:hover{
+cursor: pointer;
+}
+
+#continueButton>span {
+    text-align: center;
+}
+
+.seller2Main {
+    width: 100%;
+    height: 150vh;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#seller3Img {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 0px 14px 14px 0px;
+}
+
+#seller3Container {
+    display: flex;
+    padding-top: 30px;
+    padding-left: 10px;
+}
+
+#seller3Box {
+    height: 50px;
+    flex: 1;
+    text-align: center;
+}
+
+#seller3DivContentPara {
+    color: #000;
+    margin: auto;
+    font-family: Noto Looped Thai;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#seller3Divs {
+    margin-inline-end: 90px;
+    display: flex;
+    justify-content: space-between;
+    width: 372px;
+    height: 209px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    border: 1px solid #F04C43;
+    background: #ECECEC;
+    box-shadow: 0px 1px 4.5px 0px rgba(0, 0, 0, 0.25);
+}
+
+#backButton {
+    margin-top: 20px;
+    margin-left: 45px;
+    width: 178px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid #F04C43;
+    background: #ECECEC;
+    box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 65px;
+    padding-bottom: 10px;
+    color: #000;
+    font-family: Noto Looped Thai;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+}
+
+#backButton:hover{
+    color: #F04C43;
+}
+
+#backButton>span {
+    text-align: center;
+}
+
+.buttonContainer{
+    display: flex;
+}   

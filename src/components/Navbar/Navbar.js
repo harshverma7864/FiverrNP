@@ -22,7 +22,6 @@ const Navbar = () => {
       try {
         const result = await CategoryService.fetchData(CATEGORY_URI);
         setCategoryData(result);
-        console.log(result);
       } catch (error) {
         // Handle error
         console.error('Error in component:', error);
@@ -159,10 +158,6 @@ const Navbar = () => {
           </div>
 
       </div>
-
-
-                    
-
     </div>
   )
 }

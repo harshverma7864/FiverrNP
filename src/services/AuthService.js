@@ -17,14 +17,21 @@ const AuthService = {
         },
         body: JSON.stringify(requestBody),
       });
-      const result = await response.json();
+
+      if (response.ok) {
+        const result = await response.json();
 
       window.localStorage.setItem("refreshToken" , result.refresh)
       
-      Cookies.set("accessToken" , result.refresh)
-      Cookies.set("user" , JSON.stringify(result.user))
-      
+      Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
+      Cookies.set("user" , JSON.stringify(result.user) , { expires: 7, path: '/' })
       return result.user;
+      }
+      else{
+        alert("Invalid Credentials");
+      }
+      
+     
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -61,12 +68,24 @@ const AuthService = {
           },
           body: JSON.stringify(requestBody),
         });
-        const result = await response.json();
-        window.localStorage.setItem("refreshToken" , result.refresh)
-      
-        Cookies.set("accessToken" , result.refresh)
-        Cookies.set("user" , JSON.stringify(result.user))
+
+        
+        if (response.ok) {
+          const result = await response.json();
+       
+       
+       
+          window.localStorage.setItem("refreshToken" , result.refresh)
+        
+          Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
+          Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
+          
         return result;
+        }else{
+          alert("Invalid Credentials")
+        }
+
+      
       } catch (error) {
         console.error('Error fetching data:', error);
       }

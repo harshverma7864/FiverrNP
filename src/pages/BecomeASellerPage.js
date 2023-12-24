@@ -66,7 +66,7 @@ const BecomeASellerpage = () => {
                                 </div>
                             </div>
                             <div className={sellerStyle.box}>
-                                <p className={style.innerHeading}><button onClick={becomeAseller2} id={sellerStyle.sellerButton}>Become Seller</button></p>
+                                <p className={style.innerHeading}><button onClick={()=>becomeAseller2()} id={sellerStyle.sellerButton}>Become Seller</button></p>
                             </div>
                         </div>
                     </div>

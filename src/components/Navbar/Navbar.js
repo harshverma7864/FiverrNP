@@ -15,8 +15,19 @@ const Navbar = () => {
   const [inputValue, setInputValue] = useState('');
   const history = useHistory();
   const [categoryData , setCategoryData] = useState(null);
+const [pVis , setPVis] = useState(false);
 
+  const becomeAseller = () =>{
+    history.push("/becomeAseller")
+  }
 
+  const handleLogout = () =>{
+    window.localStorage.clear();
+    history.push("/")
+  }
+  const profileDropdownVisible = () =>{
+    setPVis(!pVis);
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -152,12 +163,15 @@ const Navbar = () => {
                   <div className={navStyle.navbarRightIcons}>
           <img src={bellIcon} alt='Bell' />
           <img src={messageLogo} alt='Message' />
-          <img src={questionMark} alt='Query' />
-          <img   src={profileLogo} alt='Profile' />
-
+          <button onClick={becomeAseller}  className={navStyle.gigBtn}>GIG</button>
+          <img  onClick={profileDropdownVisible}  src={profileLogo} alt='Profile' />
+           
           </div>
-
+          
       </div>
+      <div  style={{visibility : pVis ? ("visible") : ("hidden")}} className={navStyle.profileDropdown}>
+      <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
+          </div>
     </div>
   )
 }

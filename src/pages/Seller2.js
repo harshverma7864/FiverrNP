@@ -52,9 +52,7 @@ const Seller2 = () => {
     return (
 
         <>
-              {
-            loggedin ? (<Navbar/>):(<Navbar2/>)
-        }
+             <Navbar/>
                 <section className={sellerStyle.seller2Main}>
             <section className={sellerStyle.buyerStoryParent}>
                 <div className={sellerStyle.aboutMain}>

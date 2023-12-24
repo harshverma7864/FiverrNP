@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className={navStyle.navbarRightIcons}>
 
         <p >Explore</p>
-        <p onClick={becomeAseller} >Become A Seller</p>
+        <p onClick={handleLoginClick} >Become A Seller</p>
 {  loggedin ? (
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navbar2 } from '../components'
+import { Navbar, Navbar2 } from '../components'
 import  '../assets/styles/profileInfo.css'
 import arrow from '../assets/images/arrows (1) 2.png'
 import checked from '../assets/images/checked (2) 1.png'
@@ -19,7 +19,7 @@ const SellerInformationPage = () => {
 
     return (
         <>
-            <Navbar2 />
+            <Navbar/>
 
             <div className='container'>
 

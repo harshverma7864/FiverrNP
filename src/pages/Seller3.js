@@ -48,9 +48,7 @@ const Seller3 = () => {
 
     return (
         <>
-           {
-            loggedin ? (<Navbar/>):(<Navbar2/>)
-        }
+           <Navbar/>
           
         <section className={sellerStyle.seller2Main}>
             <section className={sellerStyle.buyerStoryParent}>

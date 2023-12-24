@@ -72,9 +72,6 @@ const AuthService = {
         
         if (response.ok) {
           const result = await response.json();
-       
-       
-       
           window.localStorage.setItem("refreshToken" , result.refresh)
         
           Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
@@ -104,6 +101,7 @@ const AuthService = {
      formData.append("phone_number" , userData.CntryCode + userData.Phone)
      formData.append("user_type" , userData.UserType)
      
+
       
     console.log(formData);
       try {
@@ -111,9 +109,17 @@ const AuthService = {
           method: 'POST',
           body: formData,
         });
-        const result = await response.json();
+
+
+        if (response.ok) {
+          const result = await response.json();
 
         return result;
+        }else{
+          alert("Invalid Data");
+          return {username : null};
+        }
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }

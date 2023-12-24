@@ -11,8 +11,8 @@ const BriefContainer = () => {
 
   return (
     <>
-      {activeStep === 1 && <Brief1 activeStep={activeStep} onStepClick={handleStepClick} />}
-      {activeStep === 2 && <Brief2 activeStep={activeStep} onStepClick={handleStepClick} />}
+      {activeStep === 1 && <Brief1 activeStep={activeStep} onStepClick={(step) => handleStepClick(step)} />}
+      {activeStep === 2 && <Brief2 activeStep={activeStep} onStepClick={(step) => handleStepClick(step)} />}
     </>
   );
 };

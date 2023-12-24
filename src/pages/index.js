@@ -6,3 +6,4 @@ export { default as BecomeASellerPage } from './BecomeASellerPage';
 export { default as Seller2 } from './Seller2';
 export { default as Seller3 } from './Seller3';
 export { default as SellerInformationPage } from './SellerInformationPage';
+

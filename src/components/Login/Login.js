@@ -19,7 +19,7 @@ const Login = () => {
     return (
         <div className={loginStyle.main}>
             <div id={loginStyle.left}>
-                <img src={loginImage} />
+                <img src={loginImage} alt="img" />
             </div>
             <div id={loginStyle.right}>
                 <h2>{signUpClicked ? ("Create New Account") : ("Sign In To Your Account")}</h2>

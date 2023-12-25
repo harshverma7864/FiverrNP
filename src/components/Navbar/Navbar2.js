@@ -20,6 +20,26 @@ const Navbar = () => {
   }, []);
 
 
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      // Handle the click event here
+      if (!event.target.closest(`#${navStyle.joinBtn}`) ) {
+        // setLoginClicked(false)
+      }
+      
+    };
+  
+    // Add the event listener when the component mounts
+    document.addEventListener('click', handleClick);
+  
+    // Remove the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
+  
   const [loginClicked , setLoginClicked] = useState(false);
   const history = useHistory()
 ;
@@ -57,7 +77,7 @@ const Navbar = () => {
         <div className={navStyle.navbarRightIcons}>
 
         <p >Explore</p>
-        <p onClick={handleLoginClick} >Become A Seller</p>
+        <p id={navStyle.becomeAseller} onClick={handleLoginClick} >Become A Seller</p>
 {  loggedin ? (
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)

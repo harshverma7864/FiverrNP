@@ -23,7 +23,7 @@ const AuthService = {
 
       window.localStorage.setItem("refreshToken" , result.refresh)
       
-      Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
+      Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
       Cookies.set("user" , JSON.stringify(result.user) , { expires: 7, path: '/' })
       return result.user;
       }

@@ -9,6 +9,9 @@ const Login = () => {
         setSignUpClicked(!signUpClicked);
     }
 
+
+    
+
     const {
         loginMethod,
         otpRequested,

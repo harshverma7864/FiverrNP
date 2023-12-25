@@ -35,9 +35,7 @@ const BecomeASellerpage = () => {
 
     return (
         <>
-        {
-            loggedin ? (<Navbar/>):(<Navbar2/>)
-        }
+        <Navbar/>
         
                 <section className={sellerStyle.main}>
             <section id={sellerStyle.sellerDivBanner} className={style.aboutParent}>

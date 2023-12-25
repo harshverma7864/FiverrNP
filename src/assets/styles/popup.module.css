@@ -1,0 +1,82 @@
+*{
+    margin: auto;
+    padding: 0;
+}
+
+.popupMain{
+    width: 245px;
+    height: 379px;
+    position: absolute;
+    right: 15px;
+    padding: 10px;
+    top: 60px;
+    border-radius: 0px 10px 12px 10px;
+    border: 1px solid #F04C43;
+    background: #F7F7F7;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+}
+
+.messageCard {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    height: auto;
+    padding: 5px;
+    margin-top: 20px;
+    box-shadow: 2px 4px 4.4px -4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+
+}
+
+.profileImage{
+    border: 2px solid black;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/messageUser.png);
+    background-size: cover;
+}
+
+.userInfo{
+    display: flex;
+}
+
+.userInfo > p{
+    font-size: 10px;
+}
+
+.messageContent > p{
+    font-size: 12px;
+}
+
+.profileImage > img{
+    width: 100%;
+    height: 100%;
+}
+
+.messageFooter{
+    height: 30px;
+    width: 90%;
+    border-top: 2px solid rgb(230, 229, 229);
+    padding: 5px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    color:#F04C43;
+    justify-content: space-between;
+}
+
+.messageFooter img{
+    padding: 3px;
+    width: 13px;
+    margin-left: 10px;
+    border-radius: 100%;
+    height: 13px;
+    background-color: rgb(219, 216, 216);
+}
+
+.messageFooter > p{
+    font-size: 10px;
+}

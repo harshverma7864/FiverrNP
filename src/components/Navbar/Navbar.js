@@ -9,6 +9,7 @@ import useNavbarLogic from './NavbarLogic';
 import { useHistory } from 'react-router-dom'
 import { CATEGORY_URI } from '../../environment'
 import CategoryService from '../../services/CategoryService'
+import Popup from '../popup/Popup'
 
 
 const Navbar = () => {
@@ -16,6 +17,51 @@ const Navbar = () => {
   const history = useHistory();
   const [categoryData , setCategoryData] = useState(null);
 const [pVis , setPVis] = useState(false);
+
+const messageList = [{
+  name:"Kritgya Kumar",
+  username:"kritgya",
+  message:"Hello"
+}
+,
+{
+  name:"Kritgya Kumar",
+  username:"kritgya",
+  message:"Hello"
+}
+]
+
+
+useEffect(() => {
+  const handleClick = (event) => {
+
+    const isCategoryDropdown = !!event.target.closest(`.${navStyle.categoriesDropdown}`);
+    const isMessagesIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${messageLogo}"]`);
+    const isBellIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${bellIcon}"]`);
+
+
+    if (!isCategoryDropdown && !isMessagesIcon && !isBellIcon) {
+      setIsClickedCategory(false);
+      setIsClickedCategory2(null);
+      setIsClickedCategory3(null);
+      setmPopupVisible(false); // Close messages dropdown
+      setnPopupVisible(false); // Close notifications dropdown
+    }
+    
+  };
+
+  // Add the event listener when the component mounts
+  document.addEventListener('click', handleClick);
+
+  // Remove the event listener when the component unmounts
+  return () => {
+    document.removeEventListener('click', handleClick);
+  };
+}, []);
+
+
+
+
 
   const becomeAseller = () =>{
     history.push("/becomeAseller")
@@ -42,6 +88,9 @@ const [pVis , setPVis] = useState(false);
     fetchData();
   }, []);
 
+  
+
+
   const {
     isClickedCategory,
     isClickedCategory2, 
@@ -50,6 +99,15 @@ const [pVis , setPVis] = useState(false);
     categoryIndex2,
     positionUl2 , 
     positionUl3,
+    mPopupVisible,
+    nPopupVisible,
+    setmPopupVisible,
+    setnPopupVisible,
+    handleMessagePopup,
+    handleNotificationPopup,
+    setIsClickedCategory, 
+    setIsClickedCategory2,
+    setIsClickedCategory3,
     handleClick,
     handleClick2,
     handleClick3 
@@ -161,8 +219,8 @@ const [pVis , setPVis] = useState(false);
           <button onClick={handleSearchClick}>search</button>
         </div>
                   <div className={navStyle.navbarRightIcons}>
-          <img src={bellIcon} alt='Bell' />
-          <img src={messageLogo} alt='Message' />
+          <img onClick={handleNotificationPopup} src={bellIcon} alt='Bell' />
+          <img onClick={handleMessagePopup} src={messageLogo} alt='Message' />
           <button onClick={becomeAseller}  className={navStyle.gigBtn}>GIG</button>
           <img  onClick={profileDropdownVisible}  src={profileLogo} alt='Profile' />
            
@@ -172,7 +230,12 @@ const [pVis , setPVis] = useState(false);
       <div  style={{visibility : pVis ? ("visible") : ("hidden")}} className={navStyle.profileDropdown}>
       <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
           </div>
+          { mPopupVisible ? (<Popup title={"Messages"} contentList={messageList} />):('')}
+          { nPopupVisible ? (<Popup title={"Notifications"}  contentList={messageList} />):('')}
     </div>
+    
+
+     
   )
 }
 

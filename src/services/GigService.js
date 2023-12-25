@@ -2,8 +2,8 @@
 import { API_BASE_URL } from '../environment';
 
 
-const CategoryService = {
-  async fetchData(endpoint) {
+const GigService = {
+  async allGigs(endpoint) {
     try {
       const response = await fetch(`${API_BASE_URL}/${endpoint}`);
       
@@ -12,7 +12,21 @@ const CategoryService = {
       }
 
       const data = await response.json();
-      console.log(data)
+      return data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  },
+  async getGigById(endpoint) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/${endpoint}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
       return data;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -21,4 +35,4 @@ const CategoryService = {
   },
 };
 
-export default CategoryService;
+export default GigService;

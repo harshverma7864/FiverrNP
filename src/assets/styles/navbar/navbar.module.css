@@ -68,7 +68,7 @@
     width: 50%;
     height: 50%;
     margin: 10px;
-    padding: 3px;
+    padding: 1px;
     border-radius: 10px;
     border: 2px solid orangered;
 }
@@ -88,7 +88,7 @@ border: none;
 
 .searchBar>button {
     background-color: #F04C43;
-    padding: 10px;
+    padding: 5px;
     width: 15%;
     height: 100%;
     font-weight: bold;
@@ -237,4 +237,53 @@ border: none;
 
 .dropdownUl3 li:hover {
     color: #F04C43;
+}
+
+.profileDropdown{
+    height: 100px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F7F7;
+    position: relative;
+    top: -10px;
+    left: 1300px;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+}
+
+.profileDropdown > button{
+ width: 80%;
+
+ border: none;
+}
+
+.profileDropdown > button:hover{
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 10px;
+    cursor: pointer;
+}
+.continueButton{
+    width: fit-content;
+    padding: 2px;
+height: 43px;
+flex-shrink: 0;
+color: white;
+    border-radius: 7px;
+background: #F04C43;
+border: none;
+box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+}
+
+.gigBtn{
+    width: 60px;
+    padding: 2px;
+height: 33px;
+flex-shrink: 0;
+color: white;
+    border-radius: 7px;
+background: #F04C43;
+border: none;
+box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
 }

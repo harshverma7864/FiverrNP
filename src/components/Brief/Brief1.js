@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/styles/Brief/brief1.css";
 import arrows from "../../assets/images/arrows.png";
 import mark from "../../assets/images/Vector.png";
 import uploader from "../../assets/images/upload-big.png";
 
-const Brief1 = ({ activeStep, onStepClick }) => {
+const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const [titleInputValue, setTitleInputValue] = useState("");
   const [descriptionInputValue, setDescriptionInputValue] = useState("");
+
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedIndustry, setSelectedIndustry] = useState('');
+  const [selectedWebsiteType, setSelectedWebsiteType] = useState('');
+  const [selectedExpertise, setSelectedExpertise] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setImageUrl(url);
+    }
+  }, [selectedFile])
+
 
   const titleWordLimit = 70;
   const descriptionWordLimit = 2000;
@@ -32,14 +47,24 @@ const Brief1 = ({ activeStep, onStepClick }) => {
   };
 
   const handleContinue = () => {
-    console.log("handleContinue called");
-    if (activeStep === 1) {
-      // Add logic for step 1 continuation if needed
-    }
+    const formData = {
+      image: imageUrl,
+      title: titleInputValue,
+      description: descriptionInputValue,
+      category: selectedCategory,
+      industry: selectedIndustry,
+      websiteType: selectedWebsiteType,
+      expertise: selectedExpertise,
+      // Add other fields as needed
+    };
 
+    onFormSubmit(formData);
+
+    // Move to the next step
     const nextStep = activeStep + 1;
     onStepClick(nextStep);
   };
+
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -60,6 +85,24 @@ const Brief1 = ({ activeStep, onStepClick }) => {
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     console.log('Selected file:', selectedFile.name);
+
+    setSelectedFile(selectedFile);
+  };
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleIndustryChange = (event) => {
+    setSelectedIndustry(event.target.value);
+  };
+
+  const handleWebsiteTypeChange = (event) => {
+    setSelectedWebsiteType(event.target.value);
+  };
+
+  const handleExpertiseChange = (event) => {
+    setSelectedExpertise(event.target.value);
   };
 
   return (
@@ -171,7 +214,7 @@ const Brief1 = ({ activeStep, onStepClick }) => {
         <div className="multiple-option">
           <div className="option-container">
             <label>Which category fits your project?</label>
-            <select>
+            <select value={selectedCategory} onChange={handleCategoryChange}>
               <option value=""> Select 1 Category</option>
               <option value="left-hand">Left Hand</option>
               <option value="right-hand">Right Hand</option>
@@ -180,7 +223,7 @@ const Brief1 = ({ activeStep, onStepClick }) => {
 
           <div className="option-container">
             <label>Which industry are you in?</label>
-            <select>
+            <select value={selectedIndustry} onChange={handleIndustryChange}>
               <option value=""> Select Industry</option>
               <option value="left-hand">Left Hand</option>
               <option value="right-hand">Right Hand</option>
@@ -189,7 +232,7 @@ const Brief1 = ({ activeStep, onStepClick }) => {
 
           <div className="option-container">
             <label>Choose up to 2 website types</label>
-            <select>
+            <select value={selectedWebsiteType} onChange={handleWebsiteTypeChange}>
               <option value=""> Select</option>
               <option value="left-hand">Left Hand</option>
               <option value="right-hand">Right Hand</option>
@@ -198,7 +241,7 @@ const Brief1 = ({ activeStep, onStepClick }) => {
 
           <div className="option-container">
             <label>Choose up to 2 types of expertise designer should have</label>
-            <select>
+            <select value={selectedExpertise} onChange={handleExpertiseChange}>
               <option value=""> Select</option>
               <option value="left-hand">Left Hand</option>
               <option value="right-hand">Right Hand</option>

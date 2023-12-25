@@ -27,8 +27,8 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
   const titleWordLimit = 70;
   const descriptionWordLimit = 2000;
 
-  console.log(activeStep);
-  console.log(onStepClick);
+  // console.log(activeStep);
+  // console.log(onStepClick);
 
   const Upgrade = ["Digital Marketing", "CSS", "HTML"];
 

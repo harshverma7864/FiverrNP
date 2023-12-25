@@ -27,6 +27,9 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
   const titleWordLimit = 70;
   const descriptionWordLimit = 2000;
 
+  console.log(activeStep);
+  console.log(onStepClick);
+
   const Upgrade = ["Digital Marketing", "CSS", "HTML"];
 
   const handleInputChange = (event, setValue, limit) => {
@@ -41,10 +44,6 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
 
   const remainingTitleWords = titleWordLimit - titleInputValue.split(/\s+/).filter((word) => word !== "").length;
   const remainingDescriptionWords = descriptionWordLimit - descriptionInputValue.split(/\s+/).filter((word) => word !== "").length;
-
-  const handleStepClick = (step) => {
-    onStepClick(step);
-  };
 
   const handleContinue = () => {
     const formData = {
@@ -61,7 +60,13 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
     onFormSubmit(formData);
 
     // Move to the next step
+    console.log("handleContinue called");
+    if (activeStep === 1) {
+      // Add logic for step 1 continuation if needed
+    }
+
     const nextStep = activeStep + 1;
+    console.log("Next Step:", nextStep);
     onStepClick(nextStep);
   };
 
@@ -111,14 +116,14 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
         <div className="brief-navigate-title">
           <h1
             className={activeStep === 1 ? "active" : ""}
-            onClick={() => handleStepClick(1)}
+            onClick={() => handleContinue(1)}
           >
             1. Share brief description
           </h1>
           <img className="brief-arrow" src={arrows} alt="arrows" />
           <h1
             className={activeStep === 2 ? "active" : ""}
-            onClick={() => handleStepClick(2)}
+            onClick={() => handleContinue(2)}
           >
             2. Add timeline and budget
           </h1>

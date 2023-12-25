@@ -20,6 +20,7 @@ const BriefContainer = () => {
 
   const handleStepClick = (step) => {
     setActiveStep(step);
+    return 2;
   };
 
   const handleFormSubmit = (data) => {

@@ -4,6 +4,7 @@ import PageStyle from '../assets/styles/searchpage.module.css';
 import GigService from '../services/GigService';
 import { GIG_URI } from '../environment';
 import { useLocation } from 'react-router-dom';
+import { Navbar } from '../components';
 
 const SearchPage = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const SearchPage = () => {
       try {
         // Check if query is null or empty before making the API call
         if (query) {
-          const result = await GigService.fetchData(`${GIG_URI}search=${query}`);
+          const result = await GigService.allGigs(`${GIG_URI}?search=${query}`);
           console.log('Fetched data:', result);
           setSearchData(result);
         }
@@ -42,6 +43,8 @@ const SearchPage = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className={PageStyle.main}>
       <h2 className={PageStyle.heading}>
         Showing full catalog results, giving you the widest variety of services at any price.
@@ -65,6 +68,7 @@ const SearchPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

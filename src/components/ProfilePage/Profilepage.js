@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect, useState } from "react";
 import "../../assets/styles/profilepage/profilepage.css";
 import profileHead from "../../assets/images/profile-head.png";
 import profileHead2 from "../../assets/images/profile-head-2.png";
@@ -12,7 +12,12 @@ import star from "../../assets/images/Star 1.png";
 import learning from "../../assets/images/learning.png";
 import logo from "../../assets/images/mainlogo.png";
 
+import CategoryService from "../../services/SellerProfile";
+import { SELLER_PROFILE_URI } from '../../environment'
+
 const ProfilePage = () => {
+
+  const [userData, setUsserData] = useState([]);
   const first_name = "Navneet";
   const last_name = "Kumar";
   const username = "navi@9971";
@@ -20,6 +25,22 @@ const ProfilePage = () => {
 
   const rank_number = "4.5";
   const ranked_user = "15";
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await CategoryService.fetchData(SELLER_PROFILE_URI);
+        setUsserData(result);
+        console.log(result);
+      } catch (error) {
+        // Handle error
+        console.error('Error in component:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>

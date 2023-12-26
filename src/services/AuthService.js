@@ -25,6 +25,10 @@ const AuthService = {
       
       Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
       Cookies.set("user" , JSON.stringify(result.user) , { expires: 7, path: '/' })
+
+      sessionStorage.setItem("refresh", result.refresh);
+      sessionStorage.setItem("access", result.access);
+
       return result.user;
       }
       else{
@@ -76,6 +80,10 @@ const AuthService = {
         
           Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
           Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
+          
+          sessionStorage.setItem("refresh", result.refresh);
+          sessionStorage.setItem("access", result.access);
+
           
         return result;
         }else{

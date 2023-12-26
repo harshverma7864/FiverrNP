@@ -1,7 +1,11 @@
 import React from "react";
 
-const SkillsComponent = () => {
-  const languages = ["Digital Marketing", "CSS", "HTML"];
+const SkillsComponent = ({ userData }) => {
+   // Check if userData exists and has language_proficiency as an array
+   const users = userData || [];
+
+    // Log the users to the console for debugging
+  console.log("Users:", users);
 
   return (
     <>
@@ -11,12 +15,27 @@ const SkillsComponent = () => {
           <h1>Skills</h1>
 
           <div className="language">
-            {languages.map((lang, index) => (
+          {users.length > 0 ? (
+            users.map((user, userIndex) => (
+              <>
+              {/* <h2>User: {userIndex + 1}</h2> */}
+                {user.skills && user.skills.length > 0 ? (
+             <>     
+             {user.skills.map((skills, index) => (
               <div key={index} className="language-box">
-                {lang}
+              {skills.skill} - {skills.experience}
               </div>
             ))}
-          </div>
+            </>
+                ) : (
+                  <p>No languages found for this user.</p>
+                )}
+                </>
+              ))
+          ) : (
+            <p>No users found.</p>
+          )}
+        </div>
         </div>
         <span>Add New</span>
       </div>

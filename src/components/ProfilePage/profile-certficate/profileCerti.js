@@ -1,39 +1,37 @@
 import React from "react";
 
-const ProfileCertification = () => {
+const ProfileCertification = ({ userData }) => {
   // Example certification data
-  const certificationData = [
-    {
-      title: "React Developer Certification",
-      provider: "CodeAcademy",
-      completionYear: 2022,
-    },
-    {
-      title: "Digital Marketing Specialist",
-      provider: "Google",
-      completionYear: 2021,
-    },
-    // Add more certification entries as needed
-  ];
+  const certificationData = userData || [];
 
   return (
     <>
-    <div className="profile-discrption">
-      <div className="disc-title">
-        <h1>Certification</h1>
-        <span>Add New</span>
-      </div>
-
-      {certificationData.map((certification, index) => (
-        <div key={index}>
-          <h2>{certification.title}</h2>
-          <p>
-            {certification.provider}, Completion Year: {certification.completionYear}
-          </p>
+      <div className="profile-discrption">
+        <div className="disc-title">
+          <h1>Certification</h1>
+          <span>Add New</span>
         </div>
-      ))}
-    </div>
-
+        {certificationData.length > 0 ? (
+          certificationData.map((certification, userIndex) => (
+            <div key={userIndex}>
+              {certification.certifications && certification.certifications.length > 0 ? (
+                certification.certifications.map((certificationEntry, index) => (
+                  <div key={index}>
+                    <h2>{certificationEntry.name}</h2>
+                    <p>
+                      {certificationEntry.from}, Completion Year: {certificationEntry.year}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p>No certifications available.</p>
+              )}
+            </div>
+          ))
+        ) : (
+          <p>No certification data available.</p>
+        )}
+      </div>
     </>
   );
 };

@@ -1,8 +1,11 @@
 import React from "react";
 
-const LanguagesComponent = () => {
-  const languages = ["English", "Hindi", "Urdu"];
-  const speeds = ["Normal", "Fluent", "Average"];
+const LanguagesComponent = ({ userData }) => {
+  // Check if userData exists and has language_proficiency as an array
+  const users = userData || [];
+
+  // Log the users to the console for debugging
+  console.log("Users:", users);
 
   return (
     <>
@@ -12,13 +15,26 @@ const LanguagesComponent = () => {
           <span>Add New</span>
         </div>
         <div>
-          <ul>
-            {languages.map((language, index) => (
-              <li key={index}>
-                {language} - {speeds[index]}
-              </li>
-            ))}
-          </ul>
+        {users.length > 0 ? (
+            users.map((user, userIndex) => (
+              <>
+              {/* <h2>User: {userIndex + 1}</h2> */}
+                {user.language_proficiency && user.language_proficiency.length > 0 ? (
+                  <ul>
+                    {user.language_proficiency.map((language, index) => (
+                      <li key={index}>
+                        {language.language} - {language.profiency}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No languages found for this user.</p>
+                )}
+              </>
+              ))
+          ) : (
+            <p>No users found.</p>
+          )}
         </div>
       </div>
 

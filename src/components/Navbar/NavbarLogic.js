@@ -60,10 +60,12 @@ const useNavbarLogic = (categoryData) => {
 
   const handleNotificationPopup = () =>{
     setnPopupVisible(!nPopupVisible);
+    setmPopupVisible(false);
   }
 
   const handleMessagePopup = () =>{
     setmPopupVisible(!mPopupVisible)
+    setnPopupVisible(false)
   }
 
   return {

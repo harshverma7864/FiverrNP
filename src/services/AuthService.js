@@ -17,19 +17,18 @@ const AuthService = {
         },
         body: JSON.stringify(requestBody),
       });
+      const result = await response.json();
 
       if (response.ok) {
-        const result = await response.json();
 
       window.localStorage.setItem("refreshToken" , result.refresh)
       
       Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
       Cookies.set("user" , JSON.stringify(result.user) , { expires: 7, path: '/' })
-      return result.user;
       }
-      else{
-        alert("Invalid Credentials");
-      }
+
+      return result;
+     
       
      
     } catch (error) {
@@ -69,19 +68,14 @@ const AuthService = {
           body: JSON.stringify(requestBody),
         });
 
-        
-        if (response.ok) {
-          const result = await response.json();
-          window.localStorage.setItem("refreshToken" , result.refresh)
-        
-          Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
-          Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
-          
-        return result;
-        }else{
-          alert("Invalid Credentials")
-        }
+        const result = await response.json();
 
+        if (response.ok) {
+          window.localStorage.setItem("refreshToken" , result.refresh)
+          Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
+          Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
+        }
+        return result;
       
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -111,14 +105,11 @@ const AuthService = {
         });
 
 
-        if (response.ok) {
           const result = await response.json();
+        
 
-        return result;
-        }else{
-          alert("Invalid Data");
-          return {username : null};
-        }
+        return {status:response.status , result:result};
+
         
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -12,6 +12,7 @@ const Navbar = () => {
 
 
   const [loggedin , setLoggedIn] = useState(window.localStorage.getItem("loggedin"));
+  const [becomAsellerClicked , setBecomeAsellerClicked] = useState(false);
 
   useEffect(() => {
     if (window.localStorage.getItem("loggedin") === true) {
@@ -20,47 +21,62 @@ const Navbar = () => {
   }, []);
 
 
+  
 
-  useEffect(() => {
-    const handleClick = (event) => {
-      // Handle the click event here
-      if (!event.target.closest(`#${navStyle.joinBtn}`) ) {
-        // setLoginClicked(false)
-      }
+  // useEffect(() => {
+  //   const handleClick = (event) => {
+  //     // Handle the click event here
+  //   //   if (!event.target.closest(`#${navStyle.joinBtn}`) ) {
+  //   //     setLoginClicked(false)
+  //   //   }
+
+
+
       
-    };
+  //   // };
+
+
+
+  //   const isJoinBtn = !!event.target.closest(`#${navStyle.joinBtn}`) ;
+  //   const isBecomeAseller = !!event.target.closest(`#${navStyle.becomeAseller}`) ;
+
+
+  //   if (!isJoinBtn ) {
+  //     setLoginClicked(false);       // Close notifications dropdown
+  //   }
+    
+    
+  // };
   
-    // Add the event listener when the component mounts
-    document.addEventListener('click', handleClick);
+  //   // Add the event listener when the component mounts
+  //   document.addEventListener('click', handleClick);
   
-    // Remove the event listener when the component unmounts
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  }, []);
+  //   // Remove the event listener when the component unmounts
+  //   return () => {
+  //     document.removeEventListener('click', handleClick);
+  //   };
+  // }, []);
 
   
   const [loginClicked , setLoginClicked] = useState(false);
   const history = useHistory()
-;
+
   const handleLoginClick = () =>{
+    setBecomeAsellerClicked(false)
     setLoginClicked(!loginClicked);
-    console.log("Hello")
   }
 
   const gotoDashboard = () => {
     history.push('/dashboard')
   }
 
-  const becomeAseller = () =>{
-    history.push("/becomeAseller")
+  const handleBecomeAseller = () =>{
+    setLoginClicked(false)
+    setBecomeAsellerClicked(!becomAsellerClicked)
   }
 
   const {
-    
     checkLoginStatus,
- 
-
   } = useNavbarLogic();
 
 
@@ -77,7 +93,7 @@ const Navbar = () => {
         <div className={navStyle.navbarRightIcons}>
 
         <p >Explore</p>
-        <p id={navStyle.becomeAseller} onClick={handleLoginClick} >Become A Seller</p>
+        <p id={navStyle.becomeAseller} onClick={handleBecomeAseller} >Become A Seller</p>
 {  loggedin ? (
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
@@ -87,7 +103,7 @@ const Navbar = () => {
       </div>
 
 
-          { loginClicked ? (<Login />) : ('')}
+          { becomAsellerClicked || loginClicked ? (<Login />) : ('')}
                     
 
     </div>

@@ -1,6 +1,6 @@
 .main{
     width: 60%;
-    height: 70vh;
+    height: auto;
     background-color: aliceblue;
     margin: auto;
     position: absolute;
@@ -137,6 +137,7 @@ padding: 3px;
 
     display: flex;
     width: 80%;
+    height: auto;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -170,6 +171,25 @@ padding: 3px;
     margin-bottom: 20px ;
 }
 
+.phoneField{
+    width: 90%;
+    height: 30px;
+    margin-top: 15px ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px ;
+}
+
+.phoneField > input{
+    width: 90%;
+    height: 70%;
+    border-radius: 3px;
+border: 2px solid #DED5D5;
+outline: none;
+padding: 3px;
+}
+
+
 .contactField > input{
     width: 90%;
     height: 70%;
@@ -201,4 +221,10 @@ padding: 3px;
     margin-top: 30px;
     justify-content: center;
     text-align: center;
+}
+
+.error{
+    height: auto;
+    width: auto;
+    font-size: 10px;
 }

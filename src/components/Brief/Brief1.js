@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/styles/Brief/brief1.css";
-import arrows from "../../assets/images/arrows.png";
 import mark from "../../assets/images/Vector.png";
 import uploader from "../../assets/images/upload-big.png";
 
@@ -112,24 +111,7 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
 
   return (
     <div className="brief-main-component">
-      <div className="brief-navigate">
-        <div className="brief-navigate-title">
-          <h1
-            className={activeStep === 1 ? "active" : ""}
-            onClick={() => handleContinue(1)}
-          >
-            1. Share brief description
-          </h1>
-          <img className="brief-arrow" src={arrows} alt="arrows" />
-          <h1
-            className={activeStep === 2 ? "active" : ""}
-            onClick={() => handleContinue(2)}
-          >
-            2. Add timeline and budget
-          </h1>
-        </div>
-        <h2>Exit</h2>
-      </div>
+     
 
       <div className="brief-subtitle">
         <h2>Let the matching begin...</h2>

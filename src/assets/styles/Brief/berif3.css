@@ -1,0 +1,52 @@
+.brief3-component{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.44);
+    border-radius: .2rem;
+    border: 1px solid #ddd;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding: 1rem 1rem 0rem 1rem;
+}
+
+.brief3-brief-main{
+    display: flex;
+    justify-content: space-between;
+    color: #F04C43;
+    font-size: Noto Looped Thai;
+}
+
+/* Style for the horizontal line */
+.horizontal-line {
+    border-bottom: 1px solid #ccc;
+    /* margin: 20px 0;  */
+    margin-bottom: 1.5rem;
+}
+
+.description span,
+.title-brief span,
+.industry span,
+.web-type span,
+.expertise span,
+.budget span,
+.flexible-budget span,
+.delivery-date span,
+.attchment-img span{
+font-weight: 600;
+font-size: 1.2rem;
+font-family: Noto Looped Thai;
+}
+
+p.delivery-date,
+p.flexible-budget,
+p.budget,
+p.expertise,
+p.web-type,
+p.industry,
+p.description,
+p.title-brief,
+p.attchment-img {
+    display: flex;
+    gap: 8rem;
+    margin-bottom: 1rem;
+}

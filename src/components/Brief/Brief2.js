@@ -1,18 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import MainBrief from "./MainBrief";
 // import arrows from "../../assets/images/arrows.png";
 
-const Brief2 = ({ data }) => {
+const Brief2 = ({ data, onFormSubmit, activeStep, onStepClick }) => {
   const [budgetInput, setBudgetInput] = useState("");
-  const [deliveryDateInput, setDeliveryDateInput] = useState(null);
+  const [deliveryDateInput, setDeliveryDateInput] = useState(null); // Use null as the initial state for the date
+  const [isBudgetFlexible, setIsBudgetFlexible] = useState(false)
+  const [formattedDeliveryDate, setFormattedDeliveryDate] = useState("");
+
+  useEffect(() => {
+    if (deliveryDateInput) {
+      const formattedDate = new Date(deliveryDateInput).toLocaleDateString();
+      setFormattedDeliveryDate(formattedDate);
+    }
+  }, [deliveryDateInput]);
 
   const handleContinue = () => {
     console.log("Continue button clicked");
     console.log("Budget Input:", budgetInput);
     console.log("Delivery Date Input:", deliveryDateInput);
-    // You can now use 'budgetInput' and 'deliveryDateInput' in your logic
+
+    const formData = {
+      budget: budgetInput,
+      deliveryDate: formattedDeliveryDate,
+      isBudgetFlexible: isBudgetFlexible,
+      // Add other fields as needed
+    };
+
+    onFormSubmit(formData);
+
+    const nextStep = activeStep + 1;
+    onStepClick(nextStep);
   };
 
   return (
@@ -35,6 +55,16 @@ const Brief2 = ({ data }) => {
             />
           </div>
           <h5>Average range for this service: ₹3,498.31–₹21,864.41</h5>
+          {/* Checkbox */}
+          <div className="checkbox">
+          <input 
+              type="checkbox" 
+              className="red-outline-checkbox" 
+              name="hello" 
+              onChange={() => setIsBudgetFlexible((prev) => !prev)}
+            />
+            <h4>My budget is flexible</h4>
+          </div>
         </div>
       </div>
 

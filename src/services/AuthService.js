@@ -17,18 +17,14 @@ const AuthService = {
         },
         body: JSON.stringify(requestBody),
       });
+      const result = await response.json();
 
       if (response.ok) {
-        const result = await response.json();
 
       window.localStorage.setItem("refreshToken" , result.refresh)
       
-      Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
+      Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
       Cookies.set("user" , JSON.stringify(result.user) , { expires: 7, path: '/' })
-
-      sessionStorage.setItem("refresh", result.refresh);
-      sessionStorage.setItem("access", result.access);
-
       return result.user;
       }
       else{
@@ -73,23 +69,14 @@ const AuthService = {
           body: JSON.stringify(requestBody),
         });
 
-        
+        const result = await response.json();
+
         if (response.ok) {
-          const result = await response.json();
           window.localStorage.setItem("refreshToken" , result.refresh)
-        
-          Cookies.set("accessToken" , result.refresh , { expires: 7, path: '/' })
+          Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
           Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
           
-          sessionStorage.setItem("refresh", result.refresh);
-          sessionStorage.setItem("access", result.access);
-
-          
         return result;
-        }else{
-          alert("Invalid Credentials")
-        }
-
       
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -119,14 +106,11 @@ const AuthService = {
         });
 
 
-        if (response.ok) {
           const result = await response.json();
+        
 
-        return result;
-        }else{
-          alert("Invalid Data");
-          return {username : null};
-        }
+        return {status:response.status , result:result};
+
         
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -9,11 +9,16 @@ const Login = () => {
         setSignUpClicked(!signUpClicked);
     }
 
+
+    
+
     const {
         loginMethod,
         otpRequested,
         nextClicked,
         signupData,
+        error,
+        formErrors,
         handleSignUp,
         setNextClicked,
         setEmail,
@@ -98,6 +103,7 @@ const Login = () => {
                             <div className={loginStyle.inputField}>
 
                                 <h5>Username</h5>
+                                {/* {formErrors && formErrors.Username !== '' ? (<p className={loginStyle.error} style={{color : "#F04C43"}}>{formErrors.Username}</p>):('')} */}
                                 <input type='text' name='Username' value={signupData.Username} onChange={handleSignUp} required />
 
                             </div>) : (
@@ -105,6 +111,7 @@ const Login = () => {
                             <div className={loginStyle.inputField}>
 
                                 <h5>Password</h5>
+                                {/* {formErrors && formErrors.Password !== '' ? (<p className={loginStyle.error} style={{color : "#F04C43"}}>{formErrors.Password}</p>):('')} */}
                                 <input type='password' name='Password' value={signupData.Password} onChange={handleSignUp} required />
 
                             </div>):(''))
@@ -113,6 +120,7 @@ const Login = () => {
                             <div className={loginStyle.inputField}>
 
                                 <h5>First Name</h5>
+                                {/* {formErrors && formErrors.firstName !== '' ? (<p className={loginStyle.error} style={{color : "#F04C43"}}>{formErrors.firstName}</p>):('')} */}
                                 <input type='text' name='firstName' value={signupData.firstName} onChange={handleSignUp} required />
 
                             </div>) : (
@@ -128,12 +136,14 @@ const Login = () => {
                         { signUpClicked && !nextClicked  ? (
                             <div className={loginStyle.inputField}>
                                 <h5>Last Name</h5>
+                                {/* {formErrors && formErrors.lastName !== '' ? (<p className={loginStyle.error} style={{color : "#F04C43"}}>{formErrors.lastName}</p>):('')} */}
                                 <input type='text' name='lastName' value={signupData.lastName} onChange={handleSignUp} placeholder='' required />
+
                             </div>) : (
                             (loginMethod === null )? (
                             <>
-                                <h5>Phone</h5>
-                                <div id={loginStyle.contactInput} className={loginStyle.contactField}>
+                                <h5 style={{marginTop:"10px"}}>Phone</h5>
+                                <div id={loginStyle.contactInput} className={loginStyle.phoneField}>
 
                                     <select name='CntryCode' onChange={handleSignUp} value={signupData.CntryCode} id={loginStyle.contryCode} >
                                         <option value=""></option>
@@ -148,7 +158,9 @@ const Login = () => {
                         {signUpClicked && !nextClicked  ? (
                             <div className={loginStyle.inputField}>
                                 <h5>Email</h5>
+                                {/* {formErrors && formErrors.Email !== '' ? (<p className={loginStyle.error} style={{color : "#F04C43"}}>{formErrors.Email}</p>):('')} */}
                                 <input type='email' name='Email' value={signupData.Email} onChange={handleSignUp} placeholder='' required />
+
                             </div>) : (
                                  (loginMethod === null )? (
                             <div className={loginStyle.inputField}>
@@ -158,12 +170,11 @@ const Login = () => {
                                     <option value="end_consumer">End Consumer</option>
                                     <option value="freelancer">Freelancer</option>
                                 </select> </div>)  : ('')
-                                
                                 )
                         }
 
                         { signUpClicked && !nextClicked ? (
-                            <button onClick={() => setNextClicked(true)} className={loginStyle.loginBtn}>Next</button>
+                            < button onClick={() => setNextClicked(true)} className={loginStyle.loginBtn}>Next</button>
                         ) : (
                         
                             (loginMethod === null )? (
@@ -190,6 +201,7 @@ const Login = () => {
                                 <h5>Password</h5>
                                 <input type='password' onChange={(e) => setPassword(e.target.value)} placeholder='' required />
                             </div>
+                            {error ? (<p style={{color : "#F04C43"}}><br/>{error}</p>):('')}
 
                             <button onClick={loginClicked} className={loginStyle.loginBtn}>Login</button>
                             <button className={loginStyle.backBtn} onClick={() => setLoginMethodType(null)}>    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
@@ -216,6 +228,8 @@ const Login = () => {
                                     <button className={loginStyle.loginBtn} onClick={() => requestOtp(true)}>
                                         Resend
                                     </button>
+
+                                    {error ? (<p style={{color : "#F04C43"}}><br/>{error}</p>):('')}
 
                                     <button onClick={() => { verifyOtp(true) }} className={loginStyle.loginBtn}>Verify</button>
 

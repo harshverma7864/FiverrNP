@@ -7,7 +7,7 @@ const accessToken = Cookies.get("accessToken");
 const SellerService = {
   async retriveSellerProfile(sellerId) {
     console.log(API_BASE_URL+ "/" + SELLER_URI + "/" + sellerId)
-    console.log(`Bearer ${accessToken}`)
+    // console.log(`Bearer ${accessToken}`)
 
     try {
         const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/${sellerId}`, {

@@ -11,7 +11,8 @@ const useNavbarLogic = (categoryData) => {
 
   const [positionUl2 , setPositionUl2] = useState({top:0 , left:0})
   const [positionUl3 , setPositionUl3] = useState({top:0 , left:0})
-
+  const [mPopupVisible , setmPopupVisible] = useState(false)
+  const [nPopupVisible , setnPopupVisible] = useState(false)
   
 
   const handleClick = () => {
@@ -56,6 +57,17 @@ const useNavbarLogic = (categoryData) => {
     });
   };
 
+
+  const handleNotificationPopup = () =>{
+    setnPopupVisible(!nPopupVisible);
+    setmPopupVisible(false);
+  }
+
+  const handleMessagePopup = () =>{
+    setmPopupVisible(!mPopupVisible)
+    setnPopupVisible(false)
+  }
+
   return {
     isClickedCategory,
     isClickedCategory2,
@@ -65,6 +77,15 @@ const useNavbarLogic = (categoryData) => {
     positionUl2 ,
     positionUl3,
     isLoggedIn,
+    mPopupVisible,
+    nPopupVisible,
+    setnPopupVisible,
+    setmPopupVisible,
+    handleNotificationPopup,
+    handleMessagePopup,
+    setIsClickedCategory, 
+    setIsClickedCategory2,
+    setIsClickedCategory3,
     setIsLoggedIn,
     checkLoginStatus,
     handleClick,

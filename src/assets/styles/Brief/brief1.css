@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.brief-main-component {
+    max-width: 91%;
+    margin-left: 5rem;
+    margin-right: 4rem;
+    margin-top: 4rem;
+    /* align-items: center; */
+}
+
+.brief-navigate{
+    display: flex;
+    justify-content: space-between;
+}
+
+.brief-navigate-title{
+    display: flex;
+    gap: 1rem;
+}
+
+.brief-navigate-title h1{
+    font-size: .8rem;
+    width: 10.5rem;
+}
+
+img.brief-arrow {
+    width: 3.5rem;
+    height: 1.5rem;
+}
+
+.brief-navigate-title h1.active {
+    color: #F04C43;
+    text-decoration: underline;
+    /* Add any other styles you want for the active step */
+  }
+
+.brief-subtitle h2{
+    color: #F04C43;
+}
+
+.brief-subtitle h4{
+    font-weight: 400;
+}
+
+.brief-subtitle span{
+    font-size: 1rem;
+    font-weight: 400;
+text-decoration: underline;
+cursor: pointer;
+}
+
+.brief-freelance{
+    width: 100%;
+    background-color: #ECECEC;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    height: 3rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.freelance-title{
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+.brief-freelance button{
+    background-color: #F04C43;
+    color: #fff;
+    border: none;
+    margin-right: 2rem;
+    cursor: pointer;
+    width: 10rem;
+    height: 2rem;
+    border-radius: .5rem;
+}
+
+.brief-project-main{
+    display: flex;
+    flex-direction: column;
+}
+
+.brief-project-title{
+    display: flex;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: .5rem;
+    height: 6rem;
+    align-items: center;
+    box-shadow: 0px 1px 4.5px 0px #00000040;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.brif-project-main-scnd{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: .5rem;
+    height: fit-content;
+    align-items: center;
+    box-shadow: 0px 1px 4.5px 0px #00000040;
+    margin-bottom: 2rem;
+}
+
+.brief-project-title-scnd{
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.brief-project h1{
+    font-size: 1rem;
+    margin-left: 3rem;
+}
+
+.brief-project h5{
+    width: 22rem;
+    margin-left: 3rem;
+}
+
+.product-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .product-input input.brief {
+    width: 67rem;
+    border: none;
+    border-bottom: 1px solid #F04C43;
+    outline: none;
+  }
+  
+
+.product-input h5 {
+    margin: 0; 
+    font-size: 1rem;
+    color: #333333; 
+    text-decoration: underline;
+}
+
+.uploader{
+    margin-right: 30rem;
+    margin-bottom: 1rem;
+}
+
+.uploader-img-div {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    border: 1px solid #F04C43;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
+}
+
+
+.uploader-file {
+    display: flex;
+    place-items: center;
+    gap: 2.5rem;
+}
+
+.file-input-container{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.brif-project-main-third{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: .5rem;
+    height: fit-content;
+    box-shadow: 0px 1px 4.5px 0px #00000040;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.multiple-option{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.option-container {
+    display: flex;
+    align-items: baseline; /* Align items on the baseline to keep them on the same line */
+    margin-bottom: 10px;
+    gap: 7rem;
+  }
+
+  label {
+    font-weight: 600;
+    max-width: 16rem;
+}
+
+select {
+    /* appearance: none; */
+    padding: 5px;
+    border: none; /* Remove all borders */
+    border-bottom: 2px solid #F04C43; /* Keep only the bottom border */
+    width: 20rem;
+    font-size: 14px;
+    background: transparent; /* Make the background transparent */
+  }
+
+.brief1-btn{
+    width: 14rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #F04C43;
+    border: none;
+    border-radius: .5rem;
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+  

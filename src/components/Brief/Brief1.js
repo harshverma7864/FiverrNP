@@ -1,0 +1,258 @@
+import React, { useEffect, useState } from "react";
+import "../../assets/styles/Brief/brief1.css";
+import mark from "../../assets/images/Vector.png";
+import uploader from "../../assets/images/upload-big.png";
+
+const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [titleInputValue, setTitleInputValue] = useState("");
+  const [descriptionInputValue, setDescriptionInputValue] = useState("");
+
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedIndustry, setSelectedIndustry] = useState('');
+  const [selectedWebsiteType, setSelectedWebsiteType] = useState('');
+  const [selectedExpertise, setSelectedExpertise] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setImageUrl(url);
+    }
+  }, [selectedFile])
+
+
+  const titleWordLimit = 70;
+  const descriptionWordLimit = 2000;
+
+  // console.log(activeStep);
+  // console.log(onStepClick);
+
+  const Upgrade = ["Digital Marketing", "CSS", "HTML"];
+
+  const handleInputChange = (event, setValue, limit) => {
+    const inputText = event.target.value;
+    const words = inputText.split(/\s+/).filter((word) => word !== "");
+    const wordCount = words.length;
+
+    if (wordCount <= limit) {
+      setValue(inputText);
+    }
+  };
+
+  const remainingTitleWords = titleWordLimit - titleInputValue.split(/\s+/).filter((word) => word !== "").length;
+  const remainingDescriptionWords = descriptionWordLimit - descriptionInputValue.split(/\s+/).filter((word) => word !== "").length;
+
+  const handleContinue = () => {
+    const formData = {
+      image: imageUrl,
+      title: titleInputValue,
+      description: descriptionInputValue,
+      category: selectedCategory,
+      industry: selectedIndustry,
+      websiteType: selectedWebsiteType,
+      expertise: selectedExpertise,
+      // Add other fields as needed
+    };
+
+    onFormSubmit(formData);
+
+    // Move to the next step
+    console.log("handleContinue called");
+    if (activeStep === 1) {
+      // Add logic for step 1 continuation if needed
+    }
+
+    const nextStep = activeStep + 1;
+    console.log("Next Step:", nextStep);
+    onStepClick(nextStep);
+  };
+
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleFileDrop = (event) => {
+    event.preventDefault();
+    setIsDragOver(false);
+
+    const files = event.dataTransfer.files;
+
+    for (const file of files) {
+      console.log('Dropped file:', file.name);
+    }
+  };
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    console.log('Selected file:', selectedFile.name);
+
+    setSelectedFile(selectedFile);
+  };
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleIndustryChange = (event) => {
+    setSelectedIndustry(event.target.value);
+  };
+
+  const handleWebsiteTypeChange = (event) => {
+    setSelectedWebsiteType(event.target.value);
+  };
+
+  const handleExpertiseChange = (event) => {
+    setSelectedExpertise(event.target.value);
+  };
+
+  return (
+    <div className="brief-main-component">
+     
+
+      <div className="brief-subtitle">
+        <h2>Let the matching begin...</h2>
+        <h4>This is where you fill us in on the big picture. <span>How does this matching thing work?</span></h4>
+      </div>
+
+      <div className="brief-freelance">
+        <div className="freelance-title">
+          <img src={mark} alt="arrows" /> <h3>Are you a freelancer?</h3>
+        </div>
+        <div className="brief-button">
+          <button>Become a Seller</button>
+        </div>
+      </div>
+
+      <div className="brief-project-title">
+        <div className="brief-project">
+          <h1>Give your project brief a title</h1>
+          <h5>Keep it short and simple - this will help us match you to the right category.</h5>
+        </div>
+        <div className="product-input">
+          <div style={{ position: "relative" }}>
+            <input
+              className="brief"
+              placeholder="Example: Create a WordPress Website For My Company"
+              value={titleInputValue}
+              onChange={(event) => handleInputChange(event, setTitleInputValue, titleWordLimit)}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "10px",
+                right: "10px",
+                color: remainingTitleWords >= 0 ? "black" : "red",
+              }}
+            >
+              {remainingTitleWords >= 0 ? `${titleWordLimit - remainingTitleWords}/${titleWordLimit} ` : "Limit exceeded"}
+            </div>
+          </div>
+          <h5>Some Title Examples</h5>
+        </div>
+      </div>
+
+      <div className="brif-project-main-scnd">
+        <div className="brief-project-title-scnd">
+          <div className="brief-project">
+            <h1>What are you looking to get done?</h1>
+            <h5>This will help get your brief to the right talent. Specifics help here.</h5>
+          </div>
+          <div className="product-input">
+            <div style={{ position: "relative" }}>
+              <input
+                className="brief"
+                placeholder="I Need........."
+                value={descriptionInputValue}
+                onChange={(event) => handleInputChange(event, setDescriptionInputValue, descriptionWordLimit)}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "10px",
+                  right: "10px",
+                  color: remainingDescriptionWords >= 0 ? "black" : "red",
+                }}
+              >
+                {remainingDescriptionWords >= 0 ? `${descriptionWordLimit - remainingDescriptionWords}/${descriptionWordLimit} ` : "Limit exceeded"}
+              </div>
+            </div>
+            <h5>How To Write a Good Description</h5>
+          </div>
+        </div>
+
+        <div className="uploader">
+          <div className="uploader-file">
+            <div className={`uploader-img-div ${isDragOver ? 'drag-over' : ''}`} onDragOver={handleDragOver} onDrop={handleFileDrop}>
+              <img className="uploader-img" src={uploader} alt="up" />
+            </div>
+            <div className="file-input-container" onDragOver={handleDragOver} onDrop={handleFileDrop}>
+              <p>Drag File Here To Upload</p>
+              <input type="file" id="fileInput" onChange={handleFileChange} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="brif-project-main-third">
+        <div className="multiple-option">
+          <div className="option-container">
+            <label>Which category fits your project?</label>
+            <select value={selectedCategory} onChange={handleCategoryChange}>
+              <option value=""> Select 1 Category</option>
+              <option value="left-hand">Left Hand</option>
+              <option value="right-hand">Right Hand</option>
+            </select>
+          </div>
+
+          <div className="option-container">
+            <label>Which industry are you in?</label>
+            <select value={selectedIndustry} onChange={handleIndustryChange}>
+              <option value=""> Select Industry</option>
+              <option value="left-hand">Left Hand</option>
+              <option value="right-hand">Right Hand</option>
+            </select>
+          </div>
+
+          <div className="option-container">
+            <label>Choose up to 2 website types</label>
+            <select value={selectedWebsiteType} onChange={handleWebsiteTypeChange}>
+              <option value=""> Select</option>
+              <option value="left-hand">Left Hand</option>
+              <option value="right-hand">Right Hand</option>
+            </select>
+          </div>
+
+          <div className="option-container">
+            <label>Choose up to 2 types of expertise designer should have</label>
+            <select value={selectedExpertise} onChange={handleExpertiseChange}>
+              <option value=""> Select</option>
+              <option value="left-hand">Left Hand</option>
+              <option value="right-hand">Right Hand</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="multiple-option">
+          <h3>Upgrade with popular extras (Optional)</h3>
+          <div className="language">
+            {Upgrade.map((lang, index) => (
+              <div key={index} className="language-box">
+                {lang}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <button className="brief1-btn" onClick={handleContinue}>
+        Continue
+      </button>
+    </div>
+  );
+};
+
+export default Brief1;

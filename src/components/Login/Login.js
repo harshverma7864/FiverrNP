@@ -39,7 +39,7 @@ const Login = () => {
 
         <div className={loginStyle.main}>
             <div id={loginStyle.left}>
-                <img src={loginImage} />
+                <img src={loginImage} alt="img" />
             </div>
             <div id={loginStyle.right}>
 

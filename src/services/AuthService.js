@@ -25,11 +25,10 @@ const AuthService = {
       
       Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
       Cookies.set("user" , JSON.stringify(result.user) , { expires: 7, path: '/' })
-      return result.user;
       }
-      else{
-        alert("Invalid Credentials");
-      }
+
+      return result;
+     
       
      
     } catch (error) {
@@ -75,7 +74,7 @@ const AuthService = {
           window.localStorage.setItem("refreshToken" , result.refresh)
           Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
           Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
-          
+        }
         return result;
       
       } catch (error) {
@@ -119,4 +118,4 @@ const AuthService = {
 }
 
 
-export default AuthService;
+export default AuthService;

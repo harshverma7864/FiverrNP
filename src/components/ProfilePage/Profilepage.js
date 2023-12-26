@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "../../interceptors/axios";
 import "../../assets/styles/profilepage/profilepage.css";
 import profileHead from "../../assets/images/profile-head.png";
 import profileHead2 from "../../assets/images/profile-head-2.png";
@@ -11,6 +10,7 @@ import ProfileCertification from "./profile-certficate/profileCerti";
 import star from "../../assets/images/Star 1.png";
 import learning from "../../assets/images/learning.png";
 import logo from "../../assets/images/mainlogo.png";
+import axiosInstance from "../../utils/axios";
 
 
 function formatDate(dateString) {

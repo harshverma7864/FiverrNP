@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://aicansellapp.com/';
+const baseURL = 'https://np-django-4f1d7b37ade6.herokuapp.com/';
 
 const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 // Add an interceptor for setting the Authorization header with the access token
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("access");
+    const token = sessionStorage.getItem("access");
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
@@ -38,12 +38,12 @@ axiosInstance.interceptors.response.use(
 
         try {
           const response = await axiosInstance.post("refresh", {
-            refresh: localStorage.getItem("refresh"),
+            refresh: sessionStorage.getItem("refresh"),
           });
 
           const { access_token } = response.data; // Use response.data directly
 
-          localStorage.setItem("access", access_token);
+          sessionStorage.setItem("access", access_token);
           axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
 
           return axiosInstance(originalConfig);

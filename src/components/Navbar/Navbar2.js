@@ -8,7 +8,7 @@ import useNavbarLogic from './NavbarLogic';
 import Login from '../Login/Login'
 
 
-const Navbar = () => {
+const Navbar = ({userType}) => {
 
 
   const [loggedin , setLoggedIn] = useState(window.localStorage.getItem("loggedin"));
@@ -89,7 +89,7 @@ const Navbar = () => {
         <div className={navStyle.logo}>
           <img src={logo} alt='logo' />
         </div>
-
+{ userType !== 'internal_manager' ? ( 
         <div className={navStyle.navbarRightIcons}>
 
         <p >Explore</p>
@@ -98,8 +98,8 @@ const Navbar = () => {
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         
-        </div>
-
+        </div>):("")
+}
       </div>
 
 

@@ -70,7 +70,12 @@ const LoginLogic = () => {
       if (!result.error) {
         window.localStorage.setItem("loggedin", "true");
         setIsLoggedIn(true);
-        history.push('/dashboard')
+        if(result.user.user_type === "internal_manager"){
+
+          history.push('/requests')
+        }else{
+          history.push('/dashboard')
+        }
       } else {
         setError(result.error);
       }

@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from 'react';
-import {HomePage , HomePage2 , SearchPage , GigDetailsPage , BecomeASellerPage , Seller2 , Seller3, SellerInformationPage} from './pages';
+import {HomePage , HomePage2 , SearchPage , GigDetailsPage , BecomeASellerPage , Seller2 , Seller3, SellerInformationPage, RequestPage1, RequestPage2} from './pages';
 import { Navbar,Navbar2, Footer } from './components';
 import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
 import ProfilePage from './components/ProfilePage/Profilepage';
@@ -47,6 +47,7 @@ function App() {
           <Route path="/becomeAseller2" component={Seller2} />
           <Route path="/becomeAseller3" component={Seller3} />
           <Route path="/profileInfo" component={SellerInformationPage} />
+          <Route path="/requests" component={RequestPage1} />
         </Switch>
         <Footer />
     </Router>

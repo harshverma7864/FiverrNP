@@ -74,19 +74,19 @@ const BecomeASellerpage = () => {
                 <div className={sellerStyle.aboutMain}>
                     <h3 className={style.heading}>Join our growing freelance community</h3>
                     <div className={sellerStyle.container}>
-                        <div className={sellerStyle.box}>
+                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
                             <div className={style.recommendation}>
                                 <img id={sellerStyle.communityImg} src={carouselImage1} />
                                 <div className={sellerStyle.innerHeading}>I am a Designer</div>
                             </div>
                         </div>
-                        <div className={sellerStyle.box}>
+                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
                             <div className={style.recommendation}>
                                 <img id={sellerStyle.communityImg} src={carouselImage1} />
                                 <div className={sellerStyle.innerHeading}>I am a Designer</div>
                             </div>
                         </div>
-                        <div className={sellerStyle.box}>
+                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
                             <div className={style.recommendation}>
                                 <img id={sellerStyle.communityImg} src={carouselImage1} />
                                 <div className={sellerStyle.innerHeading}>I am a Designer</div>
@@ -94,19 +94,19 @@ const BecomeASellerpage = () => {
                         </div>
                     </div>
                     <div className={sellerStyle.container}>
-                        <div className={sellerStyle.box}>
+                        <div  onClick={()=>becomeAseller2()} className={sellerStyle.box}>
                             <div className={style.recommendation}>
                                 <img id={sellerStyle.communityImg} src={carouselImage1} />
                                 <div className={sellerStyle.innerHeading}>I am a Designer</div>
                             </div>
                         </div>
-                        <div className={sellerStyle.box}>
+                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
                             <div className={style.recommendation}>
                                 <img id={sellerStyle.communityImg} src={carouselImage1} />
                                 <div className={sellerStyle.innerHeading}>I am a Designer</div>
                             </div>
                         </div>
-                        <div className={sellerStyle.box}>
+                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
                             <div className={style.recommendation}>
                                 <img id={sellerStyle.communityImg} src={carouselImage1} />
                                 <div className={sellerStyle.innerHeading}>I am a Designer</div>

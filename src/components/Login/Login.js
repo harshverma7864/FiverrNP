@@ -10,7 +10,9 @@ const Login = () => {
     }
 
 
-    
+    const handleCrossClicked = () =>{
+        window.location.reload();
+    }
 
     const {
         loginMethod,
@@ -42,14 +44,7 @@ const Login = () => {
                 <img src={loginImage} alt="img" />
             </div>
             <div id={loginStyle.right}>
-
-
-
-
-
-
-
-
+                  <p className={loginStyle.crossButton} onClick={handleCrossClicked}>X</p>          
                 <h2 >{signUpClicked ? ("Create New Account") : ("Sign In To Your Account")}</h2>
                 <p id={loginStyle.signUpText} onClick={() => handleSignUpClicked()}>
                     {signUpClicked ? ("Already have an account? Sign in") : ("Don’t have an account? Join here")}

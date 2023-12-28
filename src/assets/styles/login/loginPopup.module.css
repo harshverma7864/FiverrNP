@@ -228,3 +228,21 @@ padding: 3px;
     width: auto;
     font-size: 10px;
 }
+
+.crossButton{
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    top: 10px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 0px 3px 5px rgba(66, 65, 65, 0.1); /* The values are offsetX, offsetY, blurRadius, and color */
+    border-radius: 100%;
+  }
+
+  .crossButton:hover{
+    cursor: pointer;
+  }

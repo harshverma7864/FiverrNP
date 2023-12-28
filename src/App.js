@@ -48,6 +48,7 @@ function App() {
           <Route path="/becomeAseller3" component={Seller3} />
           <Route path="/profileInfo" component={SellerInformationPage} />
           <Route path="/requests" component={RequestPage1} />
+          <Route path="/requests2" component={RequestPage2} />
         </Switch>
         <Footer />
     </Router>

@@ -128,6 +128,14 @@ useEffect(() => {
       setInputValue(event.target.value);
     };
 
+    const handleExampleNavigate = () => {
+      history.push('/profilepage')
+    }
+
+    const handleExampleBrief = () => {
+      history.push('/brief1')
+    }
+
     
 
 
@@ -229,7 +237,9 @@ useEffect(() => {
       </div>
       <div  style={{visibility : pVis ? ("visible") : ("hidden")}} className={navStyle.profileDropdown}>
       <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
-          </div>
+      <button onClick={handleExampleNavigate} className={navStyle.continueButton}> Profile</button>
+      <button onClick={handleExampleBrief} className={navStyle.continueButton}> Brief</button>
+          </div> 
           { mPopupVisible ? (<Popup title={"Messages"} contentList={messageList} />):('')}
           { nPopupVisible ? (<Popup title={"Notifications"}  contentList={messageList} />):('')}
     </div>

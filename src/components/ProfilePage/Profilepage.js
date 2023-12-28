@@ -21,6 +21,7 @@ function formatDate(dateString) {
   return `${day}/${month}/${year}`;
 }
 
+
 const ProfilePage = () => {
   const [userData, setUserData] = useState([]);
 

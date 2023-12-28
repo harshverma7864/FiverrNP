@@ -50,8 +50,10 @@ const AuthService = {
         method: 'POST',
         body: formData,
       });
+
       const result = await response.json();
-      return result;
+      
+      return {status:response.status , result:result};
     } catch (error) {
       console.error('Error fetching data:', error);
     }

@@ -30,6 +30,7 @@ const LoginLogic = () => {
     Password: '',
     UserType: '',
     Phone: '',
+    ConfirmPassword:'',
     CntryCode: '+91'
   })
   const setLoginMethodType = (type) => {
@@ -38,13 +39,17 @@ const LoginLogic = () => {
   }
   const requestOtp = async (type) => {
 
-    console.log(cntry + phone);
     const result = await AuthService.sendOtp(cntry + phone)
    try{
-    if (result) {
+    if (result.status === 200) {
+      
       setOtpRequested(type);
     }else{
-      setError("Not registered")
+      if (phone === null) {
+        setError("Phone Number Must not be Empty")
+      }else{
+        setError("Not Registered")
+      }
     }
   }catch(error){
 

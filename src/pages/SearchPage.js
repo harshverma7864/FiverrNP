@@ -15,12 +15,17 @@ const SearchPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 20;
   useEffect(() => {
+    
     const fetchData = async () => {
+      
       try {
+
+       
         // Check if query is null or empty before making the API call
         if (query) {
-          const result = await GigService.allGigs(`${GIG_URI}?search=${query}`);
-          console.log('Fetched data:', result);
+          console.log(query)
+          console.log(`${GIG_URI}search=${query}`)
+          const result = await GigService.allGigs(`${GIG_URI}search=${query}`);
           setSearchData(result);
         }
       } catch (error) {

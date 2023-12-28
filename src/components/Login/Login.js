@@ -224,7 +224,6 @@ const Login = () => {
                                         Resend
                                     </button>
 
-                                    {error ? (<p style={{color : "#F04C43"}}><br/>{error}</p>):('')}
 
                                     <button onClick={() => { verifyOtp(true) }} className={loginStyle.loginBtn}>Verify</button>
 
@@ -236,7 +235,10 @@ const Login = () => {
                                         <option value="+1">+1</option>
                                     </select>
                                     <input type='text' onChange={(e) => setPhone(e.target.value)} maxLength={10} placeholder='' required />
+
                                 </div>
+                                {error ? (<p style={{color : "#F04C43"}}><br/>{error}</p>):('')}
+
                                 </form>
 
                                     <button onClick={() => { requestOtp(true) }} className={loginStyle.loginBtn}>Request Otp</button>

@@ -6,6 +6,14 @@
 .container{
     padding: 20px;
 }
+
+select.requestpage {
+    display: flex;
+    width: 9rem;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
 .reqCard{
     margin-top: 20px;
     width: 90%;
@@ -90,8 +98,6 @@ font-weight: 800;
 line-height: normal;
 }
 
-.projectTitle{
-}
 
 .heading{
     color: #F04C43;
@@ -113,3 +119,29 @@ line-height: normal;
     height: 20px;
     border-radius: 100%;
 }
+
+/* Add these styles in your CSS file or style tag */
+
+.tableContainer {
+    margin: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tableHeader {
+    background-color: #f2f2f2;
+  }
+  
+  .tableHeader th, .tableRow td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tableRow:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  

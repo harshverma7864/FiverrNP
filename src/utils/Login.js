@@ -51,9 +51,9 @@ function Login() {
     axiosInstance
       .post('api/token/', userDetails)
       .then(async (res) => {
+        
         localStorage.setItem('access', res.data.access);
         localStorage.setItem('refresh', res.data.refresh);
-        console.log(res);
 
         // Make a third API call to check if email is confirmed
         axiosInstance

@@ -3,12 +3,12 @@ import style from '../../assets/styles/requestpages/req1.module.css';
 import interViewImage from '../../assets/images/interview.png';
 import { Navbar2 } from '../../components';
 import axiosInstance from '../../utils/axios';
-import { useHistory } from 'react-router-dom';
+import RequestPage2 from './RequestPage2';
 
 const RequestPage1 = () => {
   const [reqData, setReqData] = useState([]);
   const [additionalData, setAdditionalData] = useState([]);
-  const history = useHistory();
+  const [activeHeader, setActiveHeader] = useState("Requests");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,24 +28,20 @@ const RequestPage1 = () => {
   const fetchAdditionalData = async (requestData) => {
     try {
       const ids = requestData.map((item) => item.id);
-      console.log(ids)
       const response = await axiosInstance.get(`accounts/user/?ids=${ids.join(',')}`);
       setAdditionalData(response.data);
-      console.log(response)
     } catch (error) {
       console.error('Error fetching additional data:', error);
     }
   };
 
-  const handleNextClick = () => {
-    history.push('./requests2');
-  }
-
   const countStatus = (statusValue) => {
-    const count = reqData.filter((row) => row.status === statusValue).length;
-    return count;
+    return reqData.filter((row) => row.status === statusValue).length;
   };
-  
+
+  const handleHeaderClick = (header) => {
+    setActiveHeader(header);
+  };
 
   return (
     <>
@@ -56,20 +52,28 @@ const RequestPage1 = () => {
 
           <div className={style.reqCardHeader}>
             <div className={style.headerLeft}>
-              <div className={style.leftHeaderItems} style={{ backgroundColor: "#F04C43" }}>Requests</div>
-              <div className={style.leftHeaderItems}>Pending Projects</div>
-              <div className={style.leftHeaderItems}>Service Providers</div>
-              <div className={style.leftHeaderItems}>Package</div>
+              {["Requests", "Pending Projects", "Service Providers", "Package"].map((header) => (
+                <div
+                  key={header}
+                  className={style.leftHeaderItems}
+                  style={{ backgroundColor: activeHeader === header ? "#F04C43" : "transparent" }}
+                  onClick={() => handleHeaderClick(header)}
+                >
+                  {header}
+                </div>
+              ))}
             </div>
+
             <div className={style.headerRight}>
-        <img src={interViewImage} alt='img' /> &nbsp;&nbsp;
-        <div>
-          Requestes: ({countStatus(true)})
-        </div>
-      </div>
+              <img src={interViewImage} alt='Interview' /> &nbsp;&nbsp;
+              <div>
+                Requests: ({countStatus(true)})
+              </div>
+            </div>
           </div>
           <div className={style.tableContainer}>
-            <table className={style.table}>
+            {activeHeader === "Requests" ? (
+              <table className={style.table}>
               <thead className={style.tableHeader}>
                 <tr>
                   <th>S NO</th>
@@ -87,23 +91,25 @@ const RequestPage1 = () => {
                     <td>{row.industry}</td>
                     <td>{row.subsub_category}</td>
                     <td>
-  {additionalData[index] ? (
-    <span>{additionalData[index].first_name}</span>
-  ) : (
-    <span>Loading...</span>
-  )}
-</td>
-
+                      {additionalData[index] ? (
+                        <span>{additionalData[index].first_name}</span>
+                      ) : (
+                        <span>Loading...</span>
+                      )}
+                    </td>
                     <td>{row.quote_amount}</td>
                     <td>{row.description}</td>
                   </tr>
                 ))}
               </tbody>
-            </table>
+              </table>
+            ) : activeHeader === "Pending Projects" ? (
+              <RequestPage2 />
+            ) : null}
           </div>
         </div>
 
-        <button onClick={handleNextClick}> Next Page </button>
+
       </div>
     </>
   );

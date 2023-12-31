@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import style from '../../assets/styles/requestpages/req2.module.css';
-import { Navbar2 } from '../../components';
+// import { Navbar2 } from '../../components';
 import image from '../../assets/images/planning 1.png';
 import axiosInstance from '../../utils/axios';
 
 const RequestPage2 = () => {
   const [reqData, setReqData] = useState([]);
   const [additionalData, setAdditionalData] = useState([]);
+  const [requsetId, setRequsetId] = useState(null);
+  const [selectedItemId, setSelectedItemId] = useState(null); // Initialize the state for the selected item
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +17,6 @@ const RequestPage2 = () => {
         // Filter data where assigned_to is null
         const filteredData = response.data.filter(item => item.assigned_to === null);
         setReqData(filteredData);
-        console.log(response);
         // Fetch additional data for each request after fetching the main data
         fetchAdditionalData(filteredData);
       } catch (error) {
@@ -63,15 +64,28 @@ const RequestPage2 = () => {
     }
   };
 
-  const handleSubmitClick = () => {
-    
-  }
+  const handleSubmitClick = async () => {
+    try {
+      if (selectedItemId !== null) {
+        const response = await axiosInstance.put(`request-project/quote/${requsetId}/`, {
+          assigned_to: selectedItemId,
+          // Add other data if needed
+        });
+        console.log('API Response:', response.data); // Assuming the response contains a 'data' property
+        console.log(selectedItemId);
+      } else {
+        console.warn('Please select an item before submitting.');
+      }
+    } catch (error) {
+      console.error('Error making API call:', error);
+    }
+  };  
 
   return (
     <>
-      <Navbar2 userType="internal_manager" />
-      <div className={style.container}>
-        <div className={style.reqCard}>
+      {/* <Navbar2 userType="internal_manager" /> */}
+      {/* <div className={style.container}> */}
+        {/* <div className={style.reqCard}> */}
           <h3 className={style.heading}>Projects</h3>
 
           <table className={style.tableHeader}>
@@ -88,30 +102,41 @@ const RequestPage2 = () => {
               </tr>
             </thead>
             <tbody>
-        {reqData.map((project, index) => (
-          <tr key={project.id} className={style.projectData}>
-            <td className={style.projectTitle}>{project.project_type}</td>
-            <td>{project.industry}</td>
-            <td>{project.subsub_category}</td>
-            <td>
-            <select className='requestpage'>
-  {additionalData.map((data, i) => (
-    <option key={i} value={data.first_name}>
-      {data.first_name} {data.last_name}
-    </option>
+  {reqData.map((project, index) => (
+    <tr
+      key={project.id}
+      className={style.projectData}
+      onClick={() => setRequsetId(project.id)}
+    >
+      <td className={style.projectTitle}>{project.project_type}</td>
+      <td>{project.industry}</td>
+      <td>{project.subsub_category}</td>
+      <td>
+        <select
+          className='requestpage'
+          onChange={(e) => {
+            setSelectedItemId(e.target.value);
+          }}
+          value={selectedItemId}
+        >
+          <option value="">Select Assigned User</option>
+          {additionalData.map((data, i) => (
+            <option key={i} value={data.id}>
+              {data.first_name} {data.last_name}
+            </option>
+          ))}
+        </select>
+
+        <button onClick={handleSubmitClick}> Submit</button>
+      </td>
+      <td>{project.status ? 'Yes' : 'No'}</td>
+    </tr>
   ))}
-</select>
+</tbody>
 
-  <button className='req-page2-btn'>Submit</button>
-
-            </td>
-            <td>{project.status ? 'Yes' : 'No'}</td>
-          </tr>
-        ))}
-      </tbody>
           </table>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
     </>
   );
 };

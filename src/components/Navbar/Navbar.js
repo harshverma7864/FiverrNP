@@ -38,14 +38,16 @@ useEffect(() => {
     const isCategoryDropdown = !!event.target.closest(`.${navStyle.categoriesDropdown}`);
     const isMessagesIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${messageLogo}"]`);
     const isBellIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${bellIcon}"]`);
+    const isProfileIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${profileLogo}"]`);
 
 
-    if (!isCategoryDropdown && !isMessagesIcon && !isBellIcon) {
+    if (!isCategoryDropdown && !isMessagesIcon && !isBellIcon && !isProfileIcon) {
       setIsClickedCategory(false);
       setIsClickedCategory2(null);
       setIsClickedCategory3(null);
       setmPopupVisible(false); // Close messages dropdown
-      setnPopupVisible(false); // Close notifications dropdown
+      setnPopupVisible(false);
+      setPVis(false) // Close notifications dropdown
     }
     
   };
@@ -71,6 +73,9 @@ useEffect(() => {
     window.localStorage.clear();
     history.push("/")
   }
+
+
+
   const profileDropdownVisible = () =>{
     setPVis(!pVis);
   }
@@ -124,6 +129,9 @@ useEffect(() => {
     }
 
 
+    const goToHome = () =>{
+      history.push('/dashboard')
+    }
     const handleInputChange = (event) => {
       setInputValue(event.target.value);
     };
@@ -142,7 +150,7 @@ useEffect(() => {
   return (
     <div className={navStyle.navbarMain}>
       <div className={navStyle.navbox}>
-        <div className={navStyle.logo}>
+        <div onClick={goToHome} className={navStyle.logo}>
           <img src={logo} alt='logo' />
         </div>
 

@@ -53,11 +53,12 @@ const SellerInformationPage = () => {
                     <div className="imageDropBox">
                         <div className="innerImageBox">
                             <img src={upImage}/>
+                            
                         </div>
                     </div>
                     <div className="title2">
                         <p>Drag Image Here To Upload Or</p>
-                        <button className="drop">Choose Image</button>
+                        <input type="file" className="drop" placeholder="choose Image"/>
                     </div>
                 </div>
 
@@ -78,7 +79,7 @@ const SellerInformationPage = () => {
                      <h3>Description<span style={{color:"#F04C43"}}>*</span></h3>
                     </div>
                     <div className="textArea">
-                       <textarea type="text" rows="4" cols="150" name="displayName" id="" placeholder="Type Your Display Name"/>
+                       <textarea type="text" rows="4" cols="150" name="description" id="" placeholder="Type Your Display Name"/>
                        <p>min. 150 characters</p>
                     </div>
                 </div>
@@ -90,7 +91,7 @@ const SellerInformationPage = () => {
                     </p>
                     </div>
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Language"/>
+                            <input type="text" name="languages" id="" placeholder="Language"/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div className="displayNameInput">
@@ -119,7 +120,7 @@ const SellerInformationPage = () => {
                     
                     </div>
                         <div className="displayNameInput" id="Occupation">
-                            <input type="text" name="displayName" id="" placeholder="Select Occupation"/>
+                            <input type="text" name="occupation" id="" placeholder="Select Occupation"/>
                          </div>
                          
                          <div className="title2">
@@ -138,11 +139,11 @@ const SellerInformationPage = () => {
                     <div className="educationFields">
                     <div class="line1">
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Add Skill (Ex. Graphic Design)"/>
+                            <input type="text" name="skill" id="" placeholder="Add Skill (Ex. Graphic Design)"/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Experience Level "/>
+                            <input type="text" name="skillLevel" id="" placeholder="Experience Level "/>
                          </div>
                         </div>
                         <div class="buttons">
@@ -164,26 +165,26 @@ const SellerInformationPage = () => {
                     <div class="educationFields">
                         <div class="line1">
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Country Of College/University"/>
+                            <input type="text" name="cntry" id="" placeholder="Country Of College/University"/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="College/University Name "/>
+                            <input type="text" name="college" id="" placeholder="College/University Name "/>
                          </div>
                         </div>
                         <div class="line2">
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Title "/>
+                            <input type="text" name="title" id="" placeholder="Title "/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Major "/>
+                            <input type="text" name="major" id="" placeholder="Major "/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Year "/>
+                            <input type="text" name="year" id="" placeholder="Year "/>
                          </div>
                         </div>
                         <div class="buttons">
@@ -205,16 +206,16 @@ const SellerInformationPage = () => {
                     <div class="educationFields">
                         <div class="line1">
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Certificate or Award"/>
+                            <input type="text" name="certificate" id="" placeholder="Certificate or Award"/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Certified From (Ex. Adobe) "/>
+                            <input type="text" name="certFrom" id="" placeholder="Certified From (Ex. Adobe) "/>
                          </div>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div className="displayNameInput">
-                            <input type="text" name="displayName" id="" placeholder="Year"/>
+                            <input type="text" name="year" id="" placeholder="Year"/>
                          </div>
                         </div>
                        

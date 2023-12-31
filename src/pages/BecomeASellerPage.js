@@ -11,6 +11,12 @@ import image34 from '../assets/images/image 34.png'
 import ldkiImage from '../assets/images/image 49.png'
 import sellerImg from '../assets/images/handsome-man-with-laptop_thumbnail 1.png'
 import { Navbar, Navbar2 } from '../components';
+import image44 from '../assets/images/image 44.png'
+import image45 from '../assets/images/image 45.png'
+import image46 from '../assets/images/image 46.png'
+import image47 from '../assets/images/image 47.png'
+import image48 from '../assets/images/image 48.png'
+import image50 from '../assets/images/5865 2.png'
 const BecomeASellerpage = () => {
 
     const location = useLocation();
@@ -70,48 +76,32 @@ const BecomeASellerpage = () => {
                     </div>
                 </div>
             </section>
-            <section className={sellerStyle.aboutParent}>
-                <div className={sellerStyle.aboutMain}>
-                    <h3 className={style.heading}>Join our growing freelance community</h3>
-                    <div className={sellerStyle.container}>
-                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
-                            <div className={style.recommendation}>
-                                <img id={sellerStyle.communityImg} src={carouselImage1} />
-                                <div className={sellerStyle.innerHeading}>I am a Designer</div>
-                            </div>
-                        </div>
-                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
-                            <div className={style.recommendation}>
-                                <img id={sellerStyle.communityImg} src={carouselImage1} />
-                                <div className={sellerStyle.innerHeading}>I am a Designer</div>
-                            </div>
-                        </div>
-                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
-                            <div className={style.recommendation}>
-                                <img id={sellerStyle.communityImg} src={carouselImage1} />
-                                <div className={sellerStyle.innerHeading}>I am a Designer</div>
-                            </div>
-                        </div>
+            <section className={sellerStyle.section2}>
+                <p id={sellerStyle.seller2Heading} style={{marginLeft:"90px"}}>Join our growing freelance community</p>
+                <div className={sellerStyle.section2Inner}>
+                    <div className={sellerStyle.section2Cards}>
+                        <img src={image44} />
+                        <p>I am a Designer</p>
                     </div>
-                    <div className={sellerStyle.container}>
-                        <div  onClick={()=>becomeAseller2()} className={sellerStyle.box}>
-                            <div className={style.recommendation}>
-                                <img id={sellerStyle.communityImg} src={carouselImage1} />
-                                <div className={sellerStyle.innerHeading}>I am a Designer</div>
-                            </div>
-                        </div>
-                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
-                            <div className={style.recommendation}>
-                                <img id={sellerStyle.communityImg} src={carouselImage1} />
-                                <div className={sellerStyle.innerHeading}>I am a Designer</div>
-                            </div>
-                        </div>
-                        <div onClick={()=>becomeAseller2()} className={sellerStyle.box}>
-                            <div className={style.recommendation}>
-                                <img id={sellerStyle.communityImg} src={carouselImage1} />
-                                <div className={sellerStyle.innerHeading}>I am a Designer</div>
-                            </div>
-                        </div>
+                    <div className={sellerStyle.section2Cards}>
+                        <img src={image45} />
+                        <p>I am a Developer</p>
+                    </div>
+                    <div className={sellerStyle.section2Cards}>
+                        <img src={image46} />
+                        <p>I am a Writer</p>
+                    </div>
+                    <div className={sellerStyle.section2Cards}>
+                        <img src={image47} />
+                        <p>I am a Video Editor</p>
+                    </div>
+                    <div className={sellerStyle.section2Cards}>
+                        <img src={image48} />
+                        <p>I am a Musician</p>
+                    </div>
+                    <div className={sellerStyle.specialCard}>
+                        <img src={image50} />
+                        <p onClick={becomeAseller2} >Become Seller</p>
                     </div>
                 </div>
             </section>
@@ -122,6 +112,7 @@ const BecomeASellerpage = () => {
                         <div className={sellerStyle.container}>
                             <div className={sellerStyle.box}>
                                 <img src={gigEco} />
+                                
                                 <p className={style.innerHeading}>1 I am a Designer</p>
                                 <p>I am a Designer</p>
                             </div>

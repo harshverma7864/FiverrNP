@@ -20,43 +20,6 @@ const Navbar = ({userType}) => {
     }
   }, []);
 
-
-  
-
-  // useEffect(() => {
-  //   const handleClick = (event) => {
-  //     // Handle the click event here
-  //   //   if (!event.target.closest(`#${navStyle.joinBtn}`) ) {
-  //   //     setLoginClicked(false)
-  //   //   }
-
-
-
-      
-  //   // };
-
-
-
-  //   const isJoinBtn = !!event.target.closest(`#${navStyle.joinBtn}`) ;
-  //   const isBecomeAseller = !!event.target.closest(`#${navStyle.becomeAseller}`) ;
-
-
-  //   if (!isJoinBtn ) {
-  //     setLoginClicked(false);       // Close notifications dropdown
-  //   }
-    
-    
-  // };
-  
-  //   // Add the event listener when the component mounts
-  //   document.addEventListener('click', handleClick);
-  
-  //   // Remove the event listener when the component unmounts
-  //   return () => {
-  //     document.removeEventListener('click', handleClick);
-  //   };
-  // }, []);
-
   
   const [loginClicked , setLoginClicked] = useState(false);
   const history = useHistory()
@@ -65,6 +28,13 @@ const Navbar = ({userType}) => {
     setBecomeAsellerClicked(false)
     setLoginClicked(!loginClicked);
   }
+
+  const handleLogout = () =>{
+    window.localStorage.clear();
+    history.push("/")
+  }
+
+  
 
   const gotoDashboard = () => {
     history.push('/dashboard')
@@ -98,9 +68,11 @@ const Navbar = ({userType}) => {
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         
-        </div>):("")
+        </div>):(  <div className={navStyle.navbarRightIcons}><button   onClick={handleLogout} id={navStyle.joinBtn}>Logout</button></div>)
 }
+
       </div>
+ 
 
 
           { becomAsellerClicked || loginClicked ? (<Login />) : ('')}

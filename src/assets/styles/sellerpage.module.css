@@ -122,16 +122,24 @@
     margin-top: 45%;
     border-radius: 19.5px;
     background: #ECECEC;
-    box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 4.6px 2px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     height: fit-content;
     width: 150px;
+    border: none;
     color: #000;
     font-family: Noto Looped Thai;
-    font-size: 17px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+}
+
+
+#sellerButton:hover{
+    cursor: pointer;
+    box-shadow: 6px 6px 6.6px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .section1 {
@@ -168,10 +176,10 @@
     display: flex;
     width: auto;
 }
-.container:hover{
+/* .container:hover{
     box-shadow: 0px 2px 6.5px 0px rgba(0, 0, 0, 0.25);
 
-}
+} */
 
 .box {
     width: fit-content;
@@ -587,3 +595,97 @@ cursor: pointer;
 .buttonContainer{
     display: flex;
 }   
+
+
+.section2{
+    width: 100%;
+    height: auto;
+    margin: 20px;
+}
+
+
+.section2Inner{
+    display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 10fr)); /* Maximum 4 items in a row, with a minimum width of 100px for each item */
+        grid-gap: 40px; /* Gap between grid items */
+      
+
+    width: 90%;
+    
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+.section2Cards{
+    height: 300px;
+    background: #ECECEC;
+box-shadow: 3px 4px 7.3px 0px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    margin: 15px;
+}
+
+.section2Cards > img{
+    height: 80%;
+    width: 100%;
+    
+}
+
+
+.section2Cards > p {
+    color: #000;
+font-family: Noto Looped Thai;
+font-size: 24px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+display: flex;
+align-items: center;
+padding-left: 25px;
+}
+
+.section2Cards:hover{
+    cursor: pointer;
+    box-shadow: 5px 8px 9.3px 3px rgba(0, 0, 0, 0.25);
+
+}
+
+.specialCard{
+    height: 300px;
+    background: #FDEDEC;
+    box-shadow: 3px 4px 7.3px 0px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.specialCard > img{
+    height: 60%;
+    width: 60%;
+}
+
+.specialCard > p{
+    border: none;
+    border-radius: 19.6px;
+    background-color: #fff;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    box-shadow: 3px 4px 7.3px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    color: #F04C43;
+font-family: Noto Looped Thai;
+font-size: 22px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+
+.specialCard > p:hover{
+    cursor: pointer;
+    box-shadow: 5px 6px 9.3px 0px rgba(0, 0, 0, 0.25);
+
+}

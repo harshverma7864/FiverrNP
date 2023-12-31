@@ -42,17 +42,21 @@
     border: 1px solid #ddd;
   }
   
-  .projectTitle {
+  /* .projectTitle {
     text-align: left;
     display: flex;
     align-items: center;
-  }
+  } */
   
   .projectTitle img {
     margin-right: 8px;
     max-width: 24px;
     max-height: 24px;
   }
+
+  button.req-page2-btn {
+    margin-left: 2rem;
+}
   
   /* Add any additional styles as needed */
   

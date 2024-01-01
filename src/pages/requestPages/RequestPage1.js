@@ -27,13 +27,27 @@ const RequestPage1 = () => {
 
   const fetchAdditionalData = async (requestData) => {
     try {
-      const ids = requestData.map((item) => item.id);
-      const response = await axiosInstance.get(`accounts/user/?ids=${ids.join(',')}`);
-      setAdditionalData(response.data);
+      const additionalData = [];
+  
+      for (const item of requestData) {
+        const response = await axiosInstance.get(`accounts/user/?ids=${item.assigned_to}`);
+        
+        // Check if the response data has the expected ID
+        const responseData = response.data.find((data) => data.id === item.assigned_to);
+  
+        if (responseData) {
+          additionalData.push(responseData);
+        }
+      }
+  
+      setAdditionalData(additionalData);
+      console.log(additionalData);
     } catch (error) {
       console.error('Error fetching additional data:', error);
     }
   };
+  
+  
 
   const countStatus = (statusValue) => {
     return reqData.filter((row) => row.status === statusValue).length;
@@ -42,6 +56,8 @@ const RequestPage1 = () => {
   const handleHeaderClick = (header) => {
     setActiveHeader(header);
   };
+
+  console.log(reqData)
 
   return (
     <>
@@ -65,11 +81,15 @@ const RequestPage1 = () => {
             </div>
 
             <div className={style.headerRight}>
-              <img src={interViewImage} alt='Interview' /> &nbsp;&nbsp;
-              <div>
-                Requests: ({countStatus(true)})
-              </div>
-            </div>
+  {activeHeader === "Requests" && (
+    <>
+      <img src={interViewImage} alt='Interview' /> &nbsp;&nbsp;
+      <div>
+        Requests: ({countStatus(false)})
+      </div>
+    </>
+  )}
+</div>
           </div>
           <div className={style.tableContainer}>
             {activeHeader === "Requests" ? (
@@ -87,12 +107,12 @@ const RequestPage1 = () => {
               <tbody>
                 {reqData.map((row, index) => (
                   <tr key={index} className={style.tableRow}>
-                    <td>{row.id}</td>
+                    <td>{index + 1}</td>
                     <td>{row.industry}</td>
                     <td>{row.subsub_category}</td>
                     <td>
                       {additionalData[index] ? (
-                        <span>{additionalData[index].first_name}</span>
+                        <span>{additionalData[index].first_name} {additionalData[index].last_name}</span>
                       ) : (
                         <span>Loading...</span>
                       )}

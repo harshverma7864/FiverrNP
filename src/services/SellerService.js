@@ -23,7 +23,6 @@ const SellerService = {
       }
 
       const data = await response.json();
-      console.log(data)
       return data;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -31,6 +30,36 @@ const SellerService = {
     }
   },
   
+  async createSeller(formData) {
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    }
+    try {
+        const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body:  formData,
+        });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status} ${response.error}`  );
+      }else{
+        const data = await response.json();
+        return data;
+      }
+
+     
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  },
+
+
+
 };
 
 export default SellerService;

@@ -8,28 +8,28 @@ import BriefContainer from './components/Brief/BriefContainer';
 
 
 function App() {
-  useEffect(() => {
-    // Function to clear cookies and local storage
-    const clearDataOnTabClose = () => {
-      // Clear local storage
-      window.localStorage.clear();
+  // useEffect(() => {
+  //   // Function to clear cookies and local storage
+  //   const clearDataOnTabClose = () => {
+  //     // Clear local storage
+  //     window.localStorage.clear();
 
-      // Clear cookies
-      document.cookie.split(";").forEach((cookie) => {
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;`;
-      });
-    };
+  //     // Clear cookies
+  //     document.cookie.split(";").forEach((cookie) => {
+  //       const eqPos = cookie.indexOf("=");
+  //       const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+  //       document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;`;
+  //     });
+  //   };
 
-    // Attach the function to the beforeunload event
-    window.addEventListener('beforeunload', clearDataOnTabClose);
+  //   // Attach the function to the beforeunload event
+  //   window.addEventListener('beforeunload', clearDataOnTabClose);
 
-    // Remove the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('beforeunload', clearDataOnTabClose);
-    };
-  }, []);
+  //   // Remove the event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener('beforeunload', clearDataOnTabClose);
+  //   };
+  // }, []);
   
 
   return (

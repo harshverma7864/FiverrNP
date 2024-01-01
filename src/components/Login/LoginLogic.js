@@ -56,13 +56,19 @@ const LoginLogic = () => {
   }
   }
 
-  const verifyOtp = () => {
-    const result = AuthService.phoneLogin(cntry + phone, otp)
-    if (result) {
+  const verifyOtp = async() => {
+    const result = await AuthService.phoneLogin(cntry + phone, otp)
+    try{
+    if (result.status===200) {
       window.localStorage.setItem("loggedin", "true");
       setIsLoggedIn(true);
       history.push('/dashboard')
+    }else{
+      alert("Otp is Incorrect")
     }
+  }catch(error){
+    console.log(error);
+  }
     console.log(result);
   }
 
@@ -102,6 +108,7 @@ const LoginLogic = () => {
     setSignupData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
+      
     }))
   }
 

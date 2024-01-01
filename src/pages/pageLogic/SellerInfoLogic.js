@@ -1,101 +1,205 @@
 import { useState } from 'react';
+import SellerService from '../../services/SellerService';
+import { useHistory } from 'react-router-dom';
 
 const useInfoLogic = () => {
-  
-    const [formState, setFormState] = useState({
-        personalDetails: {
-          profilePicture: '',
-          displayName: '',
-          description: '',
-          languages: [],
-        },
-        professionalDetails: {
-          occupation: '',
-          skills: [],
-          education: [],
-          certifications: [],
-          personalWebsite: '',
-        },
-        accountSecurity: {
-          email: {
-            value: '',
-            verified: false,
-          },
-          phone: '',
-        },
-      });
-    
-      const [active, setActive] = useState(1);
-    
-      // Handle input changes for personal details section
-      const handlePersonalDetailsChange = (field, value) => {
-        setFormState((prevState) => ({
-          ...prevState,
-          personalDetails: {
-            ...prevState.personalDetails,
-            [field]: value,
-          },
-        }));
-      };
-    
-      // Handle input changes for professional details section
-      const handleProfessionalDetailsChange = (section, field, value) => {
-        setFormState((prevState) => ({
-          ...prevState,
-          professionalDetails: {
-            ...prevState.professionalDetails,
-            [section]: [
-              ...prevState.professionalDetails[section],
-              { [field]: value },
-            ],
-          },
-        }));
-      };
-    
-      // Handle input changes for account security section
-      const handleAccountSecurityChange = (field, value) => {
-        setFormState((prevState) => ({
-          ...prevState,
-          accountSecurity: {
-            ...prevState.accountSecurity,
-            [field]: value,
-          },
-        }));
-      };
-    
-      const handleAddButtonClick = (section, field, value) => {
-        if (value.trim() !== '') {
-          setFormState((prevState) => ({
-            ...prevState,
-            professionalDetails: {
-              ...prevState.professionalDetails,
-              [section]: [
-                ...prevState.professionalDetails[section],
-                { [field]: value },
-              ],
-            },
+  const [profilePicture, setProfilePicture] = useState(); 
+  const [displayName , setDisplayName] = useState();
+   const [desc , setDesc] = useState();
+   const [language , setLanguage] = useState({language:'' , profiency:''});
+   const [occupation  , setOccupation] = useState();
+   const [country , setCountry] = useState("");
+   const [selectedFile , setSelectedFile] = useState();
+   const [expertise , setExpertise] = useState("");
+   const [personalWebsite , setWebsite] = useState("");
+   const [skill , setSkills] = useState({skill:'', experience:''});
+   const [education  , setEducation] = useState({country:'', college:'' , title:'' , major:'', passout_year:0});
+   const [certification  , setCertification] = useState({name:'', from:'' , year:0 });
+   const [certificationArray, setCertArray] = useState([]);
+   const [skillAray, setSkillArray] = useState([]);
+   const [educationArray, setEducationArray] = useState([]);
+   const [languageArray, setLanguageArray] = useState([]);
+   const formData = new FormData();
+   const [complete1,setComplete1] = useState(false);
+   const [complete2,setComplete2] = useState(false);
+   const [complete3,setComplete3] = useState(false);
+   const [active,setActive] = useState(1);
+    const history = useHistory();
+
+    const handleJson= (section,event)=>{
+      const { name, value } = event.target;
+      console.log(event.target)
+      switch (section) {
+        case "language":
+          setLanguage((prevData) => ({
+            ...prevData,
+            [name]: value,
           }));
+          break;
+        case "skill":
+          setSkills((prevData) => ({
+            ...prevData,
+            [name]: value,
+          }));
+          break;
+        case "education":
+          setEducation((prevData) => ({
+            ...prevData,
+            [name]: value,
+          }));
+          break;
+        case "certificate":
+          setCertification((prevData) => ({
+            ...prevData,
+            [name]: value,
+          }));
+          break;
+        default:
+          // Handle unknown section
+          break;
+      }
+      
+    }
+
+
+   const handleAddButton  = (section, event)=>{
+      event.preventDefault();
+      switch (section) {
+        case "language":
+          setLanguageArray((prevArray) => [...prevArray, language]);
+          setLanguage({ language: '', level: '' });
+          break;
+        case "skill":
+          setSkillArray((prevArray) => [...prevArray, skill]);
+          setSkills({ skill: '', experience: '' });
+          break;
+        case "education":
+          setEducationArray((prevArray) => [...prevArray, education]);
+          setEducation({ country: '', college: '', title: '', major: '', passout_year: 0 });
+          break;
+        case "certificate":
+          setCertArray((prevArray) => [...prevArray, certification]);
+          setCertification({ name: '', from: '', year: 0 });
+          break;
+        default:
+          // Handle unknown section
+          break;
+      }
+      
+   }
+
+
+    const handleImageChange = (event) =>{
+        const inputElement = event.target;
+
+        if (inputElement.files.length > 0) {
+            const selectFile = inputElement.files[0];
+            setSelectedFile(selectFile);
+            const imageUrl = URL.createObjectURL(selectFile);
+            setProfilePicture(imageUrl);
         }
-      };
+    }
+
+   const handleOkayClick = (section,e) =>{
+
+    e.preventDefault();
+
+    switch (section) {
+      case "skill":
+        formData.append("skills",skillAray)
+        break;
+      case "education":
+        formData.append("education",educationArray)
+        break;
+      case "certificate":
+        formData.append("certifications",certificationArray)
+        break;
+      default:
+        break;
+    }
     
-      // Handle "Okay" button click for professional details section
-      const handleOkayButtonClick = (section) => {
-        // Merge the temporary list with the main list in the form data
-        setFormState((prevState) => ({
-          ...prevState,
-          professionalDetails: {
-            ...prevState.professionalDetails,
-            [section]: [
-              ...prevState.professionalDetails[section],
-              ...prevState.tempList,
-            ],
-          },
-          tempList: [], // Clear the temporary list
-        }));
-      };
+   }
+
+
+
+   const handleContinueClick = async (number , e) =>{
+    e.preventDefault();  
+    switch (number) {
+        case 1:
+          setActive(2)
+          break
+        case 2:
+          formData.append("display_name", displayName);
+          formData.append("description",desc );
+          formData.append("language_proficiency", languageArray);
+          formData.append("skills", skillAray)
+          formData.append("education", educationArray)
+          formData.append("certifications", certificationArray)
+          formData.append("occupation", certificationArray)
+          formData.append("personal_website", personalWebsite)
+          formData.append("expertise", expertise)
+          formData.append("country", country)
+          // submitFormData(formData);
+
+          const result = await SellerService.createSeller(formData);
+
+          try {
+            console.log(result.message + "   " + result.status)
+
+           if (result.status==="success") {
+             history.push("/profilepage")
+             setActive(3)
+             console.log(result.message + "   " + result.status)
+
+           }else{
+             console.log(result.message)
+             console.log(result.message + "   " + result.status)
+
+           }
+
+          } catch (error) {
+            console.log(result.message + "   " + result.status)
+
+          }
+          break      
+        default:
+          break;
+      }                      
+   }
+
+   const submitFormData = async() =>{
+      
+   }
 
   return {
+    complete1,
+    complete2,
+    complete3,
+    active,
+    displayName, 
+    desc, 
+    personalWebsite,
+    language,
+    skill,
+    occupation,
+    education, 
+    country, expertise,
+    certification,
+    profilePicture, 
+    handleImageChange,
+    setProfilePicture,
+    setActive,
+    setWebsite,
+    setCountry, 
+    setExpertise,
+    handleJson,
+    setDisplayName, 
+    setDesc, 
+    setOccupation, 
+    handleAddButton,
+    handleOkayClick,
+    handleContinueClick,
   };
 };
 
-export default useNavbarLogic;
+export default useInfoLogic;

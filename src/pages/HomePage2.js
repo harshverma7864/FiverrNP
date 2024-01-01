@@ -26,7 +26,8 @@ const HomePage2 = () => {
       history.push('/requests');  // You can replace '/' with the path of the page where you want to redirect the user
     }else{
       history.push("/dashboard")
-    }}
+    } 
+  }
     else{
       history.push("/")
     }

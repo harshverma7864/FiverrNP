@@ -118,7 +118,7 @@ const HomePage = () => {
       <h1 className={style.heading}>Graphics & Design Related Guides</h1>
       <div className={style.scrollViewInner}>
         {cardData2.map((item, index) => (
-         <div key={index} className={style.scrollViewItem}>
+         <div key={index} className={style.scrollViewItem2}>
           <Card heading={item.heading} subHeadings={item.subHeading} />
        </div>
         ))}

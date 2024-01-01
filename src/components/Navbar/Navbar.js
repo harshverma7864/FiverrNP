@@ -93,7 +93,9 @@ useEffect(() => {
     fetchData();
   }, []);
 
-  
+  const  handleSubSubClick = (query) =>{
+    history.push(`/search?search=${query}`)
+  }
 
 
   const {
@@ -216,7 +218,7 @@ useEffect(() => {
                 categoryData
                   .find((itemx) => categoryIndex && itemx.id === categoryIndex)
                   .subcategory.find((itemxx) => categoryIndex2 && itemxx.id === categoryIndex2)?.subsubcategory?.map((subsub) => (
-                    <li key={subsub.id}>{subsub.subsubcategory_name}</li>
+                    <li key={subsub.id} onClick={()=>handleSubSubClick(subsub.subsubcategory_name)}>{subsub.subsubcategory_name}</li>
                   ))}
             </ul>
           </div>
@@ -237,8 +239,9 @@ useEffect(() => {
                   <div className={navStyle.navbarRightIcons}>
           <img onClick={handleNotificationPopup} src={bellIcon} alt='Bell' />
           <img onClick={handleMessagePopup} src={messageLogo} alt='Message' />
-          <button onClick={becomeAseller}  className={navStyle.gigBtn}>GIG</button>
-          <img  onClick={profileDropdownVisible}  src={profileLogo} alt='Profile' />
+          <img  src={questionMark} alt='Message' />
+          <button onClick={becomeAseller}  className={navStyle.gigBtn}>Seller</button>
+          <img  onClick={profileDropdownVisible} className={navStyle.profileLogo}  src={profileLogo} alt='Profile' />
            
           </div>
           
@@ -246,7 +249,7 @@ useEffect(() => {
       <div  style={{visibility : pVis ? ("visible") : ("hidden")}} className={navStyle.profileDropdown}>
       <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
       <button onClick={handleExampleNavigate} className={navStyle.continueButton}> Profile</button>
-      <button onClick={handleExampleBrief} className={navStyle.continueButton}> Brief</button>
+      <button onClick={handleExampleBrief} className={navStyle.continueButton}> Request Project</button>
           </div> 
           { mPopupVisible ? (<Popup title={"Messages"} contentList={messageList} />):('')}
           { nPopupVisible ? (<Popup title={"Notifications"}  contentList={messageList} />):('')}

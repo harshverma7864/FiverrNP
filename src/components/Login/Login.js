@@ -34,7 +34,6 @@ const Login = () => {
         setLoginMethodType,
         loginClicked,
     } = loginLogic();
-    console.log(loginMethod);
 
 
     return (
@@ -146,7 +145,7 @@ const Login = () => {
                                  (loginMethod === null )? (
                             <div className={loginStyle.inputField}>
                                 <h5>User Type</h5>
-                                <select name='UserType' onChange={handleSignUp} value={signupData.UserType} id={loginStyle.contryCode} required>
+                                <select name='UserType' onChange={handleSignUp} value={signupData.UserType} id={loginStyle.userTypeDropdown} required>
                                     <option value="">Select User Type</option>
                                     <option value="end_consumer">End Consumer</option>
                                     <option value="freelancer">Freelancer</option>

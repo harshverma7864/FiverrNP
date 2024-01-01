@@ -82,7 +82,7 @@ const AuthService = {
           Cookies.set("accessToken" , result.access , { expires: 7, path: '/' })
           Cookies.set("user" , JSON.stringify(result.user)  , { expires: 7, path: '/' })
         }
-        return result;
+        return {status: response.status , result:result};
       
       } catch (error) {
         console.error('Error fetching data:', error);

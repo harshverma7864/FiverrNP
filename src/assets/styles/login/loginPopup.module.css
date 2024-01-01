@@ -86,6 +86,13 @@ flex-shrink: 0;
     margin-right: 20px;
 }
 
+
+
+#contryCode{
+    width: fit-content;
+    padding: 0;
+}
+
 .or{
     color: #9E8F8F;
 
@@ -99,15 +106,19 @@ margin-top:20px ;
 }
 
 #lastP{
-    margin-top: 40px;
+    margin-top: 10px;
     width: 40%;  
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
+    margin-left: 50px;
     font-size: 12px;
     font-family: 'Noto Looped Thai';
 
     
 }
+
+
+
 
 .loginOptions:hover{
     background-color: #f1efef;
@@ -118,7 +129,7 @@ margin-top:20px ;
 .inputField{
     width: 90%;
     height: 30px;
-    margin-top: 20px ;
+    margin-top: 10px ;
     margin-bottom: 20px ;
 }
 

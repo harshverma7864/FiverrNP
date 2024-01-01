@@ -51,6 +51,35 @@ const Navbar = ({userType}) => {
 
 
     
+  const [pVis , setPVis] = useState(false);
+
+  const profileDropdownVisible = () =>{
+    setPVis(!pVis);
+  }
+
+
+  
+useEffect(() => {
+  const handleClick = (event) => {
+
+    const isProfileIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${profileLogo}"]`);
+
+
+    if ( !isProfileIcon) {
+      
+      setPVis(false) // Close notifications dropdown
+    }
+    
+  };
+
+  // Add the event listener when the component mounts
+  document.addEventListener('click', handleClick);
+
+  // Remove the event listener when the component unmounts
+  return () => {
+    document.removeEventListener('click', handleClick);
+  };
+}, []);
 
 
   return (
@@ -68,13 +97,16 @@ const Navbar = ({userType}) => {
     <button  onClick={gotoDashboard} id={navStyle.joinBtn}>DashBoard</button>
 ):(<button  onClick={handleLoginClick} id={navStyle.joinBtn}>Join</button>)
       }         
-        </div>):(  <div className={navStyle.navbarRightIcons}><button   onClick={handleLogout} id={navStyle.joinBtn}>Logout</button></div>)
+        </div>):(  <div className={navStyle.navbarRightIcons}><img className={navStyle.profileLogo} onClick={profileDropdownVisible}  src={profileLogo} alt='Profile' /></div>)
 }
 
       </div>
  
 
-
+      <div  style={{visibility : pVis ? ("visible") : ("hidden")}} className={navStyle.profileDropdown}>
+      <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
+      <button className={navStyle.continueButton}> Profile</button>
+          </div> 
           { becomAsellerClicked || loginClicked ? (<Login />) : ('')}
                     
 

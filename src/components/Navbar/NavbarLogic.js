@@ -26,7 +26,7 @@ const useNavbarLogic = (categoryData) => {
   const handleClick2 = (event, index) => {
     const {top , height , left } = event.target.getBoundingClientRect();
 
-    setPositionUl2({top : top + height - 40 , left : left + 330});
+    setPositionUl2({top : top + height - 10 , left : left + 190});
     setIsClickedCategory3(null);
     setCategoryIndex2(null);
     setIsClickedCategory2((prev)=>{
@@ -48,7 +48,7 @@ const useNavbarLogic = (categoryData) => {
   const handleClick3 = (event, index) => {
     const {top , height , left } = event.target.getBoundingClientRect();
 
-    setPositionUl3({top : top + height - 40 , left : left + 320});
+    setPositionUl3({top : top + height - 10 , left : left + 260});
     setCategoryIndex2((prev)=>{
         return prev !== index ? index : null;
     });

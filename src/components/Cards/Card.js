@@ -2,7 +2,15 @@ import React from 'react'
 import cardStyle from '../../assets/styles/card/card.module.css'
 import cardImage from  '../../assets/images/cardimage1.png'
 import noImage from '../../assets/images/cardimage2.png'
+import { useHistory } from 'react-router-dom'
 const Card = ({heading , subHeadings}) => {
+
+
+  const history = useHistory();
+
+  const handleClick = (subcategory_name)=>{
+    history.push(`/search?search=${subcategory_name}`)
+  }
 
   return (
     <div className={cardStyle.card}>
@@ -12,7 +20,7 @@ const Card = ({heading , subHeadings}) => {
       <h4>{heading}</h4>
       {
         subHeadings.map((item , index)=>(
-          <p key={index}>{item.subcategory_name}</p>
+          <p key={index} onClick={()=>handleClick(item.subcategory_name)}>{item.subcategory_name}</p>
         )) 
       }
     </div>

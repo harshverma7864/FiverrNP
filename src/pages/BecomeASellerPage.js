@@ -79,27 +79,27 @@ const BecomeASellerpage = () => {
             <section className={sellerStyle.section2}>
                 <p id={sellerStyle.seller2Heading} style={{marginLeft:"90px"}}>Join our growing freelance community</p>
                 <div className={sellerStyle.section2Inner}>
-                    <div className={sellerStyle.section2Cards}>
+                    <div onClick={becomeAseller2} className={sellerStyle.section2Cards}>
                         <img src={image44} />
                         <p>I am a Designer</p>
                     </div>
-                    <div className={sellerStyle.section2Cards}>
+                    <div onClick={becomeAseller2} className={sellerStyle.section2Cards}>
                         <img src={image45} />
                         <p>I am a Developer</p>
                     </div>
-                    <div className={sellerStyle.section2Cards}>
+                    <div onClick={becomeAseller2} className={sellerStyle.section2Cards}>
                         <img src={image46} />
                         <p>I am a Writer</p>
                     </div>
-                    <div className={sellerStyle.section2Cards}>
+                    <div onClick={becomeAseller2} className={sellerStyle.section2Cards}>
                         <img src={image47} />
                         <p>I am a Video Editor</p>
                     </div>
-                    <div className={sellerStyle.section2Cards}>
+                    <div onClick={becomeAseller2} className={sellerStyle.section2Cards}>
                         <img src={image48} />
                         <p>I am a Musician</p>
                     </div>
-                    <div className={sellerStyle.specialCard}>
+                    <div onClick={becomeAseller2} className={sellerStyle.specialCard}>
                         <img src={image50} />
                         <p onClick={becomeAseller2} >Become Seller</p>
                     </div>

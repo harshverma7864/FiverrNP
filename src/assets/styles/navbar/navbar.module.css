@@ -8,6 +8,7 @@
 .navbarMain {
     width: 100%;
     height: 70px;
+    
     /* background-color: #ffffff; */
     background: linear-gradient(180deg, #FFF 0%, #FFF 100%);
 box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
@@ -16,8 +17,9 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
 
 .navbox {
     width: 95%;
-    justify-content: space-around;
+    justify-content: space-between;
     height: inherit;
+    align-items: center;
     display: flex;
     margin: auto;
 }
@@ -27,6 +29,10 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
     height: 90%;
     margin: 5px;
     padding: 5px;
+}
+
+.logo:hover{
+    cursor: pointer;
 }
 
 .categoriesDropdown {
@@ -44,7 +50,7 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
     position: relative;
     top: 12px;
     font-family: Noto Looped Thai;
-    font-size: 20px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 800;
     cursor: pointer;
@@ -53,7 +59,7 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
 
 .categoriesDropdown>h5>svg {
     position: relative;
-    top: 13px;
+    top: 9px;
 }
 
 
@@ -69,7 +75,6 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
 .searchBar {
     width: 50%;
     height: 50%;
-    margin: 10px;
     padding: 1px;
     border-radius: 10px;
     border: 2px solid orangered;
@@ -139,13 +144,13 @@ border: none;
 }
 .dropdownUl1 {
     background-color: #F7F7F7;
-    width: 315px;
+    width: 180px;
     height: fit-content;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
     position: absolute;
     top: 60px;
-    left: 360px;
+    left: 210px;
     padding: 5px;
 }
 
@@ -155,7 +160,7 @@ border: none;
     color: #000;
     cursor: pointer;
     font-family: Noto Looped Thai;
-    font-size: 20px;
+    font-size: 13px;
     font-style: normal;
 
     font-weight: 600;
@@ -175,7 +180,7 @@ border: none;
 
 .dropdownUl2 {
     background-color: #F7F7F7;
-    width: 315px;
+    width: 250px;
     height: fit-content;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
@@ -189,7 +194,7 @@ border: none;
     color: #000;
     cursor: pointer;
     font-family: Noto Looped Thai;
-    font-size: 20px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -281,7 +286,7 @@ box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
 }
 
 .gigBtn{
-    width: 60px;
+    width: 50px;
     padding: 2px;
 height: 33px;
 flex-shrink: 0;
@@ -290,4 +295,16 @@ color: white;
 background: #F04C43;
 border: none;
 box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.profileLogo{
+    box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+
+}
+
+.profileLogo:hover{
+    cursor: pointer;
+    box-shadow: 4px 4px 4.6px 2px rgba(0, 0, 0, 0.25);
 }

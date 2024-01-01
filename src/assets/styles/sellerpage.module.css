@@ -7,7 +7,7 @@
     width: 100%;
     height: 540vh;
     margin: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .aboutParent {
@@ -360,6 +360,7 @@
     height: fit-content;
     padding: 10px;
     margin-top: 20%;
+    margin-bottom: 20px;
 }
 
 .endMain {
@@ -381,6 +382,7 @@
     height: fit-content;
     width: 150px;
     color: #000;
+
     font-family: Noto Looped Thai;
     font-size: 17px;
     font-style: normal;

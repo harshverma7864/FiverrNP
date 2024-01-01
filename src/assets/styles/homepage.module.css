@@ -80,6 +80,12 @@
     padding: 20px;
     margin-right: 50px;
 }
+.scrollViewItem2{
+    width: auto;
+    color: #000000;
+    display: inline-block;
+    padding: 20px;
+}
 
 .serviceCardsOuter{
     width: 90%;

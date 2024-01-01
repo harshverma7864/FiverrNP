@@ -9,6 +9,10 @@
     padding: 10px;
     height: fit-content;
     background-color: #ECECEC;
+    border-radius: 8px;
+    box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
+
+
 
 }
 
@@ -21,16 +25,32 @@
 
 .cardImage > img{
     width: 100%;
+    border-radius: 6px;
+
 }
 
 .card > h4{
 margin: 10px;
-font-size: 20;
+font-size: 18px;
 font-weight: bold;
+width: 100%;
+}
+
+
+.heading{
+    width: 100%;
+    height: auto;
 }
 
 .card > p{
     margin: 10px;
-    font-size: 18;
+    font-size: 14px;
     font-weight: 600;
+ 
+}
+
+.card > p:hover{
+    cursor: pointer;
+    color: #F04C43;
+    
 }

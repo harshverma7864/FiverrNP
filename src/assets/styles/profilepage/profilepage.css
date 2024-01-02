@@ -289,3 +289,11 @@ img.profile-bottom-img-right{
     }
 
 
+    .main-profile-section {
+      border: 2px solid rgb(190, 188, 188);
+      width: 100%;
+      max-width: 89%;
+      margin: 0 auto; /* Center the element horizontally */
+      border-radius: 1rem;
+      padding: .4rem; /* Add padding inside the container */
+    }

@@ -11,6 +11,8 @@ import star from "../../assets/images/Star 1.png";
 import learning from "../../assets/images/learning.png";
 import logo from "../../assets/images/mainlogo.png";
 import axiosInstance from "../../utils/axios";
+import Navbar from "../Navbar/Navbar";
+
 
 
 function formatDate(dateString) {
@@ -45,6 +47,7 @@ const ProfilePage = () => {
 
   return (
     <>
+    <Navbar />
       <div className="profile-page-container">
         <div className="profile-top-main">
           <img
@@ -63,6 +66,8 @@ const ProfilePage = () => {
           />
         </div>
 
+
+<div className="main-profile-section">
         <div className="profile-section">
           <div className="profile-status">
             <img
@@ -127,6 +132,7 @@ const ProfilePage = () => {
 
           <img src={logo} className="profile-bottom-img-right" alt="img-head" />
         </div>
+      </div>
       </div>
     </>
   );

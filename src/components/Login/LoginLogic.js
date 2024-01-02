@@ -62,7 +62,11 @@ const LoginLogic = () => {
     if (result.status===200) {
       window.localStorage.setItem("loggedin", "true");
       setIsLoggedIn(true);
-      history.push('/dashboard')
+      if (result.result.user.user_type === "internal_manager") {
+        history.push("/requests")
+      }else{
+        history.push("/dashboard")
+      }
     }else{
       alert("Otp is Incorrect")
     }

@@ -16,6 +16,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
           try {
+
               const user = JSON.parse(Cookies.get("user"))
               setPhoneNumber(user.phone_number);
               setIsEmailVerified(user.is_emailverified)
@@ -51,6 +52,9 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
         certification,
         personalWebsite,
         profilePicture, 
+        skillAray,
+        languageArray,
+        educationArray,
         setProfilePicture,
         setWebsite,
         setActive,
@@ -132,7 +136,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         <h3>Description<span style={{ color: "#F04C43" }}>*</span></h3>
                                     </div>
                                     <div className="textArea">
-                                        <textarea type="text" value={desc} onChange={(e) => setDesc(e.target.value)} rows="4" cols="150" name="description" id="" placeholder="Type Your Display Name" />
+                                        <textarea type="text" value={desc} onChange={(e) => setDesc(e.target.value)} rows="4" cols="150" name="description" id="" placeholder="Type Your Description" />
                                         <p>min. 150 characters</p>
                                     </div>
                                 </div>
@@ -152,18 +156,25 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                             placeholder="Language"
 
                                         />
+
+                                        
                                     </div>
+
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <div className="displayNameInput">
                                         <input type="text"
-                                            name="level"
+                                            name="proficiency"
                                             onChange={(event) => handleJson("language", event)}
-                                            value={language.level}
+                                            value={language.proficiency}
                                             placeholder="Language Level"
                                         />
                                     </div>
+                                    
                                     <div className="title2">
                                         <button className="drop" onClick={(event) => handleAddButton("language", event)} >Add</button>
+                                        {languageArray.map((item , index)=>(
+                                            <p>{item.language} &nbsp; &nbsp; {item.level}</p>
+                                        ))}
                                     </div>
                                 </div>
 
@@ -215,13 +226,6 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         type="text" onChange={(e) => setOccupation(e.target.value)} name="occupation" value={occupation}
                                         id="" placeholder="Select Occupation" />
                                 </div>
-
-                                <div className="title2">
-                                    <button className="drop" >Add</button>
-                                </div>
-                                <div className="title2">
-                                    <button className="drop" >Okay</button>
-                                </div>
                             </div>
 
                             <div className="formElement">
@@ -256,7 +260,11 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         <div className="title2">
                                             <button className="drop" onClick={(e) => { handleOkayClick("skill", e) }}>Okay</button>
                                         </div>
+                                      
                                     </div>
+                                   <div> {skillAray.map((item , index)=>(
+                                            <p>{item.skill} &nbsp; &nbsp; {item.experience}</p>
+                                        ))}</div>
                                 </div>
                             </div>
 
@@ -312,8 +320,8 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
 
                                         <div className="displayNameInput">
                                             <input
-                                                type="text"
-                                                name="year"
+                                                type="number"
+                                                name="passout_year"
                                                 value={education.year}
                                                 onChange={(event) => handleJson("education", event)}
                                                 id=""
@@ -327,6 +335,11 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         <div className="title2">
                                             <button className="drop" onClick={(e) => { handleOkayClick("education", e) }}>Okay</button>
                                         </div>
+                                    </div>
+                                    <div>
+                                    {educationArray.map((item , index)=>(
+                                            <p>{item.country} &nbsp; &nbsp; {item.college} &nbsp; &nbsp; {item.title}</p>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
@@ -362,7 +375,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         <div className="displayNameInput">
                                             <input
                                                 onChange={(event) => handleJson("certificate", event)}
-                                                type="text"
+                                                type="number"
                                                 name="year"
                                                 id=""
                                                 value={certification.year}

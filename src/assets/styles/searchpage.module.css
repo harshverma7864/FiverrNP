@@ -9,7 +9,6 @@
 *{
     margin: 0;
     padding: 0;
-    
 }
 
 
@@ -33,6 +32,6 @@
 
 .cardGrid{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Maximum 4 items in a row, with a minimum width of 100px for each item */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Maximum 4 items in a row, with a minimum width of 100px for each item */
     grid-gap: 50px; 
 }

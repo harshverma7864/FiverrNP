@@ -31,15 +31,18 @@ const SellerService = {
   },
   
   async createSeller(formData) {
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
+    // for (let pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1]);
+    // }
+
+    console.log(formData)
+
     try {
         const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${accessToken}`,
-            // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
           body:  formData,
         });

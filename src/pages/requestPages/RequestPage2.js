@@ -23,7 +23,6 @@ const RequestPage2 = () => {
         console.error('Error fetching data:', error);
       }
     };
-  
     fetchData();
   }, []);  
 

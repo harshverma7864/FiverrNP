@@ -401,7 +401,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                     <p>Add Here your fields of expertise</p>
                                 </div>
                                 <div className="displayNameInput" id="Occupation">
-                                    <input type="text" name="expertise" value={expertise} onChange={(e)=>setExpertise(e.target.value)} id="" placeholder="Provide Technologies" />
+                                    <input type="text" name="expertise" value={expertise} onChange={(e)=>setExpertise(e.target.value)} id="" placeholder="Provide Technologies (Comma separated values)" />
                                 </div>
                             </div>
 
@@ -412,7 +412,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                     <p>Include a link to your personal website or portfolio with your work samples.</p>
                                 </div>
                                 <div className="displayNameInput" id="Occupation">
-                                    <input type="text" name="personalWebsite" value={personalWebsite}  onChange={(e)=>setWebsite(e.target.value)} id="" placeholder="Comma separated values" />
+                                    <input type="text" name="personalWebsite" value={personalWebsite}  onChange={(e)=>setWebsite(e.target.value)} id="" placeholder="Provide the Link" />
                                 </div>
                             </div>
                             <button onClick={(e) => handleContinueClick(2,e)} class="continueButton">Continue</button>

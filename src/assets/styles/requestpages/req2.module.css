@@ -57,6 +57,20 @@
   button.req-page2-btn {
     margin-left: 2rem;
 }
-  
+
+button.request-page-btn{
+  background-color: #F04C43;
+    border: none;
+    width: 80px;
+    color: white;
+    margin-top: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 7px 10px rgba(66, 65, 65, 0.1);
+    margin-left: 2rem;
+}
+
+
   /* Add any additional styles as needed */
   

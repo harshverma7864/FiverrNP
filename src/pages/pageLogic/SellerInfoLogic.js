@@ -3,18 +3,19 @@ import SellerService from '../../services/SellerService';
 import { useHistory } from 'react-router-dom';
 
 const useInfoLogic = () => {
+  
   const [profilePicture, setProfilePicture] = useState(); 
   const [displayName , setDisplayName] = useState();
    const [desc , setDesc] = useState();
-   const [language , setLanguage] = useState({language:'' , profiency:''});
+   const [language , setLanguage] = useState({language:'' , proficiency:''});
    const [occupation  , setOccupation] = useState();
    const [country , setCountry] = useState("");
    const [selectedFile , setSelectedFile] = useState();
    const [expertise , setExpertise] = useState("");
    const [personalWebsite , setWebsite] = useState("");
    const [skill , setSkills] = useState({skill:'', experience:''});
-   const [education  , setEducation] = useState({country:'', college:'' , title:'' , major:'', passout_year:0});
-   const [certification  , setCertification] = useState({name:'', from:'' , year:0 });
+   const [education  , setEducation] = useState({country:'', college:'' , title:'' , major:'', passout_year:null});
+   const [certification  , setCertification] = useState({name:'', from:'' , year:null });
    const [certificationArray, setCertArray] = useState([]);
    const [skillAray, setSkillArray] = useState([]);
    const [educationArray, setEducationArray] = useState([]);
@@ -141,7 +142,21 @@ const useInfoLogic = () => {
           formData.append("country", country)
           // submitFormData(formData);
 
-          const result = await SellerService.createSeller(formData);
+          const mainJson = {
+              country:country,
+              description:desc,
+              display_name:displayName,
+              language_proficiency:languageArray,
+              skills:skillAray,
+              education:educationArray,
+              certifications:certificationArray,
+              personal_website:personalWebsite,
+              expertise:expertise,
+              occupation:occupation
+
+          }
+
+          const result = await SellerService.createSeller(mainJson);
 
           try {
             console.log(result.message + "   " + result.status)
@@ -185,7 +200,10 @@ const useInfoLogic = () => {
     education, 
     country, expertise,
     certification,
-    profilePicture, 
+    profilePicture,
+    skillAray,
+    languageArray,
+    educationArray, 
     handleImageChange,
     setProfilePicture,
     setActive,

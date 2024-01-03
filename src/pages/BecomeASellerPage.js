@@ -29,6 +29,7 @@ const BecomeASellerpage = () => {
    const [loggedin , setLoggedIn] = useState(false);
     const history = useHistory(); 
 
+
    useEffect(()=>{
     if(window.localStorage.getItem("loggedin") === true){
         setLoggedIn(true);

@@ -8,7 +8,9 @@
 .navbarMain {
     width: 100%;
     height: 70px;
-    
+    position: sticky;
+    top: 0;
+    z-index: 1;
     /* background-color: #ffffff; */
     background: linear-gradient(180deg, #FFF 0%, #FFF 100%);
 box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
@@ -181,6 +183,7 @@ border: none;
 .dropdownUl2 {
     background-color: #F7F7F7;
     width: 250px;
+    padding: 4px;
     height: fit-content;
     box-shadow: 6px 8px 8.4px -4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 10px 10px 10px;
@@ -194,11 +197,11 @@ border: none;
     color: #000;
     cursor: pointer;
     font-family: Noto Looped Thai;
-    font-size: 14px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    padding: 10px;
+    padding: 4px;
 }
 
 .dropdownUl2 li:hover {

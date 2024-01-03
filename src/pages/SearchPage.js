@@ -23,8 +23,6 @@ const SearchPage = () => {
        
         // Check if query is null or empty before making the API call
         if (query) {
-          console.log(query)
-          console.log(`${GIG_URI}search=${query}`)
           const result = await GigService.allGigs(`${GIG_URI}search=${query}`);
           setSearchData(result);
         }
@@ -56,8 +54,8 @@ const SearchPage = () => {
       </h2>
 
       <h3 className={PageStyle.subHeading}>
-        {searchData && searchData.length} Services for{' '}
-        <span className={PageStyle.heading}>{query}</span>
+        {searchData && searchData.length} Services for &nbsp;
+        <span style={{color:"#F04C43" }}>{query}</span>
       </h3>
 
       <div className={PageStyle.cardGrid}>

@@ -4,6 +4,19 @@ import { API_BASE_URL, SELLER_URI } from '../environment';
 
 const accessToken = Cookies.get("accessToken");
 
+function stringifyValue(value) {
+  if (typeof value === 'object') {
+      if (Array.isArray(value)) {
+          return `[${value.map(stringifyValue).join(', ')}]`;
+      } else {
+          return JSON.stringify(value);
+      }
+  } else {
+      return value;
+  }
+}
+
+
 const SellerService = {
   async retriveSellerProfile(sellerId) {
     console.log(API_BASE_URL+ "/" + SELLER_URI + "/" + sellerId)
@@ -31,20 +44,24 @@ const SellerService = {
   },
   
   async createSeller(formData) {
-    // for (let pair of formData.entries()) {
-    //   console.log(pair[0] + ', ' + pair[1]);
-    // }
+  //   for (let pair of formData.entries()) {
+  //     console.log(pair[0] + ': ' + stringifyValue(pair[1]));
+  // }
+// console.log(formData)
+const urlEncodedData = new URLSearchParams();
 
-    console.log(formData)
-
+    // Append each field from the formData to the URLSearchParams object
+    for (let pair of formData.entries()) {
+        urlEncodedData.append(pair[0], stringifyValue(pair[1]));
+    }
     try {
-        const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/`, {
+        const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/` ,{
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${accessToken}`,
             'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body:  formData,
+          body: urlEncodedData.toString()
         });
       
       if (!response.ok) {
@@ -59,6 +76,10 @@ const SellerService = {
       console.error('Error fetching data:', error);
       throw error;
     }
+
+
+
+    
   },
 
 

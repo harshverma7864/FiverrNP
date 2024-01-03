@@ -7,7 +7,7 @@ const useInfoLogic = () => {
   const [profilePicture, setProfilePicture] = useState(); 
   const [displayName , setDisplayName] = useState();
    const [desc , setDesc] = useState();
-   const [language , setLanguage] = useState({language:'' , proficiency:''});
+   const [language , setLanguage] = useState({language:'' , profiency:''});
    const [occupation  , setOccupation] = useState();
    const [country , setCountry] = useState("");
    const [selectedFile , setSelectedFile] = useState();
@@ -72,7 +72,7 @@ const useInfoLogic = () => {
           break;
         case "skill":
           setSkillArray((prevArray) => [...prevArray, skill]);
-          setSkills({ skill: '', experience: '' });
+          setSkills({ skill: "", experience: "" });
           break;
         case "education":
           setEducationArray((prevArray) => [...prevArray, education]);
@@ -156,7 +156,7 @@ const useInfoLogic = () => {
 
           }
 
-          const result = await SellerService.createSeller(mainJson);
+          const result = await SellerService.createSeller(formData);
 
           try {
             console.log(result.message + "   " + result.status)

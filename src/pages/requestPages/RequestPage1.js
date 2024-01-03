@@ -30,10 +30,10 @@ const RequestPage1 = () => {
       const additionalData = [];
   
       for (const item of requestData) {
-        const response = await axiosInstance.get(`accounts/user/?ids=${item.assigned_to}`);
+        const response = await axiosInstance.get(`accounts/user/?ids=${item.requestuser}`);
         
         // Check if the response data has the expected ID
-        const responseData = response.data.find((data) => data.id === item.assigned_to);
+        const responseData = response.data.find((data) => data.id === item.requestuser);
   
         if (responseData) {
           additionalData.push(responseData);
@@ -106,20 +106,20 @@ const RequestPage1 = () => {
               </thead>
               <tbody>
                 {reqData.map((row, index) => (
-                  <tr key={index} className={style.tableRow}>
-                    <td>{index + 1}</td>
-                    <td>{row.industry}</td>
-                    <td>{row.subsub_category}</td>
-                    <td>
-                      {additionalData[index] ? (
-                        <span>{additionalData[index].first_name} {additionalData[index].last_name}</span>
-                      ) : (
-                        <span>Loading...</span>
-                      )}
-                    </td>
-                    <td>{row.quote_amount}</td>
-                    <td>{row.description}</td>
-                  </tr>
+                  <tr key={index} className={`${style.tableRow} ${row.status ? '' : style.boldRow}`}>
+  <td>{index + 1}</td>
+  <td>{row.industry}</td>
+  <td>{row.subsub_category}</td>
+  <td>
+    {additionalData[index] ? (
+      <span>{additionalData[index].first_name} {additionalData[index].last_name}</span>
+    ) : (
+      <span>Loading...</span>
+    )}
+  </td>
+  <td>{row.quote_amount}</td>
+  <td>{row.description}</td>
+</tr>
                 ))}
               </tbody>
               </table>

@@ -79,9 +79,6 @@ function Brief3({ formData }) {
       console.error('Error submitting data:', error);
     }
   };
-  
-  
-  
 
   return (
     <div className="brief-main-component">

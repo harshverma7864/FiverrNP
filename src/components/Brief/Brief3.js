@@ -1,8 +1,11 @@
 import React from 'react';
 import "../../assets/styles/Brief/berif3.css";
 import axiosInstance from '../../utils/axios';
+import { useHistory } from 'react-router-dom';
 
 function Brief3({ formData }) {
+
+  const history = useHistory();
 
   const formatDateForBackend = (dateString) => {
     const parts = dateString.split('/');
@@ -56,7 +59,6 @@ function Brief3({ formData }) {
             formData.append(key, backendFormData[key]);
           }
         });
-  
         // Append the attachment only if it's a valid File object
         if (backendFormData.attachment instanceof File) {
           formData.append('attachment', backendFormData.attachment);
@@ -68,7 +70,7 @@ function Brief3({ formData }) {
             'Content-Type': 'multipart/form-data',
           },
         });
-  
+        history.push('/dashboard');
         console.log('API Response:', response.data);
         // Handle the response as needed
       } else {

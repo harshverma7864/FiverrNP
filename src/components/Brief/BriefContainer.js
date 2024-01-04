@@ -3,6 +3,7 @@ import Brief1 from "./Brief1";
 import Brief2 from "./Brief2";
 import Brief3 from "./Brief3";
 import arrows from "../../assets/images/arrows.png";
+import Navbar from "../Navbar/Navbar";
 
 const BriefContainer = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -23,6 +24,7 @@ const BriefContainer = () => {
 
   return (
     <>
+    <Navbar />
       <div className="brief-main-component">
       <div className="brief-navigate">
         <div className="brief-navigate-title">

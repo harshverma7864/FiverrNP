@@ -163,7 +163,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <div className="displayNameInput">
                                         <input type="text"
-                                            name="proficiency"
+                                            name="profiency"
                                             onChange={(event) => handleJson("language", event)}
                                             value={language.proficiency}
                                             placeholder="Language Level"

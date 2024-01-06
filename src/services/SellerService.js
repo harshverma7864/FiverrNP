@@ -4,17 +4,17 @@ import { API_BASE_URL, SELLER_URI } from '../environment';
 
 const accessToken = Cookies.get("accessToken");
 
-function stringifyValue(value) {
-  if (typeof value === 'object') {
-      if (Array.isArray(value)) {
-          return `[${value.map(stringifyValue).join(', ')}]`;
-      } else {
-          return JSON.stringify(value);
-      }
-  } else {
-      return value;
-  }
-}
+// function stringifyValue(value) {
+//   if (typeof value === 'object') {
+//       if (Array.isArray(value)) {
+//           return `[${value.map(stringifyValue).join(', ')}]`;
+//       } else {
+//           return JSON.stringify(value);
+//       }
+//   } else {
+//       return value;
+//   }
+// }
 
 
 const SellerService = {

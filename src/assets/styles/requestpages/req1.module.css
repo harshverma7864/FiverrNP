@@ -21,8 +21,8 @@ select.requestpage {
     height: auto;
     padding: 20px;
     border-radius: 9px;
-background: rgba(255, 255, 255, 0.44);
-box-shadow: 0px 1px 4.5px 0px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.44);
+    box-shadow: 0px 1px 4.5px 0px rgba(0, 0, 0, 0.25);
 }
 
 .reqCardHeader{
@@ -35,7 +35,7 @@ box-shadow: 0px 1px 4.5px 0px rgba(0, 0, 0, 0.25);
     width: 60%;
     display: flex;
     border-radius: 5px 5px 0px 0px;
-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .leftHeaderItems{
@@ -65,11 +65,11 @@ box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
     padding: 3px;
     display: flex;
     color: #F04C43;
-font-family: Noto Looped Thai;
-font-size: 14px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
+    font-family: Noto Looped Thai;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
 }
 
 
@@ -91,11 +91,11 @@ line-height: normal;
     padding: 5px;
     color: #766161;
 
-font-family: Noto Looped Thai;
-font-size: 14px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
+    font-family: Noto Looped Thai;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
 }
 
 
@@ -120,38 +120,200 @@ line-height: normal;
     border-radius: 100%;
 }
 
-/* Add these styles in your CSS file or style tag */
-
 .tableContainer {
     margin: 20px;
-  }
-  
-  .table {
+}
+
+.table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
-  .tableHeader {
+}
+
+.tableHeader {
     background-color: #f2f2f2;
-  }
-  
-  .tableHeader th, .tableRow td {
+}
+
+.tableHeader th, .tableRow td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-  }
-  
-  .tableRow:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+}
 
-  .boldRow {
+.tableRow:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.boldRow {
     font-weight: bold;
-  }
-  
-  select.requestpage {
+}
+
+select.requestpage {
     margin-left: -7rem;
     margin-right: 2.5rem;
 }
-  
 
+@media (max-width: 900px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container{
+        padding: 8px;
+        overflow-x: hidden;
+    }
+    
+    select.requestpage {
+        display: flex;
+        width: 9rem;
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+    
+    .reqCard{
+        box-sizing: border-box;
+        margin-top: 20px;
+        width: 100%;
+        margin: auto;
+        height: auto;
+        padding: 20px;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.44);
+        box-shadow: 0px 1px 4.5px 0px rgba(0, 0, 0, 0.25);
+    }
+    
+    .reqCardHeader{
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .headerLeft{
+        width: 100%;
+        display: flex;
+        border-radius: 5px 5px 0px 0px;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    }
+    
+    .leftHeaderItems{
+        box-sizing: border-box;
+        width: 25%;
+        border-radius: 5px 5px 0px 0px;
+    
+        text-align: center;
+        background-color: #DED5D5;
+        padding: 5px;
+        font-size: 15px;
+    }
+    
+    .leftHeaderItems:hover{
+        cursor: pointer;
+        background-color: #F04C43;
+    }
+    
+    .headerRight{
+        position: absolute;
+        top: -2.5rem;
+        width: 40%;
+        justify-content: end;
+        padding: 3px;
+        display: flex;
+        color: #F04C43;
+        font-family: Noto Looped Thai;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+    }
+
+    .tableContainer{
+        box-sizing: border-box;
+        margin: 0;
+        width: 100%;
+        margin-top: 1.2rem;
+    }
+    
+    .tableUl{
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    
+        width: 100%;
+        margin: auto;
+        display: flex;
+        height: fit-content;
+        padding-left: 7px;
+        padding-right: 7px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tableUl li{
+        padding: 5px;
+        color: #766161;
+    
+        font-family: Noto Looped Thai;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+    }
+    
+    
+    .heading{
+        color: #F04C43;
+        margin-bottom: 20px;
+    }
+    
+    .projectData{
+        width: 100%;
+        padding: 3px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .projectHeading{
+        display: flex;
+    }
+    .projectHeading > img{
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+    }
+    
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .tableHeader{
+        width: 100%;
+        height: 50px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        
+    }
+    
+    .tableHeader th, .tableRow td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        font-size: 0.6rem;
+    }
+    
+    .tableRow:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    .boldRow {
+        font-weight: bold;
+    }
+    
+    select.requestpage {
+        margin-left: -7rem;
+        margin-right: 2.5rem;
+    }
+}

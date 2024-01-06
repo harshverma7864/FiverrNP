@@ -120,7 +120,8 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
 
       <div className="brief-freelance">
         <div className="freelance-title">
-          <img src={mark} alt="arrows" /> <h3>Are you a freelancer?</h3>
+          <img src={mark} alt="arrows" /> 
+          <h3>Are you a freelancer?</h3>
         </div>
         <div className="brief-button">
           <button>Become a Seller</button>
@@ -162,7 +163,7 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
             <h5>This will help get your brief to the right talent. Specifics help here.</h5>
           </div>
           <div className="product-input">
-            <div style={{ position: "relative" }}>
+          <div style={{ position: "relative" }}>
               <input
                 className="brief"
                 placeholder="I Need........."

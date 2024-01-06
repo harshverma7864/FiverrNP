@@ -1,13 +1,14 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
-}
+} */
 
 .brief-main-component {
-    max-width: 91%;
-    margin-left: 5rem;
-    margin-right: 4rem;
-    margin-top: 4rem;
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: 5rem;
+    /* margin-right: 4rem; */
+    padding-top: 4rem;
     /* align-items: center; */
 }
 
@@ -37,6 +38,8 @@ img.brief-arrow {
     /* Add any other styles you want for the active step */
   }
 
+/* ------------------------------- */
+
 .brief-subtitle h2{
     color: #F04C43;
 }
@@ -53,6 +56,7 @@ cursor: pointer;
 }
 
 .brief-freelance{
+    box-sizing: border-box;
     width: 100%;
     background-color: #ECECEC;
     display: flex;
@@ -67,6 +71,12 @@ cursor: pointer;
     display: flex;
     gap: 1rem;
     margin-left: 2rem;
+}
+
+.freelance-title
+img{
+    width: 30px;
+    aspect-ratio: 1/1;
 }
 
 .brief-freelance button{
@@ -235,4 +245,116 @@ select {
 
 
 
-  
+@media (max-width: 900px) {
+    /* * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    } */
+    
+    .brief-main-component {
+        /* box-sizing: border-box; */
+        /* width: 100vw; */
+        margin: 0;
+        padding-inline: 1rem;
+        padding-top: 2rem;
+    }
+
+    .brief-subtitle h2{
+        font-size: 1.3rem;
+    }
+
+    .brief-subtitle h4{
+        font-size: 0.8rem;
+    }
+
+    .brief-subtitle h4 span{
+        font-size: 0.8rem;
+    }
+    
+    .brief-navigate-title h1 {
+        font-size: 0.6rem;
+        width: auto;
+    }
+    
+    .brief-navigate h2 {
+        font-size: 0.6rem;
+        width: auto;
+    }
+    
+    img.brief-arrow {
+        width: 2.5rem;
+        height: 1rem;
+    }
+    
+    .brief-freelance {
+        flex-direction: row;
+        margin-top: 1rem;
+        padding-inline: 0.5rem;
+    }
+    
+    .freelance-title {
+        margin-left: 1rem;
+    }
+    
+    .brief-freelance button {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .brief-project-title {
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+    }
+    
+    .brief-project h1,
+    .brief-project h5 {
+        margin-left: 1rem;
+    }
+    
+    .product-input input.brief {
+        width: 100%;
+    }
+    
+    .uploader {
+        margin-right: 1rem;
+    }
+    
+    .uploader-img-div {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .brif-project-main-third {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .multiple-option {
+        margin-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .option-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    label {
+        max-width: 100%;
+    }
+    
+    select {
+        width: 100%;
+    }
+    
+    .brief1-btn {
+        width: 100%;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+}

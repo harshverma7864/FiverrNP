@@ -43,44 +43,39 @@ const SellerService = {
     }
   },
   
-  async createSeller(formData) {
-  //   for (let pair of formData.entries()) {
-  //     console.log(pair[0] + ': ' + stringifyValue(pair[1]));
-  // }
-// console.log(formData)
-const urlEncodedData = new URLSearchParams();
-
-    // Append each field from the formData to the URLSearchParams object
-    for (let pair of formData.entries()) {
-        urlEncodedData.append(pair[0], stringifyValue(pair[1]));
-    }
-    try {
-        const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/` ,{
+  
+    async createSeller(formData) {
+      try {
+        const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
           },
-          body: urlEncodedData.toString()
+          body: JSON.stringify({
+            language_proficiency: formData.get("language_proficiency"),
+            skills: formData.get("skills"),
+            education: formData.get("education"),
+            certifications: formData.get("certifications"),
+            // Add other fields as needed
+          }),
         });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status} ${response.error}`  );
-      }else{
+  
+        if (!response.ok) {
+          const errorMessage = await response.text();
+          throw new Error(`HTTP error! Status: ${response.status} - ${errorMessage}`);
+        }
+  
         const data = await response.json();
         return data;
+      } catch (error) {
+        console.error('Error creating seller:', error);
+        throw error;
       }
-
-     
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      throw error;
-    }
+    },
+  
 
 
-
-    
-  },
 
 
 

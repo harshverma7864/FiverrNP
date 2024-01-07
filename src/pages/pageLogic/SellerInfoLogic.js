@@ -68,7 +68,7 @@ const useInfoLogic = () => {
       switch (section) {
         case "language":
           setLanguageArray((prevArray) => [...prevArray, language]);
-          setLanguage({ language: '', level: '' });
+          setLanguage({ language: '', profiency: '' });
           break;
         case "skill":
           setSkillArray((prevArray) => [...prevArray, skill]);
@@ -105,19 +105,19 @@ const useInfoLogic = () => {
 
     e.preventDefault();
 
-    switch (section) {
-      case "skill":
-        formData.append("skills",skillAray)
-        break;
-      case "education":
-        formData.append("education",educationArray)
-        break;
-      case "certificate":
-        formData.append("certifications",certificationArray)
-        break;
-      default:
-        break;
-    }
+    // switch (section) {
+    //   case "skill":
+    //     formData.append("skills",skillAray)
+    //     break;
+    //   case "education":
+    //     formData.append("education",educationArray)
+    //     break;
+    //   case "certificate":
+    //     formData.append("certifications",certificationArray)
+    //     break;
+    //   default:
+    //     break;
+    // }
     
    }
 
@@ -204,6 +204,7 @@ const useInfoLogic = () => {
     skillAray,
     languageArray,
     educationArray, 
+    certificationArray,   
     handleImageChange,
     setProfilePicture,
     setActive,

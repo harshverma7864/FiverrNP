@@ -44,24 +44,14 @@ const SellerService = {
   },
   
   async createSeller(formData) {
-  //   for (let pair of formData.entries()) {
-  //     console.log(pair[0] + ': ' + stringifyValue(pair[1]));
-  // }
-// console.log(formData)
-const urlEncodedData = new URLSearchParams();
 
-    // Append each field from the formData to the URLSearchParams object
-    for (let pair of formData.entries()) {
-        urlEncodedData.append(pair[0], stringifyValue(pair[1]));
-    }
     try {
         const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/` ,{
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${accessToken}`
           },
-          body: urlEncodedData.toString()
+          body: formData
         });
       
       if (!response.ok) {

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
 import ProfilePage from './components/ProfilePage/Profilepage';
 // import Brief1 from './components/Brief/Brief1';
 import BriefContainer from './components/Brief/BriefContainer';
-import CheckForm from './checkerrors/checkform';
 import "./App.css"
 
 function App() {
@@ -49,7 +48,6 @@ function App() {
           <Route path="/becomeAseller3" component={Seller3} />
           <Route path="/profileInfo" component={SellerInformationPage} />
           <Route path="/requests" component={RequestPage1} />
-          <Route path="/check" component={CheckForm} />
           {/* <Route path="/requests2" component={RequestPage2} /> */}
         </Switch>
         <Footer />

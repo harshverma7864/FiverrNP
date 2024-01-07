@@ -5,56 +5,10 @@ const CheckForm = () => {
   const [formData, setFormData] = useState({
     country: "",
     description: "",
-    language_proficiency: [
-      { language: "English", proficiency: "Fluent" },
-      { language: "Hindi", proficiency: "Fluent" },
-      { language: "Punjabi", proficiency: "Fluent" },
-    ],
-    skills: [
-      { skill: "Figma", experience: "3 Years" },
-      { skill: "Photoshop", experience: "3 Years" },
-      { skill: "Digital Marketing", experience: "3 Years" },
-    ],
-    education: [
-      {
-        country: "India",
-        college: "Amity University",
-        title: "B.Tech",
-        major: "Computer Science",
-        passout_year: 2023,
-      },
-      {
-        country: "India",
-        college: "Amity University",
-        title: "B.Tech",
-        major: "Computer Science",
-        passout_year: 2023,
-      },
-      {
-        country: "India",
-        college: "Amity University",
-        title: "B.Tech",
-        major: "Computer Science",
-        passout_year: 2023,
-      },
-    ],
-    certifications: [
-      {
-        name: "Digital Marketing Bootcamp",
-        from: "Udemy",
-        year: 2023,
-      },
-      {
-        name: "Digital Marketing Bootcamp",
-        from: "Udemy",
-        year: 2023,
-      },
-      {
-        name: "Digital Marketing Bootcamp",
-        from: "Udemy",
-        year: 2023,
-      },
-    ],
+    language_proficiency: [],
+    skills: [],
+    education: [],
+    certifications: [],
     display_name: "",
     occupation: "",
     expertise: "", // comma-separated string of subsubcategory values

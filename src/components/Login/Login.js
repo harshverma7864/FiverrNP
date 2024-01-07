@@ -49,11 +49,11 @@ const Login = () => {
                     {signUpClicked ? ("Already have an account? Sign in") : ("Don’t have an account? Join here")}
 
                 </p>
-
+                
                 {
                     (loginMethod === null && !signUpClicked) ? (
 
-                        <>
+                        <div className={loginStyle.loginBox}>
                             <div id={loginStyle.gLogin} className={loginStyle.loginOptions}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107" />
@@ -77,7 +77,7 @@ const Login = () => {
                             </div>
                            
 
-                        </>
+                        </div>
                     ) : (<div className={loginStyle.fields}>
                         { signUpClicked && !nextClicked ? (
                             <div className={loginStyle.inputField}>
@@ -187,7 +187,6 @@ const Login = () => {
                             <button className={loginStyle.backBtn} onClick={() => setLoginMethodType(null)}>    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
                                 <path d="M6.31973 1.16171L0.340815 7.12011C0.23195 7.23344 0.146613 7.36708 0.0897002 7.51336C-0.0298996 7.80349 -0.0298997 8.12891 0.0897002 8.41904C0.146613 8.56532 0.23195 8.69896 0.340815 8.81229L6.31973 14.7707C6.43122 14.8818 6.56358 14.9699 6.70926 15.0301C6.85493 15.0902 7.01106 15.1212 7.16874 15.1212C7.48718 15.1212 7.79257 14.9951 8.01774 14.7707C8.24291 14.5463 8.36941 14.2419 8.36941 13.9246C8.36941 13.6073 8.24291 13.3029 8.01774 13.0785L4.07166 9.15788L13.1477 9.15788C13.4648 9.15788 13.7689 9.03233 13.9932 8.80885C14.2175 8.58536 14.3434 8.28225 14.3434 7.9662C14.3434 7.65015 14.2175 7.34704 13.9932 7.12356C13.7689 6.90007 13.4648 6.77452 13.1477 6.77452L4.07166 6.77452L8.01774 2.8539C8.12982 2.74311 8.21878 2.61131 8.27949 2.4661C8.3402 2.32088 8.37145 2.16512 8.37145 2.0078C8.37145 1.85049 8.3402 1.69473 8.27949 1.54951C8.21878 1.40429 8.12982 1.27249 8.01774 1.16171C7.90658 1.05002 7.77432 0.961362 7.62861 0.900862C7.48289 0.840362 7.32659 0.809215 7.16874 0.809215C7.01088 0.809215 6.85458 0.840362 6.70887 0.900862C6.56315 0.961362 6.43089 1.05002 6.31973 1.16171Z" fill="#F04C43" />
                             </svg></button>
-
                         </div>
                     ) : ('')
                 }
@@ -198,9 +197,6 @@ const Login = () => {
                         <div className={loginStyle.fields}>
                             <div className={loginStyle.inputField}>
                                 {otpRequested ? (<><form>
-
-
-
                                     <div className={loginStyle.contactField}>
                                         Otp
                                         <input type='text' onChange={(e) => setOtp(e.target.value)} maxLength={10} placeholder='' required />
@@ -212,9 +208,10 @@ const Login = () => {
 
                                     <button onClick={() => { verifyOtp(true) }} className={loginStyle.loginBtn}>Verify</button>
 
-
-                                </>) : (<>  <form><h5>Phone</h5>  <div id={loginStyle.contactInput} className={loginStyle.contactField}>
-
+                                </>) : (<div>  
+                                <form>
+                                    <h5>Phone</h5> 
+                                     <div id={loginStyle.contactInput} className={loginStyle.contactField}>
                                     <select onChange={(e) => setCntry(e.target.value)} id={loginStyle.contryCode} required>
                                         <option value="+91" selected>+91</option>
                                         <option value="+1">+1</option>
@@ -223,35 +220,20 @@ const Login = () => {
 
                                 </div>
                                 {error ? (<p style={{color : "#F04C43"}}><br/>{error}</p>):('')}
-
                                 </form>
-
                                     <button onClick={() => { requestOtp(true) }} className={loginStyle.loginBtn}>Request Otp</button>
                                     <button className={loginStyle.backBtn} onClick={() => setLoginMethodType(null)}><svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
                                         <path d="M6.31973 1.16171L0.340815 7.12011C0.23195 7.23344 0.146613 7.36708 0.0897002 7.51336C-0.0298996 7.80349 -0.0298997 8.12891 0.0897002 8.41904C0.146613 8.56532 0.23195 8.69896 0.340815 8.81229L6.31973 14.7707C6.43122 14.8818 6.56358 14.9699 6.70926 15.0301C6.85493 15.0902 7.01106 15.1212 7.16874 15.1212C7.48718 15.1212 7.79257 14.9951 8.01774 14.7707C8.24291 14.5463 8.36941 14.2419 8.36941 13.9246C8.36941 13.6073 8.24291 13.3029 8.01774 13.0785L4.07166 9.15788L13.1477 9.15788C13.4648 9.15788 13.7689 9.03233 13.9932 8.80885C14.2175 8.58536 14.3434 8.28225 14.3434 7.9662C14.3434 7.65015 14.2175 7.34704 13.9932 7.12356C13.7689 6.90007 13.4648 6.77452 13.1477 6.77452L4.07166 6.77452L8.01774 2.8539C8.12982 2.74311 8.21878 2.61131 8.27949 2.4661C8.3402 2.32088 8.37145 2.16512 8.37145 2.0078C8.37145 1.85049 8.3402 1.69473 8.27949 1.54951C8.21878 1.40429 8.12982 1.27249 8.01774 1.16171C7.90658 1.05002 7.77432 0.961362 7.62861 0.900862C7.48289 0.840362 7.32659 0.809215 7.16874 0.809215C7.01088 0.809215 6.85458 0.840362 6.70887 0.900862C6.56315 0.961362 6.43089 1.05002 6.31973 1.16171Z" fill="#F04C43" />
                                     </svg>
                                     </button>
-                                </>
+                                </div>
 
                                 )
                                 }
-
-
-
-
-                            </div>
-
-
-
-
+                           </div>
                         </div>
                     ) : ('')
                 }
-
-
-
-
-
                 <p id={loginStyle.lastP}>By joining, you agree to the netpuppys Terms Of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data.</p>
             </div>
 

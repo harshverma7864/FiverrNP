@@ -310,31 +310,3 @@ box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     box-shadow: 4px 4px 4.6px 2px rgba(0, 0, 0, 0.25);
 }
-
-@media (max-width: 900px) {
-    .categoriesDropdown{
-        display: none;
-    }
-
-    .searchBar{
-        display: none;
-    }
-
-    .navbarRightIcons{
-        /* display: none; */
-    }
-
-    .navbarRightIcons>img {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        cursor: pointer;
-    }
-    
-    .navbarRightIcons > *{
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        cursor: pointer;
-        width: fit-content;
-    }
-    
-}

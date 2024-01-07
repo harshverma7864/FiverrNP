@@ -48,18 +48,11 @@ const SellerService = {
   
   async createSeller(formData) {
 
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
-
-
-const urlEncodedData = new URLSearchParams();
     try {
         const response = await fetch(`${API_BASE_URL}/${SELLER_URI}/` ,{
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${accessToken}`
           },
           body: formData
         });

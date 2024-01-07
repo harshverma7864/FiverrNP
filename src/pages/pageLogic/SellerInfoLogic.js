@@ -130,16 +130,16 @@ const useInfoLogic = () => {
           setActive(2)
           break
         case 2:
-          formData.append("display_name", JSON.stringify(displayName));
-          formData.append("description",JSON.stringify(desc) );
+          formData.append("display_name", displayName);
+          formData.append("description",desc );
           formData.append("language_proficiency", JSON.stringify(languageArray));
-          formData.append("skills", JSON.stringify(skillAray))
-          formData.append("education", JSON.stringify(educationArray))
-          formData.append("certifications", JSON.stringify(certificationArray))
-          formData.append("occupation", JSON.stringify(occupation))
-          formData.append("personal_website", JSON.stringify(personalWebsite))
-          formData.append("expertise", JSON.stringify(expertise))
-          formData.append("country", JSON.stringify(country))
+          formData.append("skills", JSON.stringify(skillAray));
+          formData.append("education", JSON.stringify(educationArray));
+          formData.append("certifications", JSON.stringify(certificationArray));
+          formData.append("occupation", occupation);
+          formData.append("personal_website", personalWebsite);
+          formData.append("expertise", expertise);
+          formData.append("country", country);
           // submitFormData(formData);
 
           const mainJson = {

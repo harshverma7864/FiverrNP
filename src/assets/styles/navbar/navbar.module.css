@@ -6,6 +6,7 @@
 }
 
 .navbarMain {
+    box-sizing: border-box;
     width: 100%;
     height: 70px;
     position: sticky;
@@ -13,7 +14,7 @@
     z-index: 1;
     /* background-color: #ffffff; */
     background: linear-gradient(180deg, #FFF 0%, #FFF 100%);
-box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
     /* The values are offsetX, offsetY, blurRadius, and color */
 }
 
@@ -64,8 +65,6 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
     top: 9px;
 }
 
-
-
 .categoriesDropdown>select {
     border: none;
     height: 10px;
@@ -85,13 +84,13 @@ box-shadow: 0px 4px 9.8px 0px rgba(0, 0, 0, 0.25);
 .searchBar>input {
     color: #756969;
     width: 82%;
-font-family: Noto Looped Thai;
-font-size: 15px;
-font-style: normal;
-font-weight: 600;
-padding-left: 20px;
-line-height: normal;
-border: none;
+    font-family: Noto Looped Thai;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    padding-left: 20px;
+    line-height: normal;
+    border: none;
     outline: none;
 }
 
@@ -310,4 +309,32 @@ box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
 .profileLogo:hover{
     cursor: pointer;
     box-shadow: 4px 4px 4.6px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 900px) {
+    .categoriesDropdown{
+        display: none;
+    }
+
+    .searchBar{
+        display: none;
+    }
+
+    .navbarRightIcons{
+        /* display: none; */
+    }
+
+    .navbarRightIcons>img {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        cursor: pointer;
+    }
+    
+    .navbarRightIcons > *{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        cursor: pointer;
+        width: fit-content;
+    }
+    
 }

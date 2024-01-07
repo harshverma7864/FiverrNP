@@ -6,6 +6,7 @@ import ProfilePage from './components/ProfilePage/Profilepage';
 // import Brief1 from './components/Brief/Brief1';
 import BriefContainer from './components/Brief/BriefContainer';
 import CheckForm from './checkerrors/checkform';
+import "./App.css"
 
 function App() {
   // useEffect(() => {
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <Router>
-    
+      
         <Switch>
           <Route path="/" exact component={HomePage2} />
           <Route path="/dashboard" exact component={HomePage} />

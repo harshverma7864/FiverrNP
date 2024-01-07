@@ -1,7 +1,7 @@
 import React from 'react';
-import "../../assets/styles/Brief/berif3.css";
 import axiosInstance from '../../utils/axios';
 import { useHistory } from 'react-router-dom';
+import "../../assets/styles/Brief/berif3.css";
 
 function Brief3({ formData }) {
 

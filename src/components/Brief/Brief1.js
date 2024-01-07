@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../../assets/styles/Brief/brief1.css";
 import mark from "../../assets/images/Vector.png";
 import uploader from "../../assets/images/upload-big.png";
+import "../../assets/styles/Brief/brief1.css";
 
 const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -163,7 +163,7 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
             <h5>This will help get your brief to the right talent. Specifics help here.</h5>
           </div>
           <div className="product-input">
-          <div style={{ position: "relative" }}>
+            <div style={{ position: "relative" }}>
               <input
                 className="brief"
                 placeholder="I Need........."

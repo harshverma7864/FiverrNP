@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    /* width: 100%; */
 }
 
 .banner{
@@ -22,6 +23,7 @@
 }
 
 .bannerImage > img{
+    width: 100%;
     height: 100%;
 }
 
@@ -99,4 +101,83 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Maximum 4 items in a row, with a minimum width of 100px for each item */
         grid-gap: 20px; /* Gap between grid items */
       
+}
+
+.searchBar {
+    visibility: hidden;
+    width: 0%;
+    height: 0%;
+    padding: 1px;
+    margin: 0;
+    border-radius: 10px;
+    border: 2px solid orangered;
+}
+
+.searchBar>input {
+    color: #756969;
+    width: 75%;
+font-family: Noto Looped Thai;
+font-size: 15px;
+font-style: normal;
+font-weight: 600;
+padding-left: 20px;
+line-height: normal;
+border: none;
+    outline: none;
+}
+
+.searchBar>button {
+    background-color: #F04C43;
+    padding: 5px;
+    width: 25%;
+    height: 100%;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+@media only screen  and (max-width:450px) {
+    
+    .bannerBox{
+        width: 85%;
+    }
+
+    .bannerImage{
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+    .bannerImage > img{
+        width: 100%;
+        height: 60%;
+    }
+
+    .bannerbox2{
+        width: 70%;
+        font-size: 8px;
+    }
+    .banner{
+        height: 200px;
+    }
+
+    .bannerButton{
+        width: 50px;
+        height: 20px;
+        font-size: 8px;
+    }
+
+    .searchBar{
+        visibility: visible;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .heading{
+        font-size: 16px;
+    }
 }

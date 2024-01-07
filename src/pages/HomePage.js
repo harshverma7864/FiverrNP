@@ -1,10 +1,27 @@
 import React  , { useEffect , useState } from 'react'
-import { Card, Navbar } from '../components'
+import { Card, Navbar, Table } from '../components'
 import style from '../assets/styles/homepage.module.css'
 import bannerImage from '../assets/images/bannerImage1.png'
 import CategoryService from '../services/CategoryService';
+import { useHistory } from 'react-router-dom';
 
 const HomePage = () => {
+  const [inputValue, setInputValue] = useState('');
+  const history = useHistory();
+  const handleSearchClick = () =>{
+    if (history) {
+      history.push(`/search?search=${inputValue}`);
+    } else {
+      console.error('History is undefined!');
+    }
+  }
+
+
+ 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
     const [categoryData, setCategoryData] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
@@ -78,6 +95,18 @@ const HomePage = () => {
     <>
 
 <Navbar/>
+
+
+<div  className={style.searchBar}>
+
+<input           
+      value={inputValue}
+       onChange={handleInputChange} 
+       type='text' placeholder=' Find Your Project'/>
+<button onClick={handleSearchClick}>search</button>
+</div>
+
+
     <div className={style.banner}>
         <div className={style.bannerBox}>
             <div className={style.bannerImage}>

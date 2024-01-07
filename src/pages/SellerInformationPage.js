@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react'
-import { Navbar, Navbar2 } from '../components'
+import { Navbar, Navbar2, Table } from '../components'
 import '../assets/styles/profileInfo.css'
 import arrow from '../assets/images/arrows (1) 2.png'
 import checked from '../assets/images/checked (2) 1.png'
@@ -55,6 +55,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
         skillAray,
         languageArray,
         educationArray,
+        certificationArray,
         setProfilePicture,
         setWebsite,
         setActive,
@@ -140,8 +141,9 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         <p>min. 150 characters</p>
                                     </div>
                                 </div>
-
+                              
                                 <div className="formElement">
+                              
                                     <div className="title">
                                         <h3>Languages<span style={{ color: "#F04C43" }}>*</span></h3>
                                         <p>Select which languages you can communicate in and your proficiency level.
@@ -156,8 +158,6 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                             placeholder="Language"
 
                                         />
-
-                                        
                                     </div>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -165,21 +165,19 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         <input type="text"
                                             name="profiency"
                                             onChange={(event) => handleJson("language", event)}
-                                            value={language.proficiency}
+                                            value={language.profiency}
                                             placeholder="Language Level"
                                         />
                                     </div>
                                     
                                     <div className="title2">
                                         <button className="drop" onClick={(event) => handleAddButton("language", event)} >Add</button>
-                                        {languageArray.map((item , index)=>(
-                                            <p>{item.language} &nbsp; &nbsp; {item.level}</p>
-                                        ))}
+                                       
                                     </div>
                                 </div>
+                                    { languageArray && languageArray.length > 0 ? ( <Table tableData={languageArray} />) : ("")}
 
-
-
+                               
 
                                 <div className="formElement">
                                     <div className="title">
@@ -262,9 +260,9 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         </div>
                                       
                                     </div>
-                                   <div> {skillAray.map((item , index)=>(
-                                            <p>{item.skill} &nbsp; &nbsp; {item.experience}</p>
-                                        ))}</div>
+                                   <div>        
+                                                                 { skillAray && skillAray.length > 0 ? ( <Table tableData={skillAray} />) : ("")}
+</div>
                                 </div>
                             </div>
 
@@ -337,9 +335,8 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                         </div>
                                     </div>
                                     <div>
-                                    {educationArray.map((item , index)=>(
-                                            <p>{item.country} &nbsp; &nbsp; {item.college} &nbsp; &nbsp; {item.title}</p>
-                                        ))}
+                                    { educationArray && educationArray.length > 0 ? ( <Table tableData={educationArray} />) : ("")}
+
                                     </div>
                                 </div>
                             </div>
@@ -391,6 +388,9 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                             <button className="drop" onClick={(e) => handleOkayClick("certificate", e)}>Okay</button>
                                         </div>
                                     </div>
+                                    <div>            
+                                            { certificationArray && certificationArray.length > 0 ? ( <Table tableData={certificationArray} />) : ("")}
+</div>
                                 </div>
                             </div>
 

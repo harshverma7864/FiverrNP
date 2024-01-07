@@ -68,7 +68,7 @@ const useInfoLogic = () => {
       switch (section) {
         case "language":
           setLanguageArray((prevArray) => [...prevArray, language]);
-          setLanguage({ language: '', level: '' });
+          setLanguage({ language: '', profiency: '' });
           break;
         case "skill":
           setSkillArray((prevArray) => [...prevArray, skill]);
@@ -105,19 +105,19 @@ const useInfoLogic = () => {
 
     e.preventDefault();
 
-    switch (section) {
-      case "skill":
-        formData.append("skills",skillAray)
-        break;
-      case "education":
-        formData.append("education",educationArray)
-        break;
-      case "certificate":
-        formData.append("certifications",certificationArray)
-        break;
-      default:
-        break;
-    }
+    // switch (section) {
+    //   case "skill":
+    //     formData.append("skills",skillAray)
+    //     break;
+    //   case "education":
+    //     formData.append("education",educationArray)
+    //     break;
+    //   case "certificate":
+    //     formData.append("certifications",certificationArray)
+    //     break;
+    //   default:
+    //     break;
+    // }
     
    }
 
@@ -130,16 +130,16 @@ const useInfoLogic = () => {
           setActive(2)
           break
         case 2:
-          formData.append("display_name", displayName);
-          formData.append("description",desc );
-          formData.append("language_proficiency", languageArray);
-          formData.append("skills", skillAray)
-          formData.append("education", educationArray)
-          formData.append("certifications", certificationArray)
-          formData.append("occupation", certificationArray)
-          formData.append("personal_website", personalWebsite)
-          formData.append("expertise", expertise)
-          formData.append("country", country)
+          formData.append("display_name", JSON.stringify(displayName));
+          formData.append("description",JSON.stringify(desc) );
+          formData.append("language_proficiency", JSON.stringify(languageArray));
+          formData.append("skills", JSON.stringify(skillAray))
+          formData.append("education", JSON.stringify(educationArray))
+          formData.append("certifications", JSON.stringify(certificationArray))
+          formData.append("occupation", JSON.stringify(occupation))
+          formData.append("personal_website", JSON.stringify(personalWebsite))
+          formData.append("expertise", JSON.stringify(expertise))
+          formData.append("country", JSON.stringify(country))
           // submitFormData(formData);
 
           const mainJson = {
@@ -204,6 +204,7 @@ const useInfoLogic = () => {
     skillAray,
     languageArray,
     educationArray, 
+    certificationArray,   
     handleImageChange,
     setProfilePicture,
     setActive,

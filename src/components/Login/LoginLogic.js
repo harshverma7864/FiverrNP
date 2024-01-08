@@ -119,7 +119,9 @@ const LoginLogic = () => {
   const registerNewUser = async () => {
     const result = await AuthService.registerNewUser(signupData);
     setFormErrors(null)
+
     try{
+      console.log(result)
     if (result.status === 201) {
       window.location.reload();
       history.push("/dashboard")

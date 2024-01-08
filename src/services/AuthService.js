@@ -114,7 +114,7 @@ const AuthService = {
 
           const result = await response.json();
         
-
+          console.log(response.status)
         return {status:response.status , result:result};
 
         

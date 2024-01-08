@@ -45,11 +45,6 @@ const ProfilePage = () => {
     fetchData();
   }, []);
 
-   // Check if userData is empty before accessing rating_counts
-   const totalRatingCount = userData && userData.rating_counts
-   ? Object.values(userData.rating_counts).reduce((acc, count) => acc + parseInt(count), 0)
-   : 0;
-
   return (
     <>
     <Navbar />
@@ -90,7 +85,9 @@ const ProfilePage = () => {
                 <h3>{user.country_description}</h3>
                 <img src={star} alt="star-rank" />
                 <span className="ranked-number">{user.rating_details.overall_rating}</span>{" "}
-                <span className="ranked-number">({totalRatingCount}K)</span>
+                <span className="ranked-number">
+  ({Object.values(user.rating_details.rating_counts).reduce((sum, count) => sum + count, 0)}K)
+</span>
               </div>
             ))}
           </div>

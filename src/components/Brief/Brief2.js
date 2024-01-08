@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "../../assets/styles/Brief/berif2.css"
 // import arrows from "../../assets/images/arrows.png";
 import calendar from "../../assets/images/calnder.png";
 import mark from "../../assets/images/Vector.png";
+import "../../assets/styles/Brief/berif2.css"
 
 const Brief2 = ({ data, onFormSubmit, activeStep, onStepClick }) => {
   const [budgetInput, setBudgetInput] = useState("");
@@ -84,25 +84,25 @@ const Brief2 = ({ data, onFormSubmit, activeStep, onStepClick }) => {
 
       {/* Input for delivery date */}
       <div className="brief2-project-title">
-  <div className="brief-project">
-    <h1>Let’s talk timing</h1>
-  </div>
-  <div className="product-input">
-    <div style={{ position: "relative" }}>
-      <DatePicker
-        className="brief2"
-        selected={deliveryDateInput}
-        placeholderText="Select Delivery Date"
-        onChange={(date) => setDeliveryDateInput(date)}
-      />
-      <span style={{ position: "absolute", top: "50%", right: "10px", transform: "translateY(-50%)" }}>
-        {/* Render the calendar icon */}
-        <img src={calendar} alt= "calendar" />
-      </span>
-    </div>
-    <h5 className="brief2">We’ll find available freelancers.</h5>
-  </div>
-</div>
+        <div className="brief-project">
+          <h1>Let’s talk timing</h1>
+        </div>
+        <div className="product-input">
+          <div style={{ position: "relative" }}>
+            <DatePicker
+              className="brief2"
+              selected={deliveryDateInput}
+              placeholderText="Select Delivery Date"
+              onChange={(date) => setDeliveryDateInput(date)}
+            />
+            <span style={{ position: "absolute", top: "50%", right: "10px", transform: "translateY(-50%)" }}>
+              {/* Render the calendar icon */}
+              <img src={calendar} alt= "calendar" />
+            </span>
+          </div>
+          <h5 className="brief2">We’ll find available freelancers.</h5>
+        </div>
+      </div>
 
       <button className="brief1-btn" onClick={handleContinue}>
         Continue

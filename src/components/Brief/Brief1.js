@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../../assets/styles/Brief/brief1.css";
 import mark from "../../assets/images/Vector.png";
 import uploader from "../../assets/images/upload-big.png";
+import "../../assets/styles/Brief/brief1.css";
 
 const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -120,7 +120,8 @@ const Brief1 = ({ activeStep, onStepClick, onFormSubmit }) => {
 
       <div className="brief-freelance">
         <div className="freelance-title">
-          <img src={mark} alt="arrows" /> <h3>Are you a freelancer?</h3>
+          <img src={mark} alt="arrows" /> 
+          <h3>Are you a freelancer?</h3>
         </div>
         <div className="brief-button">
           <button>Become a Seller</button>

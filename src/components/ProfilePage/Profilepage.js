@@ -85,7 +85,9 @@ const ProfilePage = () => {
                 <h3>{user.country_description}</h3>
                 <img src={star} alt="star-rank" />
                 <span className="ranked-number">{user.rating_details.overall_rating}</span>{" "}
-                <span className="ranked-number">({user.ranked_user}K)</span>
+                <span className="ranked-number">
+  ({Object.values(user.rating_details.rating_counts).reduce((sum, count) => sum + count, 0)}K)
+</span>
               </div>
             ))}
           </div>

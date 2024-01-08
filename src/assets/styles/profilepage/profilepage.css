@@ -55,8 +55,8 @@ text-align: center;
 
     background-color: #ECECEC;
 
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
 .profile-circle {
@@ -292,8 +292,7 @@ img.profile-bottom-img-right{
     .main-profile-section {
       border: 2px solid rgb(190, 188, 188);
       width: 100%;
-      max-width: 89%;
+      max-width: 96%;
       margin: 0 auto; /* Center the element horizontally */
-      border-radius: 1rem;
-      padding: .4rem; /* Add padding inside the container */
+      /* border-radius: 1rem; */
     }

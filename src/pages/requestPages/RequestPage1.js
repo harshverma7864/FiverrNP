@@ -81,16 +81,18 @@ const RequestPage1 = () => {
             </div>
 
             <div className={style.headerRight}>
-  {activeHeader === "Requests" && (
-    <>
-      <img src={interViewImage} alt='Interview' /> &nbsp;&nbsp;
-      <div>
-        Requests: ({countStatus(false)})
-      </div>
-    </>
-  )}
-</div>
+              {activeHeader === "Requests" && (
+                <>
+                  <img src={interViewImage} alt='Interview' /> &nbsp;&nbsp;
+                  <div>
+                    Requests: ({countStatus(false)})
+                  </div>
+                </>
+              )}
+            </div>
+
           </div>
+
           <div className={style.tableContainer}>
             {activeHeader === "Requests" ? (
               <table className={style.table}>
@@ -107,19 +109,19 @@ const RequestPage1 = () => {
               <tbody>
                 {reqData.map((row, index) => (
                   <tr key={index} className={`${style.tableRow} ${row.status ? '' : style.boldRow}`}>
-  <td>{index + 1}</td>
-  <td>{row.industry}</td>
-  <td>{row.subsub_category}</td>
-  <td>
-    {additionalData[index] ? (
-      <span>{additionalData[index].first_name} {additionalData[index].last_name}</span>
-    ) : (
-      <span>Loading...</span>
-    )}
-  </td>
-  <td>{row.quote_amount}</td>
-  <td>{row.description}</td>
-</tr>
+                    <td>{index + 1}</td>
+                    <td>{row.industry}</td>
+                    <td>{row.subsub_category}</td>
+                    <td>
+                      {additionalData[index] ? (
+                        <span>{additionalData[index].first_name} {additionalData[index].last_name}</span>
+                      ) : (
+                        <span>Loading...</span>
+                      )}
+                    </td>
+                    <td>{row.quote_amount}</td>
+                    <td>{row.description}</td>
+                  </tr>
                 ))}
               </tbody>
               </table>

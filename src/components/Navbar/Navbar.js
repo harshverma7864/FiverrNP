@@ -61,10 +61,6 @@ useEffect(() => {
   };
 }, []);
 
-
-
-
-
   const becomeAseller = () =>{
     history.push("/becomeAseller")
   }
@@ -156,12 +152,14 @@ useEffect(() => {
           <img src={logo} alt='logo' />
         </div>
 
-        <div  className={navStyle.categoriesDropdown}   >
+        <div  className={navStyle.categoriesDropdown}>
           <h5 style={{ display:"flex" ,padding:"5px" , marginRight:"20px" , color : isClickedCategory ? '#F04C43' : '#000'}} onClick={handleClick}> 
-            categories  &nbsp; &nbsp; &nbsp; <span style={{width:"13px"}}> </span>  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-            <path d="M6.69784 7.32011C6.30953 7.69844 5.69048 7.69844 5.30216 7.32011L0.833367 2.96626C0.19074 2.34016 0.634001 1.25 1.5312 1.25L10.4688 1.25C11.366 1.25 11.8093 2.34016 11.1666 2.96626L6.69784 7.32011Z" style={{fill : isClickedCategory ? "#F04C43" : "black" , stroke: isClickedCategory ? "#F04C43" : "black"}} />
-          </svg></h5>
-          <div>
+            categories  &nbsp; &nbsp; &nbsp; 
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
+              <path d="M6.69784 7.32011C6.30953 7.69844 5.69048 7.69844 5.30216 7.32011L0.833367 2.96626C0.19074 2.34016 0.634001 1.25 1.5312 1.25L10.4688 1.25C11.366 1.25 11.8093 2.34016 11.1666 2.96626L6.69784 7.32011Z" style={{fill : isClickedCategory ? "#F04C43" : "black" , stroke: isClickedCategory ? "#F04C43" : "black"}} />
+            </svg>
+          </h5>
+        <div>
          
           <div>
             <ul className={navStyle.dropdownUl1} style={{ visibility: isClickedCategory ? 'visible' : 'hidden' }}>
@@ -169,22 +167,21 @@ useEffect(() => {
                 categoryData.map((item, index) => (
                   <li key={index} onClick={(event) => handleClick2(event, item.id)}>
                     {item.category_name}
-                    {  item.subcategory.length > 0 ?      (
+                    {item.subcategory.length > 0 ? (
                       item.subcategory.length > 0 &&
-                    isClickedCategory2 === item.id ? (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 6L7 1.69565L1.5 6L2.28059e-08 5.47826L7 -1.70857e-07L14 5.47826L12.5 6Z" fill="#F04C43"/>
-                      </svg>) : (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 -5.46392e-07L7 4.30435L12.5 -6.55671e-08L14 0.521739L7 6L-2.28059e-08 0.521739L1.5 -5.46392e-07Z" fill="black"/>
-                    </svg>)
-                    ): ('')
-              }
-
+                      isClickedCategory2 === item.id ? 
+                        (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 6L7 1.69565L1.5 6L2.28059e-08 5.47826L7 -1.70857e-07L14 5.47826L12.5 6Z" fill="#F04C43"/>
+                        </svg>) : 
+                        (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 -5.46392e-07L7 4.30435L12.5 -6.55671e-08L14 0.521739L7 6L-2.28059e-08 0.521739L1.5 -5.46392e-07Z" fill="black"/>
+                          </svg>)
+                        ): ('')
+                    }
                   </li>
                 ))}
             </ul>
           </div>
-
-          
 
           <div>
             <ul className={navStyle.dropdownUl2} style={{ top:positionUl2.top , left : positionUl2.left, visibility: isClickedCategory && isClickedCategory2 && isClickedCategory2 === categoryIndex ? 'visible' : 'hidden' }}>
@@ -194,17 +191,16 @@ useEffect(() => {
                   <li onClick={(ev) => handleClick3(ev, item2.id)} key={index2}>
                     {item2.subcategory_name}
 
-               {  item2.subsubcategory.length > 0 ?    (
-                      
-                    isClickedCategory3 === item2.id ? (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 6L7 1.69565L1.5 6L2.28059e-08 5.47826L7 -1.70857e-07L14 5.47826L12.5 6Z" fill="#F04C43"/>
-                      </svg>) : (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 -5.46392e-07L7 4.30435L12.5 -6.55671e-08L14 0.521739L7 6L-2.28059e-08 0.521739L1.5 -5.46392e-07Z" fill="black"/>
-                    </svg>)
-                    ) : ('')
-
-              }
-                    
+                    {item2.subsubcategory.length > 0 ? (
+                      isClickedCategory3 === item2.id ? 
+                      (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 6L7 1.69565L1.5 6L2.28059e-08 5.47826L7 -1.70857e-07L14 5.47826L12.5 6Z" fill="#F04C43"/>
+                      </svg>) : 
+                      (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="6" viewBox="0 0 14 6" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 -5.46392e-07L7 4.30435L12.5 -6.55671e-08L14 0.521739L7 6L-2.28059e-08 0.521739L1.5 -5.46392e-07Z" fill="black"/>
+                      </svg>)
+                      ) : ('')
+                    }
                   </li>
                 ))}
             </ul>
@@ -220,43 +216,37 @@ useEffect(() => {
                   .subcategory.find((itemxx) => categoryIndex2 && itemxx.id === categoryIndex2)?.subsubcategory?.map((subsub) => (
                     <li key={subsub.id} onClick={()=>handleSubSubClick(subsub.subsubcategory_name)}>{subsub.subsubcategory_name}</li>
                   ))}
-            </ul>
+              </ul>
           </div>
-          </div>
-
-        </div> 
-
-
-        
-        <div  className={navStyle.searchBar}>
-
-          <input           
-                value={inputValue}
-                 onChange={handleInputChange} 
-                 type='text' placeholder=' Find Your Project'/>
-          <button onClick={handleSearchClick}>search</button>
         </div>
-                  <div className={navStyle.navbarRightIcons}>
-          <img onClick={handleNotificationPopup} src={bellIcon} alt='Bell' />
-          <img onClick={handleMessagePopup} src={messageLogo} alt='Message' />
-          <img  src={questionMark} alt='Message' />
-          <button onClick={becomeAseller}  className={navStyle.gigBtn}>Seller</button>
-          <img  onClick={profileDropdownVisible} className={navStyle.profileLogo}  src={profileLogo} alt='Profile' />
-           
-          </div>
-          
+      </div> 
+        
+      <div  className={navStyle.searchBar}>
+        <input           
+          value={inputValue}
+          onChange={handleInputChange} 
+          type='text' placeholder=' Find Your Project'
+        />
+        <button onClick={handleSearchClick}>search</button>
       </div>
+      
+      <div className={navStyle.navbarRightIcons}>
+        <img onClick={handleNotificationPopup} src={bellIcon} alt='Bell' />
+        <img onClick={handleMessagePopup} src={messageLogo} alt='Message' />
+        <img  src={questionMark} alt='Message' />
+        <button onClick={becomeAseller}  className={navStyle.gigBtn}>Seller</button>
+        <img  onClick={profileDropdownVisible} className={navStyle.profileLogo}  src={profileLogo} alt='Profile' />
+      </div>
+          
+    </div>
       <div  style={{visibility : pVis ? ("visible") : ("hidden")}} className={navStyle.profileDropdown}>
-      <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
-      <button onClick={handleExampleNavigate} className={navStyle.continueButton}> Profile</button>
-      <button onClick={handleExampleBrief} className={navStyle.continueButton}> Request Project</button>
-          </div> 
+        <button onClick={handleLogout}  className={navStyle.continueButton}>Logout</button>
+        <button onClick={handleExampleNavigate} className={navStyle.continueButton}> Profile</button>
+        <button onClick={handleExampleBrief} className={navStyle.continueButton}> Request Project</button>
+      </div> 
           { mPopupVisible ? (<Popup title={"Messages"} contentList={messageList} />):('')}
           { nPopupVisible ? (<Popup title={"Notifications"}  contentList={messageList} />):('')}
-    </div>
-    
-
-     
+    </div> 
   )
 }
 

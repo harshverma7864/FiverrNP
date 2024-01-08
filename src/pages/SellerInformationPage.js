@@ -110,7 +110,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                     </div>
                                     <div className="imageDropBox">
                                         <div className="innerImageBox">
-                                            <img src={profilePicture} required/>
+                                            <img src={profilePicture} required alt='img'/>
 
                                         </div>
                                     </div>

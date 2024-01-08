@@ -100,42 +100,40 @@ const RequestPage2 = () => {
               </tr>
             </thead>
             <tbody>
-  {reqData.map((project, index) => (
-    <tr
-      key={project.id}
-      className={style.projectData}
-      onClick={() => setRequsetId(project.id)}
-    >
-      <td className={style.projectTitle}>{project.project_type}</td>
-      <td>{project.industry}</td>
-      <td>{project.subsub_category}</td>
-      <td>
-      <select
-  className='requestpage'
-  onChange={(e) => {
-    const requestId = project.id;
-    setSelectedItemIds((prevSelectedItems) => ({
-      ...prevSelectedItems,
-      [requestId]: e.target.value,
-    }));
-  }}
-  value={selectedItemIds[project.id] || ''}
->
-  <option value="">Select Assigned User</option>
-  {additionalData.map((data, i) => (
-    <option key={i} value={data.id}>
-      {data.first_name} {data.last_name}
-    </option>
-  ))}
-</select>
-
-
-        <button className= "homepage_bannerButton__4F8YK" onClick={handleSubmitClick}> Submit</button>
-      </td>
-      <td>{project.status ? 'Yes' : 'No'}</td>
-    </tr>
-  ))}
-</tbody>
+              {reqData.map((project) => (
+                <tr
+                  key={project.id}
+                  className={style.projectData}
+                  onClick={() => setRequsetId(project.id)}
+                >
+                  <td className={style.projectTitle}>{project.project_type}</td>
+                  <td>{project.industry}</td>
+                  <td>{project.subsub_category}</td>
+                  <td>
+                    <select
+                      className='requestpage'
+                      onChange={(e) => {
+                        const requestId = project.id;
+                        setSelectedItemIds((prevSelectedItems) => ({
+                          ...prevSelectedItems,
+                          [requestId]: e.target.value,
+                        }));
+                      }}
+                      value={selectedItemIds[project.id] || ''}
+                    >
+                      <option value="">Select Assigned User</option>
+                      {additionalData.map((data, i) => (
+                        <option key={i} value={data.id}>
+                          {data.first_name} {data.last_name}
+                        </option>
+                      ))}
+                    </select>
+                    <button className= "homepage_bannerButton__4F8YK" onClick={handleSubmitClick}> Submit</button>
+                  </td>
+                  <td>{project.status ? 'Yes' : 'No'}</td>
+                </tr>
+              ))}
+            </tbody>
 
           </table>
         {/* </div> */}

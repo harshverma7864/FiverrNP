@@ -4,6 +4,7 @@ import style from '../assets/styles/homepage.module.css'
 import bannerImage from '../assets/images/bannerImage1.png'
 import CategoryService from '../services/CategoryService';
 import { useHistory } from 'react-router-dom';
+import Accordion from '../components/Accordian/Accordian';
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState('');
@@ -153,6 +154,10 @@ const HomePage = () => {
         ))}
       </div>
     </div>
+
+
+
+    <Accordion/>
     </>
   )
 }

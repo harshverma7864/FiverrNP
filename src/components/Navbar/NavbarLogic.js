@@ -95,3 +95,6 @@ const useNavbarLogic = (categoryData) => {
 };
 
 export default useNavbarLogic;
+
+
+

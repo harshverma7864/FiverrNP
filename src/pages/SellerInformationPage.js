@@ -442,7 +442,7 @@ const [isEmailVerified , setIsEmailVerified] = useState(false);
                                     <p>{phoneNumber}</p>
                                 </div>
                             </div>
-                            <button class="continueButton">Continue</button>
+                            <button class="continueButton" onClick={(e)=>handleContinueClick(3 , e)}>Continue</button>
 
                         </>) : ('')
                     }

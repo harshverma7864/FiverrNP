@@ -310,3 +310,27 @@ box-shadow: 2px 2px 2.6px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     box-shadow: 4px 4px 4.6px 2px rgba(0, 0, 0, 0.25);
 }
+
+
+
+
+
+@media only screen and (max-width:450px) {
+    .navbarRightIcons{
+        display: none;
+    }
+    .navbox{
+        justify-content: center;
+    }
+    .dropdownUl1{
+        display: none;
+    }
+
+    .dropdownUl2{
+        display: none;
+    }
+
+    .profileDropdown{
+        display: none;
+    }
+}

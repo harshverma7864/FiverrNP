@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import SellerService from '../../services/SellerService';
 import { useHistory } from 'react-router-dom';
+import axiosInstance from '../../utils/axios';
+import { API_BASE_URL, SELLER_URI } from '../../environment';
+import Cookies from 'js-cookie';
+
 
 const useInfoLogic = () => {
   
@@ -142,53 +146,50 @@ const useInfoLogic = () => {
           formData.append('country', country);
 
 
-          formData.append("display_name", displayName);
-          formData.append("description",desc );
-          formData.append("language_proficiency", JSON.stringify(languageArray));
-          formData.append("skills", JSON.stringify(skillAray));
-          formData.append("education", JSON.stringify(educationArray));
-          formData.append("certifications", JSON.stringify(certificationArray));
-          formData.append("occupation", occupation);
-          formData.append("personal_website", personalWebsite);
-          formData.append("expertise", expertise);
-          formData.append("country", country);
-          // submitFormData(formData);
+          // const mainJson = {
+          //     country:country,
+          //     description:desc,
+          //     display_name:displayName,
+          //     language_proficiency:languageArray,
+          //     skills:skillAray,
+          //     education:educationArray,
+          //     certifications:certificationArray,
+          //     personal_website:personalWebsite,
+          //     expertise:expertise,
+          //     occupation:occupation
 
-          const mainJson = {
-              country:country,
-              description:desc,
-              display_name:displayName,
-              language_proficiency:languageArray,
-              skills:skillAray,
-              education:educationArray,
-              certifications:certificationArray,
-              personal_website:personalWebsite,
-              expertise:expertise,
-              occupation:occupation
+          // }
 
-          }
+          axiosInstance
+          .post(`${API_BASE_URL}/${SELLER_URI}/`, formData)
+          .then(async (res)=>{
+            console.log(res.status)
+            if (res.status === 201 || res.status === 200) {
+              const userProfile = JSON.parse(Cookies.get("user"));
+              Cookies.remove("user");
+              userProfile.first_login = "False";
+              Cookies.set("user", JSON.stringify(userProfile));
+              const firstLogin = new FormData();
+              firstLogin.append("first_login", "False");
+              axiosInstance
+              .put(`${API_BASE_URL}/accounts/user/${userProfile.id}/`)
+              .then(async (response)=>{
+                if (response.status === 201 || response.status === 200) {
+                  setActive(3);
+                  alert("Seller Profile Created SuccessFully")
+                }else{
+                  console.log("Error : " + response.status)
+                }
 
-          const result = await SellerService.createSeller(formData);
-
-          try {
-            console.log(result.message + "   " + result.status)
-
-           if (result.status==="success") {
-             history.push("/profilepage")
-             setActive(3)
-             console.log(result.message + "   " + result.status)
-
-           }else{
-             console.log(result.message)
-             console.log(result.message + "   " + result.status)
-
-           }
-
-          } catch (error) {
-            console.log(result.message + "   " + result.status)
-
-          }
-          break      
+              })
+            }else{
+              console.log(res.status)
+            }
+          })
+          
+          break   
+        case 3:
+          history.push("/profilepage")   
         default:
           break;
       }                      

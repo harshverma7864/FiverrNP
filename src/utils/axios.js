@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const baseURL = 'https://np-django-4f1d7b37ade6.herokuapp.com/';
 
@@ -12,7 +13,7 @@ const axiosInstance = axios.create({
 // Add an interceptor for setting the Authorization header with the access token
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = sessionStorage.getItem("access");
+    const token = Cookies.get("accessToken");
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Accordion.css'; // Assuming you have a CSS file for styling
+import '../../assets/styles/accordian/accordian.css'; // Assuming you have a CSS file for styling
 
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);

@@ -1,5 +1,5 @@
 import React  , { useEffect , useState } from 'react'
-import { Card, Navbar, Table } from '../components'
+import { Card, Navbar, Offcanvas, Table } from '../components'
 import style from '../assets/styles/homepage.module.css'
 import bannerImage from '../assets/images/bannerImage1.png'
 import CategoryService from '../services/CategoryService';
@@ -98,6 +98,7 @@ const HomePage = () => {
 <Navbar/>
 
 
+
 <div  className={style.searchBar}>
 
 <input           
@@ -123,6 +124,7 @@ const HomePage = () => {
         </div>
     </div>
 
+
     <div className={style.scrollView1}>
       <h1 className={style.heading}>Most Popular Graphics and Design</h1>
       <div className={style.scrollViewInner}>
@@ -141,6 +143,11 @@ const HomePage = () => {
         categoryData.map((item)=>(<Card heading={item.category_name} subHeadings={item.subcategory} key={item.id}/>))
     }
     </div>
+
+    <div className={style.serviceCards2}>
+    <Accordion cardData={categoryData}/>
+    </div>
+
     </div>
 
 
@@ -157,7 +164,7 @@ const HomePage = () => {
 
 
 
-    <Accordion/>
+    
     </>
   )
 }

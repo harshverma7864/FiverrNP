@@ -11,6 +11,7 @@ import { CATEGORY_URI } from '../../environment'
 import CategoryService from '../../services/CategoryService'
 import Popup from '../popup/Popup'
 import Cookies from 'js-cookie'
+import OffCanvas from '../offcanvas/Offcanvas'
 
 
 const Navbar = () => {
@@ -41,8 +42,7 @@ useEffect(() => {
     const isBellIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${bellIcon}"]`);
     const isProfileIcon = !!event.target.closest(`.${navStyle.navbarRightIcons} img[src="${profileLogo}"]`);
 
-
-    if (!isCategoryDropdown && !isMessagesIcon && !isBellIcon && !isProfileIcon) {
+    if (!isCategoryDropdown && !isMessagesIcon && !isBellIcon && !isProfileIcon ) {
       setIsClickedCategory(false);
       setIsClickedCategory2(null);
       setIsClickedCategory3(null);
@@ -149,12 +149,28 @@ useEffect(() => {
       history.push('/brief1')
     }
 
+
+    // Offcanvas handling section starts
+
+    const [isOpen , setIsOpen] = useState(false);
+
+    const handleOffcanvas = () =>{
+      setIsOpen((prev)=>{
+        return prev === true ? false : true;
+      })
+    }
     
 
 
   return (
     <div className={navStyle.navbarMain}>
+      <div className={navStyle.OffCanvas}>
+      {isOpen ? ( <OffCanvas /> ) : ("")}
+      </div>
       <div className={navStyle.navbox}>
+      <div className={navStyle.hamburger} onClick={handleOffcanvas}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#F04C43" class="bi bi-list" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/> </svg>
+      </div>
         <div onClick={goToHome} className={navStyle.logo}>
           <img src={logo} alt='logo' />
         </div>

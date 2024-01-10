@@ -6,17 +6,21 @@ import profileLogo from "../../assets/images/profilelogo.png"
 import useNavbarLogic from './NavbarLogic';
 
 import Login from '../Login/Login'
+import OffCanvas from '../offcanvas/Offcanvas'
 
 
 const Navbar = ({userType}) => {
 
-
+  const [isOpen , setIsOpen] = useState(false);
   const [loggedin , setLoggedIn] = useState(window.localStorage.getItem("loggedin"));
   const [becomAsellerClicked , setBecomeAsellerClicked] = useState(false);
+
+ 
 
   useEffect(() => {
     if (window.localStorage.getItem("loggedin") === true) {
       setLoggedIn(true);
+      
     }
   }, []);
 
@@ -27,6 +31,8 @@ const Navbar = ({userType}) => {
   const handleLoginClick = () =>{
     setBecomeAsellerClicked(false)
     setLoginClicked(!loginClicked);
+
+    setIsOpen(false)
   }
 
   const handleLogout = () =>{
@@ -82,8 +88,19 @@ useEffect(() => {
 }, []);
 
 
+    const handleOffcanvas = () =>{
+      setIsOpen((prev)=>{
+        return prev === true ? false : true;
+      })
+    }
+
+
   return (
     <div className={navStyle.navbarMain}>
+      {isOpen ? (<OffCanvas actionClicked={handleLoginClick} />):("")}
+       <div className={navStyle.hamburger} onClick={handleOffcanvas}>
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#F04C43" class="bi bi-list" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/> </svg>
+      </div>
       <div className={navStyle.navbox}>
         <div className={navStyle.logo}>
           <img src={logo} alt='logo' />
